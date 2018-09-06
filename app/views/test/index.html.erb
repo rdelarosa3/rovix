@@ -1,61 +1,8 @@
-  
 
-
-
-<div class="nav_bar">
-        <nav class="navbar navbar-expand-lg navbar-light" >
-				 
-						<!-- Brand/logo -->
-										 <a class="navbar-brand" href="/">ROvIX</a>
-						
-								   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" style="background-color: white;" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon" ></span>
-                  </button>
-				 		  
-						<!-- Links -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         		 <ul class="navbar-nav ml-auto navbar-right"  >
-       							  	<li class="nav-item">
-                         <%= link_to "Login", new_user_session_path  , class:"nav-link"%></li>
-        <li class="nav-item dropdown">
-              <a class="profile-photo dropdown-toggle nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Profile
-              
-              </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-					  <% if user_signed_in? %>
-                  Logged in as <strong><%= current_user.email %></strong>.
-                  <%= link_to 'Edit profile', edit_user_registration_path , class:"dropdown-item" %>
-                   <div class="dropdown-divider"></div>
-                  <%= link_to "Logout", destroy_user_session_path, method: :delete , class:"dropdown-item"%>
-                <% else %>
-                  <%= link_to "Sign up", new_user_registration_path , class:"dropdown-item" %> 
-                  <%= link_to "Login", new_user_session_path , class:"dropdown-item"%>
-                <% end %>
-
-         		             
-          </li>
-      </ul>
-
-</nav>
-</div>
-</div>
-              
-               	
-             
-
-						
-						
-
-                   
-
-                
-                  
-                       
  
 <body data-vide-bg="https://meekco.asia/wp-content/uploads/2016/03/Meeting-Meekco.mp4">
     <h1>WELCOME TO ROvIX</h1>
-    <h3 class="title-heading-center" style="color:#fff;background-color: rgba(0,0,0,0.4);"> Empowering user with the latest business chatter and trending news.</h3>													
+    <h3 style="color:#fff;background-color: rgba(0,0,0,0.4);">  Empowering user with the latest business chatter and trending news </h3>													
    
     
 </body>
@@ -555,7 +502,7 @@ $(document).ready(function(){
  
       $element[PLUGIN_NAME](path, options);
     });
-  });
+  }); 
  
 });
 </script>
@@ -572,7 +519,10 @@ html, body {
 }
 
 .navbar{
-  background-color:rgba(255,255,255, 0.5);
+  background-color:rgba(255,255,255, 0.7);
+  font-size: 16px;
+  color:black;
+  /* font-weight: 600;   */
   
 }
 
@@ -598,6 +548,8 @@ h3{
     top: 60%;
     left:49%;
     transform: translate(-50%, -50%);
+    letter-spacing: 1px;
+    padding:3px;
      /* text-transform: uppercase; */
     text-align: center;
     font-weight: 400;
