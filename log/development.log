@@ -18664,3 +18664,21 @@ Processing by SearchController#index as HTML
 Completed 200 OK in 23321ms (Views: 222.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/search" for 127.0.0.1 at 2018-09-06 15:14:34 +0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SearchController#index as HTML
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 23314ms (Views: 186.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-09-06 16:17:15 +0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SearchController#index as HTML
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 22642ms (Views: 281.9ms | ActiveRecord: 0.0ms)
+
+

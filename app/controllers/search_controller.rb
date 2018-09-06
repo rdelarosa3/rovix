@@ -4,9 +4,18 @@ require 'watir'
 class SearchController < ApplicationController
 
 	def index
+		###### search word #########
+		if params[:searchword]
+			security_name = params[:searchword]
+		elsif user_signed_in? && current_user.watchlist.any?
+			security_name = "current_user.watchlists.first.name"	
+		else
+			security_name = "apple"
+		end
+
+		##### automated browsing ######
 	    browser = Watir::Browser.new(:chrome)
 	    browser.goto("https://www.msn.com/en-my/money/stockdetails/fi-126.1.AAPL.NAS?symbol=AAPL&form=PRFIMQ")
-	    security_name = "chipotle"
 	    browser.text_field(id:"finance-autosuggest").set security_name
 	    browser.send_keys :enter
 	    sleep 1
@@ -23,12 +32,12 @@ class SearchController < ApplicationController
 	      change_percent: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(2)")[0].text,
 	      change_price: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(1)")[0].text 
 	    }
-
-	    #### ARTICLES ######
+	    @company = company
+	    #### create articles array ######
 	    articles = []
 	    article = {}
 	    news_links = parsed_page.css(".bingNewsContainer a")
-
+	    #---- grab each articles -------#
 	    news_links.each do |x|
 	      article = {
 	        body: x.css("h3").text,
@@ -36,24 +45,29 @@ class SearchController < ApplicationController
 	        source: x.css("span.sourcename").text,
 	        timeframe: x.css("span.dt").text 
 	        }
-
 	      articles << article
 	    end
-
-	    ######### company description
+		@articles = articles
+		
+	    ######### redirect browser to company description #########
 	    browser.div(class: "dynaloadable").ul.li(id: "profile").click
 	    parsed_page = Nokogiri::HTML(browser.html)
 	    browser.div(class:"rdmr-sels-btns").click
 	    parsed_page = Nokogiri::HTML(browser.html)
+
+	    ######### company description #########
 	    @company_description = parsed_page.css("div.company-description").text
 	    @company_link = parsed_page.css("a.companyprofile-link").attribute('href').value
 	    @company_sector = parsed_page.css("p.captionData").first.text
 
-	    ########## twitter ################
+	    ########## redirect to twitter ################
 	    browser.goto("https://twitter.com/search?f=tweets&q=#{company[:twitter]}")
 	    parsed_page = Nokogiri::HTML(browser.html)
+
+	    ########## create tweets array ################
 	    tweets = parsed_page.css('div.tweet')
 	    security_tweets = []
+	    #---- grab each tweet -------#
 	    tweets.each do |twat|
 	      tweet = {
 	      fullname: twat.css('strong.fullname').text,
@@ -64,23 +78,24 @@ class SearchController < ApplicationController
 	      }
 	      security_tweets << tweet
 	    end
-	    ###### LOGO's ###########
+	    @tweets = security_tweets
+
+	    ###### Redirect browser to get logo ###########
 	    browser.goto("https://www.bing.com/images/search?q=#{company[:company_name]}%20logo")
 	    sleep 1
 	    parsed_page = Nokogiri::HTML(browser.html)
 	    logo = parsed_page.at_css("div.img_cont img").attribute('src').value
-	    ###### Background ######
+	    @logo = logo
+
+	    ###### Redirect browser to get background ######
 	    browser.goto("https://www.bing.com/images/search?&q=#{company[:company_name]}%20logo&qft=+filterui:imagesize-custom_1000_320&FORM=IRFLTR")
 	    sleep 1
 	    parsed_page = Nokogiri::HTML(browser.html)
 	    cover = parsed_page.at_css("div.img_cont img").attribute('src').value
-	    browser.close
 	    @cover = cover
-	    @logo = logo
-	    @company = company
-	    @articles = articles
-	    @tweets = security_tweets
 
+	    ###### close automated browser ####
+	    browser.close
  	end
 
 
