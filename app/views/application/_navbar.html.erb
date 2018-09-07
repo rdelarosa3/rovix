@@ -1,44 +1,70 @@
 
 
-<div class="nav_bar">
+
         <nav class="navbar navbar-expand-lg navbar-light" >
-				 
-						<!-- Brand/logo -->
-										 <a class="navbar-brand" href="/">ROvIX</a>
-						
-								   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" style="background-color: white;" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon" ></span>
+<!-- Brand/logo -->
+                  <a class="navbar-brand" href="/">ROvIX</a>
+
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" style="background-color: white;" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" ></span>
                   </button>
 				 		  
-						<!-- Links -->
+<!-- Links -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         		 <ul class="navbar-nav ml-auto navbar-right"  >
-       							  	<li class="nav-item">
-                         <%= link_to "Login", new_user_session_path  , class:"nav-link"%></li>
+         <ul class="navbar-nav mx-auto text-center">
+            <li class="nav-item">
+             <%= form_with url: search_index_url,method: :get,local:true, id: "search-form",class:"nav-link" do |f| %>
+                        <%= f.text_field :searchword ,placeholder:"Search",class: "form-control" %>
+                        <% f.submit "", name: '' %>
+            <% end %>
+            </li>
+         </ul>  
+            <ul class="navbar-nav ml-auto navbar-right">
+            <li class="nav-item">
+            <% if user_signed_in? %>
+                    <%= link_to "Search", search_index_url  , class:"nav-link"%></li>
+            <% else %>  
+                   <li class="nav-item">
+                        <%= link_to "Sign up", new_user_registration_path , class:"nav-link" %>
+                  </li>
+                        
+            <% end %>
         <li class="nav-item dropdown">
-              <a class="profile-photo dropdown-toggle nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="profile-photo dropdown-toggle nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <% if user_signed_in? %>
+                        <%# <% if current_user.avatar.present? %>
+                              <%# <div class="profile-photo-small"> %>
+                                     <%# <%= image_tag current_user.avatar.url, alt:"Circle Image" ,class:"rounded-circle img-fluid" %>
+                              <%# </div> %>
+                              <%# <% else %>
+                            <%= current_user.full_name %>
+                <% else %>
                     Profile
-              
-              </a>
+                <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-					  <% if user_signed_in? %>
-                  Logged in as <strong><%= current_user.email %></strong>.
+            <% if user_signed_in? %>
                   <%= link_to 'Edit profile', edit_user_registration_path , class:"dropdown-item" %>
                    <div class="dropdown-divider"></div>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete , class:"dropdown-item"%>
-                <% else %>
-                  <%= link_to "Sign up", new_user_registration_path , class:"dropdown-item" %> 
+            <% else %>
                   <%= link_to "Login", new_user_session_path , class:"dropdown-item"%>
-                <% end %>
-
-         		             
+            <% end %>
           </li>
       </ul>
 
+                  
+                  
 </nav>
-</div>
-</div>
+
+
+             		             
+
 <style>
+
+#search-form{
+  
+    
+}
 .navbar-brand{
  letter-spacing: 20px;
 }
@@ -49,5 +75,15 @@
   color:black;
   /* font-weight: 600;   */
   
-}
+} 
 </style>
+              
+
+           
+
+
+          
+                  
+                        
+
+                   

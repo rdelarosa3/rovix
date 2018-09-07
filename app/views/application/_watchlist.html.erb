@@ -1,0 +1,22 @@
+<% if current_user %>
+ <div class="col-md-2 pl-0 pt-3 pb-0 pr-2 ">
+  <% if Watchlist.find_by(user_id:current_user.id ,name: @company.fetch(:ticker)) %>
+           <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
+              <%= form.hidden_field :name, value: @company.fetch(:ticker) %>
+                <%= form.hidden_field :user_id, value: current_user.id %>
+                 <div class="actions">
+                    <%= form.submit "Added to watchlist" %>
+                </div>
+            <% end %>
+    <% else %>
+        <%= form_with(url: "/watchlist",method: :post,local: true) do |form| %>
+         <%= form.hidden_field :name, value: @company.fetch(:ticker) %>
+          <%= form.hidden_field :user_id, value: current_user.id %>
+             <div class="actions">
+                  <%= form.submit "Add to watchlist" %>
+             </div>
+        <% end %>
+    <% end %>
+
+    </div>
+<% end %>

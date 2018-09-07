@@ -2,12 +2,151 @@
  
 <body data-vide-bg="https://meekco.asia/wp-content/uploads/2016/03/Meeting-Meekco.mp4">
     <h1>WELCOME TO ROvIX</h1>
-    <h3 style="color:#fff;background-color: rgba(0,0,0,0.4);">  Empowering user with the latest business chatter and trending news </h3>													
-   
-    
+      <h3  class="text-muted" style="background-color:rgba(255,255,255, 0.7);">  Empowering user with the latest business chatter and trending news </h3>													
+      <%= link_to "Let's Get Trendy", search_index_url  , class:"btn btn-outline-secondary"%>
 </body>
-   
+    
+       
+       
+     
+    
+
+<style>
+html, body {
+     margin: 0;
+     width: 100%;
+     height: 100%;
+}
+
+.navbar-brand{
+ letter-spacing: 20px;
+}
+
+.navbar{
+  background-color:rgba(255,255,255, 0.7);
+  font-size: 16px;
+  color:black;
+  /* font-weight: 600;   */
   
+}
+
+h1{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+     font-weight: 600;
+     font-size: 16px;
+     letter-spacing: 30px;
+      animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+     /* font-family: 'Lato'; */
+    
+}
+
+h3{
+    position: absolute;
+    top: 59%;
+    left:49%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 1px;
+    padding:3px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    /* text-transform: uppercase; */
+     /* font-family: Poppins; */
+    /* font-family: 'Flamenco', cursive; */
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+    
+}
+
+.btn{
+    position: absolute;
+    top: 65%;
+    left: 45%;
+    text-decoration:none;
+    transition: all .3s ease-out;
+    background-color: rgba(255,255,255, 0.7);
+    border-color: black;
+     animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+    
+}
+
+.btn:hover {
+  text-decoration:none;
+  transform: translate(0, -10px);
+
+}
+
+<%# Fade In Effect %>
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@media only screen and (max-width: 768px) {
+     h1 {
+          font-size: 13px;
+          letter-spacing: 4px;
+     }
+
+    h3{
+          top: 65%;
+          left: 50%;
+          line-height: 1.5em;
+          transform: translate(-50%, -60%);
+          font-size: 14px;
+      }
+
+    .btn{
+        top: 73%;
+        left: 28%;
+
+}
+        
+        
+    }
+            
+  }
+</style>
 
 
 <script>
@@ -506,108 +645,5 @@ $(document).ready(function(){
  
 });
 </script>
-
-<style>
-html, body {
-     margin: 0;
-     width: 100%;
-     height: 100%;
-}
-
-.navbar-brand{
- letter-spacing: 20px;
-}
-
-.navbar{
-  background-color:rgba(255,255,255, 0.7);
-  font-size: 16px;
-  color:black;
-  /* font-weight: 600;   */
+   
   
-}
-
-h1{
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     /* font-family: Poppins; */
-     /* font-family: 'Lato'; */
-     text-align: center;
-     font-weight: 600;
-     font-size: 16px;
-     letter-spacing: 30px;
-      animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */
-}
-
-h3{
-    position: absolute;
-    top: 60%;
-    left:49%;
-    transform: translate(-50%, -50%);
-    letter-spacing: 1px;
-    padding:3px;
-     /* text-transform: uppercase; */
-    text-align: center;
-    font-weight: 400;
-    font-size: 20px;
-    /* font-family: 'Flamenco', cursive; */
-    animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */
-    
-    
-}
-@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-moz-keyframes fadein { /* Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-o-keyframes fadein { /* Opera */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-@media only screen and (max-width: 768px) {
-     h1 {
-          font-size: 13px;
-          letter-spacing: 4px;
-     }
-
-    h3{
-           font-size: 16px;
-            top: 70%;
-            left: 50%;
-            line-height: 1.3em;
-            transform: translate(-50%, -80%);
-}
-        
-    }
-}
-</style>
