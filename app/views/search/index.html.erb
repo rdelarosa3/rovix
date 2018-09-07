@@ -27,7 +27,15 @@
       <h6> Sector: <%= @company_sector %> </h6>
       <p></p> 
     </div>
-    <div class="col-md-7 divbackground pull-right">
+    <div class="col-md-4 divbackground pull-right">
+    </div>
+    <div class="col-md-2 pt-4 pb-3 ">
+      <div class="row text-center">  
+      <h3 class="font-weight-bold text-uppercase pull-right"><span class="text-success text-center"> <%= @positive %><small>%</small> Bull</span> <br><span class="text-danger text-center"> <%= @negative %><small>%</small> Bear </span></h3>
+      <h6><small><em>Figures based on current social sentiment.</em></small></h6>
+      </div>
+    </div>
+    <div class="col-md-1">
     </div>
   </div>
 

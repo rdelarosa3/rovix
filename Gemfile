@@ -60,6 +60,10 @@ group :development do
   gem 'nokogiri'
   gem 'pry-rails'
   gem 'watir'
+  ### headless browser ##
+
+  ### sentimental feature #####
+  gem 'sentimental', '~> 1.4', '>= 1.4.1'
 end
 
 group :test do

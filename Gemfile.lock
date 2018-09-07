@@ -88,6 +88,7 @@ GEM
       thor (~> 0.14)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    headless (2.3.1)
     httparty (0.16.2)
       multi_xml (>= 0.5.2)
     i18n (1.1.0)
@@ -177,6 +178,7 @@ GEM
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    sentimental (1.4.1)
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -228,6 +230,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (~> 4.5)
   figaro (~> 1.1, >= 1.1.1)
+  headless (~> 2.2, >= 2.2.3)
   httparty
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
@@ -238,6 +241,7 @@ DEPENDENCIES
   rails (~> 5.2.1)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sentimental (~> 1.4, >= 1.4.1)
   simple_form (~> 4.0, >= 4.0.1)
   spring
   spring-watcher-listen (~> 2.0.0)
