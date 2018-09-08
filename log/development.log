@@ -20724,3 +20724,20 @@ Processing by TestController#index as HTML
 Completed 200 OK in 53ms (Views: 49.5ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/search" for 127.0.0.1 at 2018-09-07 23:32:32 +0800
+  [1m[35m (15.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  [1m[36mWatchlist Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.8ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (9.5ms)
+  Rendered search/index.html.erb within layouts/application (14.6ms)
+  Rendered application/_navbar.html.erb (2.1ms)
+Completed 200 OK in 18672ms (Views: 410.1ms | ActiveRecord: 8.4ms)
+
+
