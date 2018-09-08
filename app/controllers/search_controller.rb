@@ -2,20 +2,30 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
+require 'byebug'
 
 
 
 class SearchController < ApplicationController
+	 include SearchHelper
 	after_action :set_watchlist, only: [:edit, :update, :destroy]
 
-
+	def show
+		if current_user 
+			watchlist
+			render :show
+    else
+        redirect_to new_user_session_path, info: 'Sign in to view profile.'  
+    end
+  end
+		
+	
 	def index
-
 		# set search word #
 		if params[:searchword]
 			security_name = params[:searchword]
 		elsif user_signed_in? && current_user.watchlists.any?
-			security_name = "#{current_user.watchlists.first.name}"	
+			security_name = "#{current_user.watchlists.last.name}"	
 		else
 			security_name = "google"
 		end
@@ -146,7 +156,8 @@ class SearchController < ApplicationController
 	    avatar: twat.css('img.avatar').first.attribute('src').value,
 	    }
 	    security_tweets << tweet
-	  end
+			
+		end
 	  ###### set sentiment ##############
 	  security_tweets.each do |tweet|
 	    body = tweet[:content] 
@@ -154,7 +165,6 @@ class SearchController < ApplicationController
 	    tweet[:score] = $analyzer.score(body)
 	  end
 	  @tweets = security_tweets
-
 	end
 
 	def sentimental(tweets)
@@ -175,16 +185,19 @@ class SearchController < ApplicationController
 	  @avg_score = ((score / @tweets.count)*100).round
 	end
 
+
 	def destroy
-	set_watchlist
-    @watchlist.destroy
-    respond_to do |format|
-      format.html { redirect_back fallback_location: search_index_url, danger: 'Listing was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-
+		if current_user
+			set_watchlist
+			@watchlist.destroy
+			respond_to do |format|
+				format.html { redirect_back fallback_location: search_index_url, danger: 'Listing was successfully destroyed.' }
+				format.json { head :no_content }
+			end
+		end
+	end
+		
+	
 	private
 	
 	def set_watchlist

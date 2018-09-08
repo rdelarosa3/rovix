@@ -1,0 +1,94 @@
+
+    
+<div class="row mb-5 shadow-sm">
+    <div class="col-md-2">
+    </div>
+     <div class="col-md-3 pt-4 pb-3 ">
+     <% @watchlists.each do |watchlist| %>
+    <h4 class="card-title"><%= @company.fetch(:company_name) %></h4><h5><%= @company.fetch(:ticker) %><h3 class="font-weight-bold"><small>$</small><%= @company.fetch(:price) %></h3>
+        <% if @company.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> 
+            <%= @company.fetch(:change_price)%></span> <% if @company.fetch(:change_percent)[0]=="+" %> <span class="text-success"> 
+        <% else %> <span class="text-danger"><% end %> (<%= @company.fetch(:change_percent) %>)</span></h5>
+            <h6> Sector: <%= @company_sector %></h6>
+        <% end %>
+    <% end %>
+</div> <!-- / col-md-3 pt-4 pb-3  -->
+      <h5><%= @company.fetch(:ticker) %><h3 class="font-weight-bold"><small>$</small><%= @company.fetch(:price) %></h3><% if @company.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %>  <%= @company.fetch(:change_price)%></span> <% if @company.fetch(:change_percent)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> (<%= @company.fetch(:change_percent) %>)</span> </h5>
+
+<!--  require 'byebug'
+
+module SearchHelper
+
+    def watchlist
+        watchlists = []
+        company = {}
+       
+        current_user.watchlists.each do |watchlist|
+            @security_name = watchlist.name
+            browser = Watir::Browser.new(:chrome)
+            # browser = Watir::Browser.new :chrome, headless: true
+            browser.goto("https://www.msn.com/en-my/money/")
+            browser.text_field(id:"finance-autosuggest").set @security_name
+            browser.send_keys :enter
+            sleep 1
+            parsed_page = Nokogiri::HTML(browser.html)
+            
+            
+            
+            company = {
+                ticker: parsed_page.css("div.live-quote-subtitle").text.split.last,
+                company_name: parsed_page.css("div.live-quote-title").text.split.first,
+                price: parsed_page.css("div.live-quote-bottom-tile span").first.text,
+                change_percent: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(2)")[0].text,
+                change_price: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(1)")[0].text 
+                
+            }
+            
+            watchlists << company
+            #  array << wactlist{}
+            browser.close
+        end
+            @watchlists = watchlists
+            
+    end
+end
+              -->
+
+<!-- def show
+		if current_user 
+			watchlist
+			render :show
+    else
+        redirect_to new_user_session_path, info: 'Sign in to view profile.'  
+    end
+  end -->
+
+               
+<div class="container">
+          
+    <div class="shadow-sm col-sm-12 mb-5 text-center">
+        <p ><%= current_user.full_name%></p>
+    </div> <!--col-sm-3 -->
+        
+            <div id="card-columns" style="margin: 0 auto;">
+                <div class="card-deck" >
+                <% @watchlists.each do |watchlist| %>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="card card-cascade" style="width: 20rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-bottom:20px;">
+                       <div class="card-body" >
+                           <h4 class="card-title"><%= watchlist.fetch(:company_name) %></h4><h5><%= watchlist.fetch(:ticker) %><h3 class="font-weight-bold"><small>$</small><%= watchlist.fetch(:price) %></h3>
+                                <% if watchlist.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> 
+                                  <%= watchlist.fetch(:change_price)%></span> <% if watchlist.fetch(:change_percent)[0]=="+" %> <span class="text-success"> 
+                                <% else %> <span class="text-danger"><% end %> (<%= watchlist.fetch(:change_percent) %>)</span></h5>
+                            
+                            </div>      <!--card body -->
+                        </div> <!--card cardcascade -->
+                    </div> <!--col sm-3 -->
+                </div> <!--row -->
+                <% end %>
+            </div> <!--card deck -->
+        </div> <!--card column -->
+    </div> <!--colmd8 colmdoffset2 -->
+</div> <!-- container -->
+       

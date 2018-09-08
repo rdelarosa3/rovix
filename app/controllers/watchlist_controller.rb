@@ -6,10 +6,14 @@ class WatchlistController < ApplicationController
     @watchlist = Watchlist.new(watchlist_params)
      
     respond_to do |format|
-      if @watchlist.save
-        format.html { redirect_to search_index_url, success: 'Watchlist was successfully created.' }
-      else
-        redirect_to root_path
+      if current_user
+        if @watchlist.save
+          
+          format.html { redirect_to search_index_url, success: 'Watchlist was successfully created.' }
+        else
+          redirect_to root_path ,danger: "Unsuccessfully , Please Try Again Later"
+        end
+        
       end
     end
   end
