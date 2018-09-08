@@ -7,18 +7,7 @@ require 'byebug'
 
 
 class SearchController < ApplicationController
-	 include SearchHelper
-	after_action :set_watchlist, only: [:edit, :update, :destroy]
-
-	def show
-		if current_user 
-			watchlist
-			render :show
-    else
-        redirect_to new_user_session_path, info: 'Sign in to view profile.'  
-    end
-  end
-		
+	 	
 	
 	def index
 		# set search word #
@@ -58,8 +47,8 @@ class SearchController < ApplicationController
 
  	def automated_browser(security_name)
 		security_name = security_name
- 		# @browser = Watir::Browser.new(:chrome)
- 		@browser = Watir::Browser.new :chrome, headless: true
+ 		@browser = Watir::Browser.new(:chrome)
+ 		# @browser = Watir::Browser.new :chrome, headless: true
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	
 	    @browser.text_field(id:"finance-autosuggest").set security_name
@@ -186,22 +175,5 @@ class SearchController < ApplicationController
 	end
 
 
-	def destroy
-		if current_user
-			set_watchlist
-			@watchlist.destroy
-			respond_to do |format|
-				format.html { redirect_back fallback_location: search_index_url, danger: 'Listing was successfully destroyed.' }
-				format.json { head :no_content }
-			end
-		end
-	end
-		
-	
-	private
-	
-	def set_watchlist
-		@watchlist = Watchlist.find_by(user_id: current_user.id, name: params[:name])
-	end
 
 end

@@ -1,6 +1,18 @@
 class WatchlistController < ApplicationController
+  include WatchlistHelper
+
     after_action :set_watchlist, only: [:edit, :update, :destroy]
 
+
+
+	def show
+		if current_user 
+			watchlist
+			render :show
+    else
+        redirect_to new_user_session_path, info: 'Sign in to view profile.'  
+    end
+  end
 
   def create
     @watchlist = Watchlist.new(watchlist_params)
@@ -17,9 +29,19 @@ class WatchlistController < ApplicationController
       end
     end
   end
-    
 
-
+	def destroy
+		if current_user
+			set_watchlist
+			@watchlist.destroy
+			respond_to do |format|
+				format.html { redirect_back fallback_location: search_index_url, danger: 'Watchlist was successfully destroyed.' }
+				format.json { head :no_content }
+			end
+		end
+	end
+		
+	
 	private
 	def watchlist_params
       params.permit(:name,:user_id,:following_id,:id)

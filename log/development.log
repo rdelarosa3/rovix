@@ -23240,3 +23240,241 @@ NoMethodError (undefined method `insert' for nil:NilClass):
   
 app/controllers/search_controller.rb:113:in `company_info'
 app/controllers/search_controller.rb:37:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=kazakhstan" for 127.0.0.1 at 2018-09-08 23:52:03 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"kazakhstan"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:1
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (23.1ms)
+  Rendered search/index.html.erb within layouts/application (32.1ms)
+  Rendered application/_navbar.html.erb (42.9ms)
+Completed 200 OK in 26695ms (Views: 260.3ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/search/destroy" for 127.0.0.1 at 2018-09-08 23:52:42 +0800
+Processing by SearchController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HPFK1HZDCI/gcQC+48+ZR9lS7XuUtbqX3GMOryKxXYQSq/vpS0gYPo7VkVa5mPg59T3aFz345FkytuhHN2e7fg==", "name"=>"KPC", "user_id"=>"2", "commit"=>"Added to watchlist", "id"=>"destroy"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:190
+  [1m[36mWatchlist Load (5.9ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:204
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/search_controller.rb:192
+  [1m[36mWatchlist Destroy (0.4ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/search_controller.rb:192
+  [1m[35m (27.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/search_controller.rb:192
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=kazakhstan
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:204
+Completed 302 Found in 224ms (ActiveRecord: 34.6ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=kazakhstan" for 127.0.0.1 at 2018-09-08 23:52:42 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"kazakhstan"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:1
+  [1m[36mWatchlist Load (1.2ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (42.1ms)
+  Rendered search/index.html.erb within layouts/application (49.5ms)
+  Rendered application/_navbar.html.erb (6.1ms)
+Completed 200 OK in 21454ms (Views: 100.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=kazakhstan" for 127.0.0.1 at 2018-09-08 23:53:33 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"kazakhstan"}
+Completed 500  in 18284ms (ActiveRecord: 0.0ms)
+
+
+  
+Selenium::WebDriver::Error::UnknownError (unknown error: Element <li id="profile" role="menuitem">...</li> is not clickable at point (512, 571). Other element would receive the click: <div id="em-buttons">...</div>
+  (Session info: headless chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-33-generic x86_64)):
+  
+app/controllers/search_controller.rb:73:in `browser_company_info'
+app/controllers/search_controller.rb:43:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=kazakhstan" for 127.0.0.1 at 2018-09-08 23:53:56 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"kazakhstan"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (28.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:1
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (40.2ms)
+  Rendered search/index.html.erb within layouts/application (234.8ms)
+  Rendered application/_navbar.html.erb (3.4ms)
+Completed 200 OK in 42512ms (Views: 1370.5ms | ActiveRecord: 29.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-08 23:55:55 +0800
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_navbar.html.erb:24
+  Rendered application/_navbar.html.erb (14.4ms)
+Completed 200 OK in 131ms (Views: 115.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=kazakhstan" for 127.0.0.1 at 2018-09-08 23:56:00 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"kazakhstan"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:1
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (15.0ms)
+  Rendered search/index.html.erb within layouts/application (18.5ms)
+  Rendered application/_navbar.html.erb (2.5ms)
+Completed 200 OK in 37455ms (Views: 69.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-08 23:56:52 +0800
+Processing by SearchController#show as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:14
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/search_helper.rb:9
+  Rendering search/show.html.erb within layouts/application
+  Rendered search/show.html.erb within layouts/application (1.6ms)
+  Rendered application/_navbar.html.erb (17.2ms)
+Completed 200 OK in 47370ms (Views: 185.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=kazakhstan" for 127.0.0.1 at 2018-09-09 00:00:33 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"kazakhstan"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:1
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (117.6ms)
+  Rendered search/index.html.erb within layouts/application (123.1ms)
+  Rendered application/_navbar.html.erb (2.6ms)
+Completed 200 OK in 18710ms (Views: 158.3ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=kazakhstan" for 127.0.0.1 at 2018-09-09 00:09:49 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"kazakhstan"}
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-09 00:09:59 +0800
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:1
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (144.9ms)
+  Rendered search/index.html.erb within layouts/application (150.8ms)
+  Rendered application/_navbar.html.erb (1.9ms)
+Completed 200 OK in 27987ms (Views: 169.1ms | ActiveRecord: 39.5ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1530.5ms)
+  Rendered application/_navbar.html.erb (2.1ms)
+Completed 200 OK in 1806ms (Views: 1636.1ms | ActiveRecord: 57.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-09 00:10:31 +0800
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BpI+Ilb36TcaoLtibbbBNuNJ9OZRWrT4zFd/ModhvGzrAJMpfw+KRGUdzm4WCk/IC5LbNIFe6dndkiT5iba/nA==", "user"=>{"email"=>"jetica@poly-swarm.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jetica@poly-swarm.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/sessions_controller.rb:14
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", "2018-09-08 16:10:31.577673"], ["updated_at", "2018-09-08 16:10:31.579865"], ["id", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+  [1m[35m (48.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/sessions_controller.rb:14
+Redirected to http://localhost:3000/users/edit
+Completed 302 Found in 551ms (ActiveRecord: 49.5ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2018-09-09 00:10:31 +0800
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (50.6ms)
+  Rendered application/_navbar.html.erb (1.9ms)
+Completed 200 OK in 142ms (Views: 133.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 00:10:39 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (1.0ms)
+  Rendered application/_navbar.html.erb (18.9ms)
+Completed 200 OK in 117ms (Views: 80.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=alibaba" for 127.0.0.1 at 2018-09-09 00:11:03 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"alibaba"}
+Started GET "/" for 127.0.0.1 at 2018-09-09 00:11:08 +0800
+Completed 500  in 45459ms (ActiveRecord: 0.0ms)
+
+
+  
+Watir::Exception::UnknownObjectException (element located, but timed out after 30 seconds, waiting for #<Watir::Div: located: true; {:class=>"rdmr-sels-btns", :tag_name=>"div"}> to be present):
+  
+app/controllers/search_controller.rb:64:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (8.0ms)
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/application/_navbar.html.erb:24
+  Rendered application/_navbar.html.erb (18.0ms)
+Completed 200 OK in 254ms (Views: 241.7ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=alibaba" for 127.0.0.1 at 2018-09-09 00:13:10 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"alibaba"}
+Completed 500  in 68382ms (ActiveRecord: 0.0ms)
+
+
+  
+Watir::Exception::UnknownObjectException (element located, but timed out after 30 seconds, waiting for #<Watir::Div: located: true; {:class=>"rdmr-sels-btns", :tag_name=>"div"}> to be present):
+  
+app/controllers/search_controller.rb:64:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=alibaba" for 127.0.0.1 at 2018-09-09 00:14:28 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"alibaba"}
+Started GET "/search?utf8=%E2%9C%93&searchword=alibaba" for 127.0.0.1 at 2018-09-09 00:15:30 +0800
+Completed 500  in 90543ms (ActiveRecord: 0.0ms)
+
+
+  
+Watir::Exception::UnknownObjectException (element located, but timed out after 30 seconds, waiting for #<Watir::Div: located: true; {:class=>"rdmr-sels-btns", :tag_name=>"div"}> to be present):
+  
+app/controllers/search_controller.rb:64:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"alibaba"}
+Completed 500  in 87884ms (ActiveRecord: 0.0ms)
+
+
+  
+Watir::Exception::UnknownObjectException (element located, but timed out after 30 seconds, waiting for #<Watir::Div: located: true; {:class=>"rdmr-sels-btns", :tag_name=>"div"}> to be present):
+  
+app/controllers/search_controller.rb:64:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'

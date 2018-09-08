@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   
   resources :search 
-  get 'users/profile' => 'search#show' , :as => "user_profile"
+  get 'users/profile' => 'watchlist#show' , :as => "user_profile"
   
   resources :watchlist 
-  get 'search/destroy' => 'watchlist#destroy', :as => "destroy_watchlist"
+  get 'watchlist/destroy' => 'watchlist#destroy', :as => "destroy_watchlist"
 
 end
  
