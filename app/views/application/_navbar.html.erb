@@ -1,10 +1,11 @@
 
 
 
-        <nav class="navbar navbar-expand-lg navbar-light" >
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" >
 <!-- Brand/logo -->
-                  <a class="navbar-brand" href="/">ROvIX</a>
-
+                
+      <a href="/" class="navbar-brand ml-3">ROvIX</a>
+      
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" style="background-color: white;" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon" ></span>
             </button>
@@ -15,7 +16,9 @@
             <li class="nav-item">
              <%= form_with url: search_index_url,method: :get,local:true, id: "search-form",class:"nav-link" do |f| %>
                         <%= f.text_field :searchword ,placeholder:"Search",class: "form-control" %>
-                        <% f.submit "", name: '' %>
+                        <% f.button :submit,style:"border: none;background: transparent" do %>
+                              <i class="fas fa-minus-circle" aria-haspopup="true"></i>
+                   <% end %>
              <% end %>
             </li>
          </ul>  
@@ -74,10 +77,14 @@
 .navbar{
   background-color:rgba(255,255,255, 0.7);
   font-size: 16px;
+  z-index:50;
   color:black;
   /* font-weight: 600;   */
   
 } 
+.sticky{
+      top:56px !important;
+}
 </style>
               
 

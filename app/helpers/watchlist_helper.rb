@@ -90,7 +90,7 @@ module WatchlistHelper
                 watchlists << company
               #  array << wactlist{}  #
                
-               browser.close
+                 browser.close
                 
             end
 
@@ -99,5 +99,39 @@ module WatchlistHelper
                 
         end
     
+        def search_index
+        
+            watchlists = []
+            company = {}
+        
+            current_user.watchlists.each do |watchlist|
+                @security_name = watchlist.name
+                # browser = Watir::Browser.new(:chrome)
+                browser = Watir::Browser.new :chrome, headless: true
+                browser.goto("https://www.msn.com/en-my/money/")
+                browser.text_field(id:"finance-autosuggest").set @security_name
+                browser.send_keys :enter
+                sleep 1
+                parsed_page = Nokogiri::HTML(browser.html)
+                
+                
+                
+                company = {
+                    ticker: parsed_page.css("div.live-quote-subtitle").text.split.last,
+                                       
+                }
+                
+                watchlists << company
+                #  array << wactlist{}
+                browser.close
+            end
+                @watchlists = watchlists
+            
+        end
+
+
+
+        
+            
     end
         

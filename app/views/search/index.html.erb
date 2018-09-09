@@ -17,9 +17,26 @@
 
 </style>
 
+<!-- Wrapper(sidebar) -->
+<div id="wrapper">
+
+   <!-- Sidebar -->
+  <%= render partial:'sidebar'%>
+
+   <!-- Page Content(sidebar) -->
+    <div id="page-content-wrapper">
+
+   <!-- Toggle(sidebar) -->
+    <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+      <span class="hamb-top"></span>
+      <span class="hamb-middle"></span>
+      <span class="hamb-bottom"></span>
+    </button>
+
+
 
   <div class="row mb-5 shadow-sm">
-    <div class="col-md-2">
+    <div class="col-md-1">
     </div>
      <div class="col-md-3 pt-4 pb-3 ">
       <h1 class="font-weight-bold text-uppercase"><%= @company.fetch(:company_name) %></h1> 
@@ -29,9 +46,6 @@
         <%= render partial:'watchlist'%>
   </div> <!-- / col-md-3 pt-4 pb-3  -->
   
-      
- 
-    
 
           
          
@@ -102,5 +116,8 @@
     </div>
   </div>
 </div>
+
+</div>    <!-- /#page-content-wrapper -->
+</div>  <!-- /#wrapper -->
 
         

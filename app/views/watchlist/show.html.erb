@@ -12,7 +12,7 @@
     </div> <!--col-sm-12 -->
 
            
-                <div class="card-deck"style="margin: 0 auto;" >
+                <div class="card-deck" style="margin: 0 auto;" >
                 <% @watchlists.each do |watchlist| %>
                 <div class="row">
                       <div class="col-sm-3">
@@ -20,14 +20,14 @@
                        <div class="card-body" >
 
                           <!-- Sentiment float right -->
-                           <h4 class="card-title"><%= watchlist.fetch(:company_name) %><span class="text-success font-weight-bold text-uppercase float-sm-right"><%="#{@scores[0]} "%><small>%</small> Bull</span></h4><h5><%= watchlist.fetch(:ticker) %><span class="text-danger font-weight-bold text-uppercase float-sm-right"><%= "#{@scores[1]} " %><small>%</small> Bear </span></h5><h3 class="font-weight-bold"><small>$</small><%= " #{watchlist.fetch(:price)}" %></h3>
+                           <h4 class="card-title"><%= watchlist.fetch(:company_name) %><span class="text-success font-weight-bold text-uppercase float-right"><%="#{@scores[0]} "%><small>%</small> Bull</span></h4><h5><%= watchlist.fetch(:ticker) %><span class="text-danger font-weight-bold text-uppercase float-right"><%= "#{@scores[1]} " %><small>%</small> Bear </span></h5><h3 class="font-weight-bold"><small>$</small><%= " #{watchlist.fetch(:price)}" %></h3>
                                 <% if watchlist.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> 
                                   <%= watchlist.fetch(:change_price)%></span> <% if watchlist.fetch(:change_percent)[0]=="+" %> <span class="text-success"> 
                                 <% else %> <span class="text-danger"><% end %> (<%= watchlist.fetch(:change_percent) %>)</span></h5>
 
                                        <!-- Unwatchlist -->
                                 <%# <%= render partial:'application/watchlist'%>
-                                 <div class="col-sm-2 pl-0 pt-3 pb-0 pr-2 text-center">
+                                 <div class="text-center pl-0 pt-3 pb-0 pr-2">
                                     <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
                                     <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
                                     <%= form.hidden_field :user_id, value: current_user.id %>
@@ -48,8 +48,7 @@
                 </div> <!--row --> 
                 <% end %>
             </div> <!--card deck -->
-      
-</div> <!-- container -->
+      </div> <!-- container -->
                             
                           
                                 

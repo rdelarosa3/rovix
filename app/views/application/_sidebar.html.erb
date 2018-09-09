@@ -1,0 +1,41 @@
+
+ <!-- Sidebar -->
+    <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+     <ul class="nav sidebar-nav">
+       <div class="sidebar-header">
+       <div class="sidebar-brand">
+         <a href="#">ROvIX</a></div></div>
+       <li><a href="/#home" id="home">Home</a></li>
+       <%# <li><a href="#about">About</a></li> %>
+       <%# <li><a href="#events">Events</a></li> %>
+       <li><a href="#team">Team</a></li>
+       <li class="dropdown">
+       <a href="#watchlists" class="dropdown-toggle"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
+     <ul class="dropdown-menu animated fadeInLeft" role="menu">
+      <div class="dropdown-header">My Watchlists</div>
+       <% if current_user.watchlists.count == 0 %>
+           <li><a href="#pictures">Try To Add One</a></li>
+      <% else %>
+            <% @watchlists.each do |watchlist| %>
+                <li><a href="http://localhost:3000/search?utf8=✓&searchword=<%= watchlist.fetch(:ticker) %>"><%= watchlist.fetch(:ticker) %>
+                <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure to delete this watchlist?',id:'user_id'}) do |form| %>
+                <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
+                <%= form.hidden_field :user_id, value: current_user.id %>
+                  <%= form.button :submit,style:"border: none;background: transparent; margin-top: -20px;margin-right:50px;float:right;color:#ea4c4c;" do %>
+                              <i class="fas fa-minus-circle"></i>
+                   <% end %>
+                <% end %>
+                </a></li>            
+                    
+            <% end %>
+        <% end %>      
+              
+    </ul>
+      </li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <%# <li><a href="#followme">Follow me</a></li> %>
+      </ul>
+  </nav>
+
+        <!-- /#sidebar-wrapper -->

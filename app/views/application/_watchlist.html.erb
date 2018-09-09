@@ -7,7 +7,7 @@
                     <%= form.hidden_field :name, value: @company.fetch(:ticker) %>
                         <%= form.hidden_field :user_id, value: current_user.id %>
                         <div class="actions">
-                            <%= form.submit "Added to watchlist ( - ) " %>
+                            <%= form.submit "Added to watchlist", class:"btn btn-danger"%>
                         </div>
                     <% end %>
 
@@ -17,7 +17,7 @@
                 <%= form.hidden_field :name, value: @company.fetch(:ticker) %>
                 <%= form.hidden_field :user_id, value: current_user.id %>
                     <div class="actions">
-                        <%= form.submit "Add to watchlist ( + )" %>
+                        <%= form.submit "Add to watchlist < + >", class:"btn btn-info" %>
                     </div>
                 <% end %>
 
@@ -35,7 +35,7 @@
                 <div class="actions">
                     <%= form.submit "Delete" %>
                 </div>
-            <% end %>
+                <% end %>
         </div>
 
         <% end %>

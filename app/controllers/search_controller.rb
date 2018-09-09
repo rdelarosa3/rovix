@@ -7,7 +7,7 @@ require 'byebug'
 
 
 class SearchController < ApplicationController
-	 	
+	 	 include WatchlistHelper
 	
 	def index
 		# set search word #
@@ -18,7 +18,11 @@ class SearchController < ApplicationController
 		else
 			security_name = "google"
 		end
-
+		
+		if current_user
+			search_index
+		end
+		
 		# automated browsing #
 		automated_browser(security_name)
 
