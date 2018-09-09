@@ -23478,3 +23478,1619 @@ Watir::Exception::UnknownObjectException (element located, but timed out after 3
   
 app/controllers/search_controller.rb:64:in `browser_company_info'
 app/controllers/search_controller.rb:32:in `index'
+Started GET "/search" for 127.0.0.1 at 2018-09-09 00:23:19 +0800
+Started GET "/search" for 127.0.0.1 at 2018-09-09 00:23:19 +0800
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SearchController#index as HTML
+  [1m[35m (56.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mWatchlist Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  ↳ app/controllers/search_controller.rb:16
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (87.7ms)
+  Rendered search/index.html.erb within layouts/application (104.8ms)
+  Rendered application/_navbar.html.erb (2.5ms)
+Completed 200 OK in 22623ms (Views: 989.8ms | ActiveRecord: 7.1ms)
+
+
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (2.9ms)
+  Rendered search/index.html.erb within layouts/application (5.5ms)
+  Rendered application/_navbar.html.erb (0.8ms)
+Completed 200 OK in 26571ms (Views: 25.6ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2018-09-09 00:24:10 +0800
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 00:24:10 +0800
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (1087.5ms)
+  Rendered application/_navbar.html.erb (2.6ms)
+Completed 200 OK in 1257ms (Views: 1143.9ms | ActiveRecord: 3.7ms)
+
+
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (0.9ms)
+  Rendered application/_navbar.html.erb (1.2ms)
+Completed 200 OK in 130ms (Views: 48.3ms | ActiveRecord: 10.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-09-09 00:24:22 +0800
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"naxOrTetizzfeldw5p8hYLnkj1HvnAZdkSbdAXNQMfp/IZ9WPZq/JU2XcHY2nfmbm//u24dqobgCFwBAZtzhfw=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/sessions_controller.rb:28
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", nil], ["updated_at", "2018-09-08 16:24:22.529382"], ["id", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:28
+  [1m[35m (18.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/sessions_controller.rb:28
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 65ms (ActiveRecord: 20.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-09-09 00:24:22 +0800
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.8ms)
+  Rendered application/_navbar.html.erb (1.7ms)
+Completed 200 OK in 41ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-09-09 00:24:25 +0800
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.4ms)
+  Rendered application/_navbar.html.erb (2.0ms)
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-09-09 00:24:25 +0800
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (17.1ms)
+  Rendered application/_navbar.html.erb (1.6ms)
+Completed 200 OK in 43ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-09 00:24:29 +0800
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (104.1ms)
+  Rendered application/_navbar.html.erb (1.7ms)
+Completed 200 OK in 134ms (Views: 131.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-09 00:24:39 +0800
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9oaV/o+8D6fvf96soOETT5iP4Mq6c6q1B6uAdpkk/14/HfmMIHQR6+YrLql4DITRyYLCW1dz0VRthR3kIgs+Lw==", "user"=>{"email"=>"funk@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "funk@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+Completed 401 Unauthorized in 25ms (ActiveRecord: 0.4ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9oaV/o+8D6fvf96soOETT5iP4Mq6c6q1B6uAdpkk/14/HfmMIHQR6+YrLql4DITRyYLCW1dz0VRthR3kIgs+Lw==", "user"=>{"email"=>"funk@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.2ms)
+  Rendered application/_navbar.html.erb (1.9ms)
+Completed 200 OK in 343ms (Views: 33.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-09 00:29:30 +0800
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9oaV/o+8D6fvf96soOETT5iP4Mq6c6q1B6uAdpkk/14/HfmMIHQR6+YrLql4DITRyYLCW1dz0VRthR3kIgs+Lw==", "user"=>{"email"=>"funk@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "funk@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.7ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9oaV/o+8D6fvf96soOETT5iP4Mq6c6q1B6uAdpkk/14/HfmMIHQR6+YrLql4DITRyYLCW1dz0VRthR3kIgs+Lw==", "user"=>{"email"=>"funk@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.3ms)
+  Rendered application/_navbar.html.erb (1.7ms)
+Completed 200 OK in 191ms (Views: 40.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-09 00:30:12 +0800
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1AFLw3hJVbxdkDGU+QJZpW1DUd5DdZ/cFZrnuV5QqOcdmiex14FL8FTEwZEh7847PE5zT6515D1/tHor5X9plg==", "user"=>{"email"=>"funk@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "funk@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.4ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1AFLw3hJVbxdkDGU+QJZpW1DUd5DdZ/cFZrnuV5QqOcdmiex14FL8FTEwZEh7847PE5zT6515D1/tHor5X9plg==", "user"=>{"email"=>"funk@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.2ms)
+  Rendered application/_navbar.html.erb (1.4ms)
+Completed 200 OK in 187ms (Views: 39.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-09 00:30:29 +0800
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fYNyTIiqPn5lPUeiAGvFv87ISjIifqEsqlim4g21rx20GB4+J2IgMmxpt6fYhlIhn8Voo89+2s3AdjtwtppubA==", "user"=>{"email"=>"funker@email.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "funker@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.6ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fYNyTIiqPn5lPUeiAGvFv87ISjIifqEsqlim4g21rx20GB4+J2IgMmxpt6fYhlIhn8Voo89+2s3AdjtwtppubA==", "user"=>{"email"=>"funker@email.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.3ms)
+  Rendered application/_navbar.html.erb (1.4ms)
+Completed 200 OK in 181ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-09 00:30:41 +0800
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n0cHHkdbSDEUdFOiFf3dytsvJfEvL3gmITo+qiSCSgJW3Gts6JNWfR0go6fNEEpUiiIHYMIvA8dLFKM4n62Lcw==", "user"=>{"email"=>"faker@email.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "faker@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+Completed 401 Unauthorized in 152ms (ActiveRecord: 0.5ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n0cHHkdbSDEUdFOiFf3dytsvJfEvL3gmITo+qiSCSgJW3Gts6JNWfR0go6fNEEpUiiIHYMIvA8dLFKM4n62Lcw==", "user"=>{"email"=>"faker@email.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.2ms)
+  Rendered application/_navbar.html.erb (1.6ms)
+Completed 200 OK in 176ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-09 00:30:48 +0800
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gevh+7+Sb/KjSh05KJYdH1xfryIWfHlNbPhXixfATxbQcI2JEFpxvqoe7Tzwe4qBDVKNs/t8AqwG1soZrO+OZw==", "user"=>{"email"=>"faker@email.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "faker@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/sessions_controller.rb:14
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", "2018-09-08 16:30:48.439007"], ["updated_at", "2018-09-08 16:30:48.440521"], ["id", 2]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/sessions_controller.rb:14
+Redirected to http://localhost:3000/users/edit
+Completed 302 Found in 169ms (ActiveRecord: 13.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2018-09-09 00:30:48 +0800
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (9.3ms)
+  Rendered application/_navbar.html.erb (1.6ms)
+Completed 200 OK in 48ms (Views: 42.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 00:30:56 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.9ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (1.9ms)
+  Rendered application/_navbar.html.erb (2.3ms)
+Completed 200 OK in 27881ms (Views: 30.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-09-09 00:32:08 +0800
+Processing by SearchController#index as HTML
+Started GET "/search" for 127.0.0.1 at 2018-09-09 00:32:08 +0800
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (9.4ms)
+  Rendered search/index.html.erb within layouts/application (14.7ms)
+  Rendered application/_navbar.html.erb (1.8ms)
+Completed 200 OK in 15585ms (Views: 45.8ms | ActiveRecord: 12.8ms)
+
+
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (6.1ms)
+  Rendered search/index.html.erb within layouts/application (9.7ms)
+  Rendered application/_navbar.html.erb (2.2ms)
+Completed 200 OK in 15308ms (Views: 49.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=alibaba" for 127.0.0.1 at 2018-09-09 00:38:00 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"alibaba"}
+Completed 500  in 44352ms (ActiveRecord: 0.0ms)
+
+
+  
+Watir::Exception::UnknownObjectException (element located, but timed out after 30 seconds, waiting for #<Watir::Div: located: true; {:class=>"rdmr-sels-btns", :tag_name=>"div"}> to be present):
+  
+app/controllers/search_controller.rb:64:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=alibaba" for 127.0.0.1 at 2018-09-09 00:38:52 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"alibaba"}
+Started GET "/search?utf8=%E2%9C%93&searchword=taobao" for 127.0.0.1 at 2018-09-09 00:39:19 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"taobao"}
+Completed 500  in 9332ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `insert' for nil:NilClass):
+  
+app/controllers/search_controller.rb:102:in `company_info'
+app/controllers/search_controller.rb:26:in `index'
+Completed 500  in 39619ms (ActiveRecord: 0.0ms)
+
+
+  
+Watir::Exception::UnknownObjectException (element located, but timed out after 30 seconds, waiting for #<Watir::Div: located: true; {:class=>"rdmr-sels-btns", :tag_name=>"div"}> to be present):
+  
+app/controllers/search_controller.rb:64:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=taobao" for 127.0.0.1 at 2018-09-09 00:39:38 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"taobao"}
+Completed 500  in 8628ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `insert' for nil:NilClass):
+  
+app/controllers/search_controller.rb:102:in `company_info'
+app/controllers/search_controller.rb:26:in `index'
+Started GET "/search" for 127.0.0.1 at 2018-09-09 00:57:29 +0800
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.6ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+Completed 500  in 47106ms (ActiveRecord: 2.0ms)
+
+
+  
+Watir::Exception::UnknownObjectException (timed out after 30 seconds, waiting for #<Watir::Div: located: false; {:class=>"rdmr-sels-btns", :tag_name=>"div"}> to be located; Maybe look in an iframe?):
+  
+app/controllers/search_controller.rb:64:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Started GET "/search" for 127.0.0.1 at 2018-09-09 00:58:32 +0800
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:3
+  Rendered application/_watchlist.html.erb (7.0ms)
+  Rendered search/index.html.erb within layouts/application (11.7ms)
+  Rendered application/_navbar.html.erb (1.9ms)
+Completed 200 OK in 20730ms (Views: 40.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=yahoo" for 127.0.0.1 at 2018-09-09 01:02:05 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"yahoo"}
+Completed 500  in 9818ms (ActiveRecord: 0.0ms)
+
+
+  
+Selenium::WebDriver::Error::UnknownError (unknown error: Element <li id="profile" role="menuitem">...</li> is not clickable at point (512, 571). Other element would receive the click: <div id="em-buttons">...</div>
+  (Session info: headless chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-33-generic x86_64)):
+  
+app/controllers/search_controller.rb:62:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=yahoo" for 127.0.0.1 at 2018-09-09 01:02:40 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"yahoo"}
+Completed 500  in 40679ms (ActiveRecord: 0.0ms)
+
+
+  
+Watir::Exception::UnknownObjectException (element located, but timed out after 30 seconds, waiting for #<Watir::Div: located: true; {:class=>"rdmr-sels-btns", :tag_name=>"div"}> to be present):
+  
+app/controllers/search_controller.rb:64:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=samsung" for 127.0.0.1 at 2018-09-09 01:03:39 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"samsung"}
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_watchlist.html.erb (0.9ms)
+  Rendered search/index.html.erb within layouts/application (4.3ms)
+Completed 500  in 18475ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/vin/Desktop/SQL/group_project/app/views/application/_watchlist.html.erb:39: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/application/_watchlist.html.erb:39: syntax error, unexpected end-of-input, expecting keyword_end
+app/views/application/_watchlist.html.erb:39: syntax error, unexpected end-of-input, expecting keyword_end
+app/views/search/index.html.erb:29:in `_app_views_search_index_html_erb__2326638137965857614_46925925493580'
+Started GET "/search?utf8=%E2%9C%93&searchword=samsung" for 127.0.0.1 at 2018-09-09 01:05:38 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"samsung"}
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_watchlist.html.erb (3.2ms)
+  Rendered search/index.html.erb within layouts/application (7.6ms)
+Completed 500  in 17466ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/vin/Desktop/SQL/group_project/app/views/application/_watchlist.html.erb:40: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/application/_watchlist.html.erb:40: syntax error, unexpected end-of-input, expecting keyword_end
+app/views/application/_watchlist.html.erb:40: syntax error, unexpected end-of-input, expecting keyword_end
+app/views/search/index.html.erb:29:in `_app_views_search_index_html_erb__2326638137965857614_70147926676980'
+Started GET "/search?utf8=%E2%9C%93&searchword=samsung" for 127.0.0.1 at 2018-09-09 01:08:21 +0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"samsung"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:2
+  [1m[36mWatchlist Load (0.9ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "SMSN"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:4
+  Rendered application/_watchlist.html.erb (47.1ms)
+  Rendered search/index.html.erb within layouts/application (50.1ms)
+  Rendered application/_navbar.html.erb (3.1ms)
+Completed 200 OK in 17442ms (Views: 270.2ms | ActiveRecord: 10.8ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-09 01:12:04 +0800
+Processing by WatchlistController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3CuxUNg+iSyz3k7XNPV0Sj/Prc4BFoUQmF6CEiEfqeNdeVvtw9PI7uF6KSkRKOZZuFRPHE1ToG37V6EC+exG3g==", "name"=>"SMSN", "user_id"=>"2", "commit"=>"Add to watchlist ( + )"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (9.3ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "SMSN"], ["created_at", "2018-09-08 17:12:04.113010"], ["updated_at", "2018-09-08 17:12:04.113010"], ["user_id", 2]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (31.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search
+Completed 302 Found in 69ms (ActiveRecord: 45.6ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-09-09 01:12:04 +0800
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "SMSN"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:4
+  Rendered application/_watchlist.html.erb (11.9ms)
+  Rendered search/index.html.erb within layouts/application (16.5ms)
+  Rendered application/_navbar.html.erb (1.8ms)
+Completed 200 OK in 14897ms (Views: 60.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:14:30 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:14:36 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (1.5ms)
+  Rendered application/_navbar.html.erb (3.6ms)
+Completed 200 OK in 45842ms (Views: 43.2ms | ActiveRecord: 0.7ms)
+
+
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (0.4ms)
+  Rendered application/_navbar.html.erb (1.1ms)
+Completed 200 OK in 41759ms (Views: 30.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-09 01:16:12 +0800
+Processing by TestController#index as HTML
+Started GET "/" for 127.0.0.1 at 2018-09-09 01:16:12 +0800
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (1.2ms)
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_navbar.html.erb:24
+  Rendered application/_navbar.html.erb (7.2ms)
+Completed 200 OK in 63ms (Views: 57.3ms | ActiveRecord: 2.3ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_navbar.html.erb:24
+  Rendered application/_navbar.html.erb (5.8ms)
+Completed 200 OK in 77ms (Views: 74.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-09-09 01:16:15 +0800
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.6ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+Started GET "/search?utf8=%E2%9C%93&searchword=yahoo" for 127.0.0.1 at 2018-09-09 01:16:22 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"yahoo"}
+Completed 500  in 13427ms (ActiveRecord: 1.7ms)
+
+
+  
+Selenium::WebDriver::Error::UnknownError (unknown error: Element <li id="profile" role="menuitem">...</li> is not clickable at point (512, 571). Other element would receive the click: <div id="em-buttons">...</div>
+  (Session info: headless chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-33-generic x86_64)):
+  
+app/controllers/search_controller.rb:62:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Completed 500  in 40048ms (ActiveRecord: 0.0ms)
+
+
+  
+Watir::Exception::UnknownObjectException (element located, but timed out after 30 seconds, waiting for #<Watir::Div: located: true; {:class=>"rdmr-sels-btns", :tag_name=>"div"}> to be present):
+  
+app/controllers/search_controller.rb:64:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:19:16 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered application/_watchlist.html.erb (2.4ms)
+  Rendered application/_watchlist.html.erb (0.1ms)
+  Rendered application/_watchlist.html.erb (0.1ms)
+  Rendered application/_watchlist.html.erb (0.1ms)
+  Rendered watchlist/show.html.erb within layouts/application (9.1ms)
+  Rendered application/_navbar.html.erb (1.9ms)
+Completed 200 OK in 43778ms (Views: 35.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:21:59 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (8.4ms)
+Completed 500  in 41382ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for nil:NilClass):
+    23:                                 <% else %> <span class="text-danger"><% end %> (<%= watchlist.fetch(:change_percent) %>)</span></h5>
+    24:                                         <div class="col-md-2 pl-0 pt-3 pb-0 pr-2 pull-right">
+    25:                 <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
+    26:                 <%= form.hidden_field :name, value: @company.fetch(:ticker) %>
+    27:                 <%= form.hidden_field :user_id, value: current_user.id %>
+    28:                 <div class="actions">
+    29:                 <%= form.submit "Delete" %>
+  
+app/views/watchlist/show.html.erb:26:in `block (2 levels) in _app_views_watchlist_show_html_erb__2574040828995907595_69889319861860'
+app/views/watchlist/show.html.erb:25:in `block in _app_views_watchlist_show_html_erb__2574040828995907595_69889319861860'
+app/views/watchlist/show.html.erb:15:in `each'
+app/views/watchlist/show.html.erb:15:in `_app_views_watchlist_show_html_erb__2574040828995907595_69889319861860'
+app/controllers/watchlist_controller.rb:11:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:23:20 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (4.6ms)
+Completed 500  in 40295ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (Missing partial /_watchlist with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vin/Desktop/SQL/group_project/app/views"
+  * "/home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/devise-4.5.0/app/views"
+):
+    21:                                 <% if watchlist.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> 
+    22:                                   <%= watchlist.fetch(:change_price)%></span> <% if watchlist.fetch(:change_percent)[0]=="+" %> <span class="text-success"> 
+    23:                                 <% else %> <span class="text-danger"><% end %> (<%= watchlist.fetch(:change_percent) %>)</span></h5>
+    24:                                  <%= render partial:'/watchlist'%>
+    25:                             </div>      <!--card body -->
+    26:                         </div> <!--card cardcascade -->
+    27:                     </div> <!--col sm-3 -->
+  
+app/views/watchlist/show.html.erb:24:in `block in _app_views_watchlist_show_html_erb__2574040828995907595_69889156968480'
+app/views/watchlist/show.html.erb:15:in `each'
+app/views/watchlist/show.html.erb:15:in `_app_views_watchlist_show_html_erb__2574040828995907595_69889156968480'
+app/controllers/watchlist_controller.rb:11:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:24:30 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+Completed 500  in 7794ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `text' for nil:NilClass):
+  
+app/helpers/watchlist_helper.rb:24:in `block in watchlist'
+app/helpers/watchlist_helper.rb:9:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:25:13 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered application/_watchlist.html.erb (166.3ms)
+  Rendered watchlist/show.html.erb within layouts/application (168.9ms)
+Completed 500  in 36132ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `current_page' for #<#<Class:0x00007f20c04ae790>:0x00007f20acbbbc40>
+Did you mean?  current_page?):
+    1: <% if current_page(search_index_path) %>
+    2:         <% if current_user %>
+    3: 
+    4:         <div class="col-md-2 pl-0 pt-3 pb-0 pr-2 ">
+  
+app/views/application/_watchlist.html.erb:1:in `_app_views_application__watchlist_html_erb___2697816523870853454_69889157874960'
+app/views/watchlist/show.html.erb:24:in `block in _app_views_watchlist_show_html_erb__2574040828995907595_69889156825700'
+app/views/watchlist/show.html.erb:15:in `each'
+app/views/watchlist/show.html.erb:15:in `_app_views_watchlist_show_html_erb__2574040828995907595_69889156825700'
+app/controllers/watchlist_controller.rb:11:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:26:03 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (1.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered application/_watchlist.html.erb (2.7ms)
+  Rendered application/_watchlist.html.erb (0.1ms)
+  Rendered application/_watchlist.html.erb (0.2ms)
+  Rendered application/_watchlist.html.erb (0.1ms)
+  Rendered watchlist/show.html.erb within layouts/application (9.0ms)
+  Rendered application/_navbar.html.erb (2.7ms)
+Completed 200 OK in 38391ms (Views: 41.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:27:36 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (6.2ms)
+  Rendered application/_navbar.html.erb (2.2ms)
+Completed 200 OK in 39206ms (Views: 38.5ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-09 01:32:27 +0800
+Processing by WatchlistController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rXZFDwtJ1DTOx/vZFINRhKaZiZyDIKkCB8EjDftu+ocsJK+yEKSV9pxjnCcxXsOXIQJrTs9ljH9kyAAdI50Vug==", "name"=>"KPC", "user_id"=>"2", "commit"=>"Delete", "id"=>"destroy"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:34
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:51
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Destroy (0.4ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[35m (107.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:36
+Redirected to http://localhost:3000/users/profile
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "KPC"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:51
+Completed 302 Found in 131ms (ActiveRecord: 109.4ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:32:27 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (7.7ms)
+  Rendered application/_navbar.html.erb (1.7ms)
+Completed 200 OK in 26941ms (Views: 42.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:34:43 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered application/_watchlist.html.erb (1.3ms)
+  Rendered watchlist/show.html.erb within layouts/application (5.0ms)
+Completed 500  in 29423ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (/home/vin/Desktop/SQL/group_project/app/views/application/_watchlist.html.erb:1: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...rent_page == search_index_path) 
+...                              ^
+/home/vin/Desktop/SQL/group_project/app/views/application/_watchlist.html.erb:44: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/application/_watchlist.html.erb:1: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/application/_watchlist.html.erb:44: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/views/application/_watchlist.html.erb:1: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/application/_watchlist.html.erb:44: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/views/watchlist/show.html.erb:24:in `block in _app_views_watchlist_show_html_erb__2574040828995907595_69889152207680'
+app/views/watchlist/show.html.erb:15:in `each'
+app/views/watchlist/show.html.erb:15:in `_app_views_watchlist_show_html_erb__2574040828995907595_69889152207680'
+app/controllers/watchlist_controller.rb:11:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:36:23 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered application/_watchlist.html.erb (372.8ms)
+  Rendered watchlist/show.html.erb within layouts/application (375.4ms)
+Completed 500  in 26326ms (ActiveRecord: 8.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `current_page' for #<#<Class:0x00007f20ad733d48>:0x00007f20ad731bb0>
+Did you mean?  current_page?):
+    1: <% if current_page == search_index_path %>
+    2:         <% if current_user %>
+    3: 
+    4:         <div class="col-md-2 pl-0 pt-3 pb-0 pr-2 ">
+  
+app/views/application/_watchlist.html.erb:1:in `_app_views_application__watchlist_html_erb___2697816523870853454_69889161810980'
+app/views/watchlist/show.html.erb:24:in `block in _app_views_watchlist_show_html_erb__2574040828995907595_69889162838400'
+app/views/watchlist/show.html.erb:15:in `each'
+app/views/watchlist/show.html.erb:15:in `_app_views_watchlist_show_html_erb__2574040828995907595_69889162838400'
+app/controllers/watchlist_controller.rb:11:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:41:02 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered application/_watchlist.html.erb (39321.1ms)
+  Rendered watchlist/show.html.erb within layouts/application (39325.8ms)
+Completed 500  in 74254ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    30:         
+    31:         <div class="col-md-2 pl-0 pt-3 pb-0 pr-2 pull-right">
+    32:                 <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
+    33:                 <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
+    34:                 <%= form.hidden_field :user_id, value: current_user.id %>
+    35:                 <div class="actions">
+    36:                     <%= form.submit "Delete" %>
+  
+app/views/application/_watchlist.html.erb:33:in `fetch'
+app/views/application/_watchlist.html.erb:33:in `block in _app_views_application__watchlist_html_erb___2697816523870853454_69889157210040'
+app/views/application/_watchlist.html.erb:32:in `_app_views_application__watchlist_html_erb___2697816523870853454_69889157210040'
+app/views/watchlist/show.html.erb:24:in `block in _app_views_watchlist_show_html_erb__2574040828995907595_69889157546540'
+app/views/watchlist/show.html.erb:15:in `each'
+app/views/watchlist/show.html.erb:15:in `_app_views_watchlist_show_html_erb__2574040828995907595_69889157546540'
+app/controllers/watchlist_controller.rb:11:in `show'
+Started PUT "/__web_console/repl_sessions/0ac3c94883474c945ea8b0633a864f00" for 127.0.0.1 at 2018-09-09 01:44:40 +0800
+Started PUT "/__web_console/repl_sessions/0ac3c94883474c945ea8b0633a864f00" for 127.0.0.1 at 2018-09-09 01:44:41 +0800
+Started PUT "/__web_console/repl_sessions/0ac3c94883474c945ea8b0633a864f00" for 127.0.0.1 at 2018-09-09 01:46:54 +0800
+Started PUT "/__web_console/repl_sessions/0ac3c94883474c945ea8b0633a864f00" for 127.0.0.1 at 2018-09-09 01:47:00 +0800
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:49:15 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.8ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered application/_watchlist.html.erb (27918.1ms)
+  Rendered watchlist/show.html.erb within layouts/application (27922.0ms)
+Completed 500  in 56832ms (ActiveRecord: 19.7ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    2:     <% if current_page?(user_profile_path) %>
+    3:         <div class="col-md-2 pl-0 pt-3 pb-0 pr-2 pull-right">
+    4:                 <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
+    5:                 <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
+    6:                 <%= form.hidden_field :user_id, value: current_user.id %>
+    7:                 <div class="actions">
+    8:                     <%= form.submit "Delete" %>
+  
+app/views/application/_watchlist.html.erb:5:in `fetch'
+app/views/application/_watchlist.html.erb:5:in `block in _app_views_application__watchlist_html_erb___2697816523870853454_69889320504540'
+app/views/application/_watchlist.html.erb:4:in `_app_views_application__watchlist_html_erb___2697816523870853454_69889320504540'
+app/views/watchlist/show.html.erb:24:in `block in _app_views_watchlist_show_html_erb__2574040828995907595_69889320704260'
+app/views/watchlist/show.html.erb:15:in `each'
+app/views/watchlist/show.html.erb:15:in `_app_views_watchlist_show_html_erb__2574040828995907595_69889320704260'
+app/controllers/watchlist_controller.rb:11:in `show'
+Started GET "/" for 127.0.0.1 at 2018-09-09 01:50:35 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_navbar.html.erb:24
+  Rendered application/_navbar.html.erb (6.1ms)
+Completed 200 OK in 59ms (Views: 54.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-09-09 01:50:36 +0800
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.8ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendered application/_watchlist.html.erb (30810.0ms)
+  Rendered search/index.html.erb within layouts/application (30812.6ms)
+Completed 500  in 52151ms (ActiveRecord: 2.3ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    28: <% else %>
+    29:         <div class="col-md-2 pl-0 pt-3 pb-0 pr-2 pull-right">
+    30:                 <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
+    31:                 <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
+    32:                 <%= form.hidden_field :user_id, value: current_user.id %>
+    33:                 <div class="actions">
+    34:                     <%= form.submit "Delete" %>
+  
+app/views/application/_watchlist.html.erb:31:in `fetch'
+app/views/application/_watchlist.html.erb:31:in `block in _app_views_application__watchlist_html_erb___2697816523870853454_69889171264040'
+app/views/application/_watchlist.html.erb:30:in `_app_views_application__watchlist_html_erb___2697816523870853454_69889171264040'
+app/views/search/index.html.erb:29:in `_app_views_search_index_html_erb__1695407153757816864_69889251746340'
+Started GET "/search" for 127.0.0.1 at 2018-09-09 01:51:47 +0800
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "SMSN"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (5.4ms)
+  Rendered search/index.html.erb within layouts/application (8.5ms)
+  Rendered application/_navbar.html.erb (2.3ms)
+Completed 200 OK in 20858ms (Views: 36.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 01:53:05 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:9
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (9.4ms)
+  Rendered application/_navbar.html.erb (1.6ms)
+Completed 200 OK in 26690ms (Views: 48.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-09 10:05:27 +0800
+  [1m[35m (22.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (11.6ms)
+  [1m[36mUser Load (44.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_navbar.html.erb:24
+  Rendered application/_navbar.html.erb (220.3ms)
+Completed 200 OK in 1128ms (Views: 1015.8ms | ActiveRecord: 66.8ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 10:19:00 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (42.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:13
+Completed 500  in 43430ms (ActiveRecord: 55.0ms)
+
+
+  
+Selenium::WebDriver::Error::UnknownError (unknown error: Element <li id="profile" role="menuitem">...</li> is not clickable at point (512, 571). Other element would receive the click: <div id="em-buttons">...</div>
+  (Session info: headless chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-33-generic x86_64)):
+  
+app/helpers/watchlist_helper.rb:38:in `block in watchlist'
+app/helpers/watchlist_helper.rb:13:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 10:21:08 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:13
+Completed 500  in 23036ms (ActiveRecord: 6.3ms)
+
+
+  
+ZeroDivisionError (divided by 0):
+  
+app/helpers/watchlist_helper.rb:95:in `/'
+app/helpers/watchlist_helper.rb:95:in `sentimental'
+app/helpers/watchlist_helper.rb:70:in `block in watchlist'
+app/helpers/watchlist_helper.rb:13:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:22:48 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:22:52 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:22:59 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:23:05 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:23:22 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:23:23 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:23:30 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:24:13 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:24:15 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:24:17 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:24:43 +0800
+Started PUT "/__web_console/repl_sessions/5fff0f30e6678649de2c906af0de2114" for 127.0.0.1 at 2018-09-09 10:24:47 +0800
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 10:30:41 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:13
+Completed 500  in 15398ms (ActiveRecord: 9.3ms)
+
+
+  
+TypeError (nil can't be coerced into Integer):
+  
+app/helpers/watchlist_helper.rb:75:in `+'
+app/helpers/watchlist_helper.rb:75:in `block (2 levels) in watchlist'
+app/helpers/watchlist_helper.rb:74:in `block in watchlist'
+app/helpers/watchlist_helper.rb:13:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started PUT "/__web_console/repl_sessions/7f690eaf2d20321db651b3e7d7a156d0" for 127.0.0.1 at 2018-09-09 10:32:01 +0800
+Started PUT "/__web_console/repl_sessions/7f690eaf2d20321db651b3e7d7a156d0" for 127.0.0.1 at 2018-09-09 10:32:02 +0800
+Started PUT "/__web_console/repl_sessions/7f690eaf2d20321db651b3e7d7a156d0" for 127.0.0.1 at 2018-09-09 10:32:06 +0800
+Started PUT "/__web_console/repl_sessions/7f690eaf2d20321db651b3e7d7a156d0" for 127.0.0.1 at 2018-09-09 10:32:10 +0800
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 10:34:47 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:13
+Completed 500  in 16451ms (ActiveRecord: 6.5ms)
+
+
+  
+TypeError (nil can't be coerced into Integer):
+  
+app/helpers/watchlist_helper.rb:76:in `+'
+app/helpers/watchlist_helper.rb:76:in `block (2 levels) in watchlist'
+app/helpers/watchlist_helper.rb:75:in `block in watchlist'
+app/helpers/watchlist_helper.rb:13:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started PUT "/__web_console/repl_sessions/0c6e52067272f808f3c0cd993a521429" for 127.0.0.1 at 2018-09-09 10:36:48 +0800
+Started PUT "/__web_console/repl_sessions/0c6e52067272f808f3c0cd993a521429" for 127.0.0.1 at 2018-09-09 10:36:49 +0800
+Started PUT "/__web_console/repl_sessions/0c6e52067272f808f3c0cd993a521429" for 127.0.0.1 at 2018-09-09 10:36:52 +0800
+Started PUT "/__web_console/repl_sessions/0c6e52067272f808f3c0cd993a521429" for 127.0.0.1 at 2018-09-09 10:37:38 +0800
+Started PUT "/__web_console/repl_sessions/0c6e52067272f808f3c0cd993a521429" for 127.0.0.1 at 2018-09-09 10:37:38 +0800
+Started PUT "/__web_console/repl_sessions/0c6e52067272f808f3c0cd993a521429" for 127.0.0.1 at 2018-09-09 10:38:23 +0800
+Started PUT "/__web_console/repl_sessions/0c6e52067272f808f3c0cd993a521429" for 127.0.0.1 at 2018-09-09 10:38:24 +0800
+Started PUT "/__web_console/repl_sessions/0c6e52067272f808f3c0cd993a521429" for 127.0.0.1 at 2018-09-09 10:41:19 +0800
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 10:42:05 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:13
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (49.5ms)
+  Rendered application/_navbar.html.erb (2.1ms)
+Completed 200 OK in 40171ms (Views: 77.4ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 10:44:26 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:13
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (3.2ms)
+  Rendered application/_navbar.html.erb (2.5ms)
+Completed 200 OK in 35645ms (Views: 44.6ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 10:48:07 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:13
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (6.3ms)
+  Rendered application/_navbar.html.erb (2.1ms)
+Completed 200 OK in 39206ms (Views: 35.9ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 10:51:23 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:13
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (5.6ms)
+  Rendered application/_navbar.html.erb (3.1ms)
+Completed 200 OK in 40680ms (Views: 35.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-09 10:52:11 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_navbar.html.erb:24
+  Rendered application/_navbar.html.erb (4.5ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=samsung" for 127.0.0.1 at 2018-09-09 10:52:38 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"samsung"}
+Completed 500  in 11741ms (ActiveRecord: 0.0ms)
+
+
+  
+Selenium::WebDriver::Error::UnknownError (unknown error: Element <li id="profile" role="menuitem">...</li> is not clickable at point (512, 571). Other element would receive the click: <div id="em-buttons">...</div>
+  (Session info: headless chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-33-generic x86_64)):
+  
+app/controllers/search_controller.rb:62:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=samsung" for 127.0.0.1 at 2018-09-09 10:53:54 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"samsung"}
+Completed 500  in 15532ms (ActiveRecord: 0.0ms)
+
+
+  
+Selenium::WebDriver::Error::UnknownError (unknown error: Element <li id="profile" role="menuitem">...</li> is not clickable at point (512, 571). Other element would receive the click: <div id="em-buttons">...</div>
+  (Session info: headless chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-33-generic x86_64)):
+  
+app/controllers/search_controller.rb:62:in `browser_company_info'
+app/controllers/search_controller.rb:32:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=samsung" for 127.0.0.1 at 2018-09-09 10:54:33 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"samsung"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:1
+  [1m[36mWatchlist Load (1.2ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "SMSN"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (17.6ms)
+  Rendered search/index.html.erb within layouts/application (22.2ms)
+  Rendered application/_navbar.html.erb (3.7ms)
+Completed 200 OK in 18716ms (Views: 61.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 12:43:40 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:15
+Completed 500  in 15953ms (ActiveRecord: 10.1ms)
+
+
+  
+TypeError (nil can't be coerced into Integer):
+  
+app/helpers/watchlist_helper.rb:73:in `+'
+app/helpers/watchlist_helper.rb:73:in `block (2 levels) in watchlist'
+app/helpers/watchlist_helper.rb:72:in `block in watchlist'
+app/helpers/watchlist_helper.rb:15:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 12:44:33 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:15
+Completed 500  in 13659ms (ActiveRecord: 7.4ms)
+
+
+  
+TypeError (nil can't be coerced into Integer):
+  
+app/helpers/watchlist_helper.rb:74:in `+'
+app/helpers/watchlist_helper.rb:74:in `block (2 levels) in watchlist'
+app/helpers/watchlist_helper.rb:73:in `block in watchlist'
+app/helpers/watchlist_helper.rb:15:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started PUT "/__web_console/repl_sessions/9fdc60bf7a160f7ed6f5054bde34abe6" for 127.0.0.1 at 2018-09-09 12:44:49 +0800
+Started PUT "/__web_console/repl_sessions/9fdc60bf7a160f7ed6f5054bde34abe6" for 127.0.0.1 at 2018-09-09 12:44:50 +0800
+Started PUT "/__web_console/repl_sessions/9fdc60bf7a160f7ed6f5054bde34abe6" for 127.0.0.1 at 2018-09-09 12:45:14 +0800
+Started PUT "/__web_console/repl_sessions/9fdc60bf7a160f7ed6f5054bde34abe6" for 127.0.0.1 at 2018-09-09 12:45:19 +0800
+Started PUT "/__web_console/repl_sessions/9fdc60bf7a160f7ed6f5054bde34abe6" for 127.0.0.1 at 2018-09-09 12:45:39 +0800
+Started PUT "/__web_console/repl_sessions/9fdc60bf7a160f7ed6f5054bde34abe6" for 127.0.0.1 at 2018-09-09 12:45:44 +0800
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 12:48:43 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:18
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (13.3ms)
+  Rendered application/_navbar.html.erb (3.0ms)
+Completed 200 OK in 48944ms (Views: 60.1ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 12:52:15 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:15
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (8.5ms)
+  Rendered application/_navbar.html.erb (1.7ms)
+Completed 200 OK in 44810ms (Views: 37.8ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 13:10:17 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:14
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (8.4ms)
+  Rendered application/_navbar.html.erb (3.2ms)
+Completed 200 OK in 46282ms (Views: 59.4ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 13:11:56 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:14
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (6.7ms)
+  Rendered application/_navbar.html.erb (2.1ms)
+Completed 200 OK in 34522ms (Views: 34.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 13:16:31 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:14
+Completed 500  in 46233ms (ActiveRecord: 9.9ms)
+
+
+  
+NameError (undefined local variable or method `scores' for #<WatchlistController:0x00007f5ef0776888>):
+  
+app/helpers/watchlist_helper.rb:95:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started PUT "/__web_console/repl_sessions/bfbfbd7340ea1b4d785f9c090405e1e9" for 127.0.0.1 at 2018-09-09 13:17:24 +0800
+Started PUT "/__web_console/repl_sessions/bfbfbd7340ea1b4d785f9c090405e1e9" for 127.0.0.1 at 2018-09-09 13:17:25 +0800
+Started PUT "/__web_console/repl_sessions/bfbfbd7340ea1b4d785f9c090405e1e9" for 127.0.0.1 at 2018-09-09 13:17:29 +0800
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 13:18:17 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:15
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (7.5ms)
+  Rendered application/_navbar.html.erb (2.9ms)
+Completed 200 OK in 46659ms (Views: 38.5ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-09 13:20:16 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:1
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (11.2ms)
+  Rendered search/index.html.erb within layouts/application (14.9ms)
+  Rendered application/_navbar.html.erb (2.5ms)
+Completed 200 OK in 14577ms (Views: 47.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 13:21:54 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:15
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (4.1ms)
+  Rendered application/_navbar.html.erb (8.7ms)
+Completed 200 OK in 52429ms (Views: 36.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 13:25:47 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:15
+Completed 500  in 39215ms (ActiveRecord: 0.8ms)
+
+
+  
+NameError (undefined local variable or method `scores' for #<WatchlistController:0x00007f5edeb63430>):
+  
+app/helpers/watchlist_helper.rb:98:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started PUT "/__web_console/repl_sessions/397c281eadcf439da79291f599b28fef" for 127.0.0.1 at 2018-09-09 13:30:53 +0800
+Started PUT "/__web_console/repl_sessions/397c281eadcf439da79291f599b28fef" for 127.0.0.1 at 2018-09-09 13:30:53 +0800
+Started PUT "/__web_console/repl_sessions/397c281eadcf439da79291f599b28fef" for 127.0.0.1 at 2018-09-09 13:31:00 +0800
+Started GET "/" for 127.0.0.1 at 2018-09-09 13:31:13 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+  Rendered application/_navbar.html.erb (3.7ms)
+Completed 200 OK in 29ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-09 13:31:16 +0800
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (708.7ms)
+  Rendered application/_navbar.html.erb (2.0ms)
+Completed 200 OK in 822ms (Views: 771.2ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-09 13:31:24 +0800
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ao1A51NLyB8GpgrtNct2/HStNY4BFOlzuor/gjq/LRaJuB/39eMGeSLNOvx+VLvXIUFJ0g9Q3sdGDM2iSTvlkg==", "user"=>{"email"=>"faker@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "faker@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:14
+Redirected to http://localhost:3000/users/edit
+Completed 302 Found in 569ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2018-09-09 13:31:25 +0800
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (49.0ms)
+  Rendered application/_navbar.html.erb (3.2ms)
+Completed 200 OK in 126ms (Views: 118.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 13:31:28 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (7.0ms)
+Completed 500  in 1324049ms (ActiveRecord: 4.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for 55:Integer):
+    36:         
+    37:                                 <% @scores.each do |score| %>
+    38:                                  <div class="float-sm-right">
+    39:                                     <h3 class="font-weight-bold text-uppercase float-sm-right"><span class="text-success text-center"> <%= score.fetch(:positive) %><small>%</small> Bull</span> <br><span class="text-danger text-center"> <%= score.fetch(:negative) %><small>%</small> Bear </span></h3>
+    40:                                 </div> <!-- / col-md-3 pt-4 pb-3  --> 
+    41:                                 <% end %>
+    42:                                     
+  
+app/views/watchlist/show.html.erb:39:in `block (2 levels) in _app_views_watchlist_show_html_erb___621066699430531949_70022735777100'
+app/views/watchlist/show.html.erb:37:in `each'
+app/views/watchlist/show.html.erb:37:in `block in _app_views_watchlist_show_html_erb___621066699430531949_70022735777100'
+app/views/watchlist/show.html.erb:15:in `each'
+app/views/watchlist/show.html.erb:15:in `_app_views_watchlist_show_html_erb___621066699430531949_70022735777100'
+app/controllers/watchlist_controller.rb:11:in `show'
+Started PUT "/__web_console/repl_sessions/397c281eadcf439da79291f599b28fef" for 127.0.0.1 at 2018-09-09 13:55:17 +0800
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 13:57:04 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (1.1ms)
+Completed 500  in 42284ms (ActiveRecord: 6.9ms)
+
+
+  
+SyntaxError (/home/vin/Desktop/SQL/group_project/app/views/watchlist/show.html.erb:59: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/watchlist/show.html.erb:59: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/views/watchlist/show.html.erb:59: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/controllers/watchlist_controller.rb:11:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:01:26 +0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (8.3ms)
+  Rendered application/_navbar.html.erb (2.4ms)
+Completed 200 OK in 42621ms (Views: 254.6ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-09 14:04:05 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:1
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (12.0ms)
+  Rendered search/index.html.erb within layouts/application (16.1ms)
+  Rendered application/_navbar.html.erb (2.8ms)
+Completed 200 OK in 14496ms (Views: 50.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:09:13 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.7ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (7.9ms)
+  Rendered application/_navbar.html.erb (3.1ms)
+Completed 200 OK in 39880ms (Views: 52.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:15:32 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (3.9ms)
+  Rendered application/_navbar.html.erb (2.0ms)
+Completed 200 OK in 40263ms (Views: 36.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:21:57 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (6.3ms)
+  Rendered application/_navbar.html.erb (1.8ms)
+Completed 200 OK in 40298ms (Views: 34.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:23:52 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (7.6ms)
+  Rendered application/_navbar.html.erb (2.3ms)
+Completed 200 OK in 41360ms (Views: 45.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:35:23 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (6.7ms)
+  Rendered application/_navbar.html.erb (1.5ms)
+Completed 200 OK in 39797ms (Views: 33.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:36:28 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:36:37 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.8ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (2.9ms)
+  Rendered application/_navbar.html.erb (1.6ms)
+Completed 200 OK in 39987ms (Views: 28.2ms | ActiveRecord: 1.7ms)
+
+
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (3.2ms)
+  Rendered application/_navbar.html.erb (1.1ms)
+Completed 200 OK in 35602ms (Views: 30.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:40:00 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.7ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:40:12 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.9ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (8.5ms)
+  Rendered application/_navbar.html.erb (1.6ms)
+Completed 200 OK in 42918ms (Views: 39.5ms | ActiveRecord: 1.2ms)
+
+
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (2.7ms)
+  Rendered application/_navbar.html.erb (0.8ms)
+Completed 200 OK in 36912ms (Views: 27.0ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:46:36 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.7ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (14.1ms)
+  Rendered application/_navbar.html.erb (3.4ms)
+Completed 200 OK in 38952ms (Views: 48.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:52:48 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (8.2ms)
+  Rendered application/_navbar.html.erb (2.2ms)
+Completed 200 OK in 35234ms (Views: 44.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:54:59 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (5.7ms)
+  Rendered application/_navbar.html.erb (2.3ms)
+Completed 200 OK in 38372ms (Views: 33.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:56:27 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (5.5ms)
+  Rendered application/_navbar.html.erb (2.9ms)
+Completed 200 OK in 39927ms (Views: 51.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:58:04 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+Completed 500  in 17161ms (ActiveRecord: 1.9ms)
+
+
+  
+NoMethodError (undefined method `text' for nil:NilClass):
+  
+app/helpers/watchlist_helper.rb:31:in `block in watchlist'
+app/helpers/watchlist_helper.rb:16:in `watchlist'
+app/controllers/watchlist_controller.rb:10:in `show'
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 14:58:40 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (3.2ms)
+  Rendered application/_navbar.html.erb (2.6ms)
+Completed 200 OK in 40032ms (Views: 38.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 15:02:13 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (4.6ms)
+  Rendered application/_navbar.html.erb (2.1ms)
+Completed 200 OK in 41734ms (Views: 32.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-09 15:03:25 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_navbar.html.erb:24
+  Rendered application/_navbar.html.erb (4.6ms)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 15:03:46 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (4.7ms)
+  Rendered application/_navbar.html.erb (1.8ms)
+Completed 200 OK in 33242ms (Views: 63.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 15:07:04 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (7.2ms)
+  Rendered application/_navbar.html.erb (2.0ms)
+Completed 200 OK in 43543ms (Views: 32.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-09 15:08:51 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (7.2ms)
+  Rendered application/_navbar.html.erb (2.0ms)
+Completed 200 OK in 51190ms (Views: 42.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-09 15:10:13 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/application/_navbar.html.erb:24
+  Rendered application/_navbar.html.erb (5.3ms)
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-09-09 15:10:16 +0800
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.6ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "SMSN"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (5.8ms)
+  Rendered search/index.html.erb within layouts/application (10.5ms)
+  Rendered application/_navbar.html.erb (2.1ms)
+Completed 200 OK in 14657ms (Views: 43.3ms | ActiveRecord: 2.4ms)
+
+

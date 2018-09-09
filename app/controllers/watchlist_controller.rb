@@ -20,15 +20,17 @@ class WatchlistController < ApplicationController
     respond_to do |format|
       if current_user
         if @watchlist.save
-          
-          format.html { redirect_to search_index_url, success: 'Watchlist was successfully created.' }
+          format.html { redirect_back fallback_location: search_index_url, success: 'Watchlist was successfully created.' }
         else
           redirect_to root_path ,danger: "Unsuccessfully , Please Try Again Later"
         end
-        
       end
     end
   end
+        
+          
+
+          
 
 	def destroy
 		if current_user

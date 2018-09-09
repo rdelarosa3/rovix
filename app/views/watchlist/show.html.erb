@@ -2,42 +2,58 @@
 <div class="container">
           
     <div class="shadow-sm col-sm-12 mb-5 text-center">
-        <p ><%= current_user.full_name%></p>
-    </div> <!--col-sm-3 -->
-        
+        <p><%= current_user.full_name%></p>
+    </div> <!--col-sm-12 -->
+     
 
+    <div class="col-sm-12 mb-5 text-center">
+        <h1>My Watchlists</h1>
+                <hr>
+    </div> <!--col-sm-12 -->
 
-
-            <div id="card-columns" style="margin: 0 auto;">
-                <div class="card-deck" >
+           
+                <div class="card-deck"style="margin: 0 auto;" >
                 <% @watchlists.each do |watchlist| %>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="card card-cascade" style="width: 20rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-bottom:20px;">
+                <div class="row">
+                      <div class="col-sm-3">
+                      <div class="card card-cascade" style="width: 20rem;max-width:20rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-bottom:20px;">
                        <div class="card-body" >
-                           <h4 class="card-title"><%= watchlist.fetch(:company_name) %></h4><h5><%= watchlist.fetch(:ticker) %><h3 class="font-weight-bold"><small>$</small><%= watchlist.fetch(:price) %></h3>
+
+                          <!-- Sentiment float right -->
+                           <h4 class="card-title"><%= watchlist.fetch(:company_name) %><span class="text-success font-weight-bold text-uppercase float-sm-right"><%="#{@scores[0]} "%><small>%</small> Bull</span></h4><h5><%= watchlist.fetch(:ticker) %><span class="text-danger font-weight-bold text-uppercase float-sm-right"><%= "#{@scores[1]} " %><small>%</small> Bear </span></h5><h3 class="font-weight-bold"><small>$</small><%= " #{watchlist.fetch(:price)}" %></h3>
                                 <% if watchlist.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> 
                                   <%= watchlist.fetch(:change_price)%></span> <% if watchlist.fetch(:change_percent)[0]=="+" %> <span class="text-success"> 
                                 <% else %> <span class="text-danger"><% end %> (<%= watchlist.fetch(:change_percent) %>)</span></h5>
-                            
+
+                                       <!-- Unwatchlist -->
+                                <%# <%= render partial:'application/watchlist'%>
+                                 <div class="col-sm-2 pl-0 pt-3 pb-0 pr-2 text-center">
+                                    <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
+                                    <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
+                                    <%= form.hidden_field :user_id, value: current_user.id %>
+                                    <div class="actions">
+                                        <%= form.submit "Delete",class:"btn btn-outline-danger" %>
+                                    </div>
+                                    <% end %>
+
+                                    <!-- Sentiment -->
+                                    <% @scores.shift[1] %>
+                                   <!-- scores = [positive,negative] shift[1] is take off  arr[0] twice -->
+
+                                   
+                                 </div> <!--card col-3 -->
                             </div>      <!--card body -->
                         </div> <!--card cardcascade -->
-                    </div> <!--col sm-3 -->
-                </div> <!--row -->
+                    </div> <!--card col-3 -->
+                </div> <!--row --> 
                 <% end %>
             </div> <!--card deck -->
-        </div> <!--card column -->
-    </div> <!--colmd8 colmdoffset2 -->
+      
 </div> <!-- container -->
-                               
-                     
-                  
-            
-                             
-                               
-                               
-                         
+                            
+                          
                                 
-
-
-                      
+                               
+                   
+   
+       

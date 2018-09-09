@@ -47,8 +47,8 @@ class SearchController < ApplicationController
 
  	def automated_browser(security_name)
 		security_name = security_name
- 		@browser = Watir::Browser.new(:chrome)
- 		# @browser = Watir::Browser.new :chrome, headless: true
+ 		# @browser = Watir::Browser.new(:chrome)
+ 		@browser = Watir::Browser.new :chrome, headless: true
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	
 	    @browser.text_field(id:"finance-autosuggest").set security_name
