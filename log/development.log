@@ -27109,3 +27109,37 @@ Processing by SearchController#index as HTML
   ↳ app/controllers/search_controller.rb:17
   [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
   ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/application/_sidebar.html.erb:16
+  Rendered application/_sidebar.html.erb (5.3ms)
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "SMSN"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (9.2ms)
+  Rendered search/index.html.erb within layouts/application (24.9ms)
+  Rendered application/_navbar.html.erb (2.1ms)
+Completed 200 OK in 44147ms (Views: 76.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-09-09 19:08:30 +0800
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 ORDER BY "watchlists"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:17
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/application/_sidebar.html.erb:16
+  Rendered application/_sidebar.html.erb (10.5ms)
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 2], ["name", "SMSN"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (5.4ms)
+  Rendered search/index.html.erb within layouts/application (28.3ms)
+  Rendered application/_navbar.html.erb (3.2ms)
+Completed 200 OK in 44804ms (Views: 121.9ms | ActiveRecord: 2.8ms)
+
+

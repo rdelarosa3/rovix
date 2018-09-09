@@ -246,7 +246,7 @@ a[href*="#followme"]::before {
 .hamburger {
   position: sticky;
   z-index: 999;
-  top: 0;
+  top: 56px;
   display: block;
   width: 32px;
   height: 32px;
