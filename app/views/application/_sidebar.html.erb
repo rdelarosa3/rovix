@@ -21,7 +21,7 @@
                 <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure to delete this watchlist?',id:'user_id'}) do |form| %>
                 <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
                 <%= form.hidden_field :user_id, value: current_user.id %>
-                  <%= form.button :submit,style:"border: none;background: transparent; margin-top: -20px;margin-right:50px;float:right;color:#ea4c4c;" do %>
+                  <%= form.button :submit,style:"border: none;background: transparent; margin-top:-20px; margin-right:50px;float:right;color:#ea4c4c;" do %>
                               <i class="fas fa-minus-circle"></i>
                    <% end %>
                 <% end %>

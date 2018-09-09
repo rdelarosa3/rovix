@@ -1,8 +1,4 @@
-body {
-    position: relative;
-    overflow-x: hidden;
-    background-color: #CFD8DC;
-}
+
 body,
 html { height: 100%;}
 .nav .open > a, 
@@ -182,7 +178,7 @@ html { height: 100%;}
     background-color: #222;
     box-shadow: none;
 }
-.dropdown-menu.show {
+.sidebar-nav .dropdown-menu.show {
     top: 0;
 }
 /*Fontawesome icons*/

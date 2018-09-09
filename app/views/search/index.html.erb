@@ -4,11 +4,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+body {
+    position: relative;
+    overflow-x: hidden;
+    background-color: #CFD8DC;
+}
 .sticky {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;  
+  top:56px !important;
 }
+ 
 .divbackground{
   background-image: url("<%= @cover %>");
   background-size: contain;
