@@ -29484,3 +29484,2121 @@ Processing by Users::SessionsController#new as HTML
 Completed 200 OK in 457ms (Views: 413.3ms | ActiveRecord: 3.7ms)
 
 
+Started GET "/search" for 127.0.0.1 at 2018-09-10 17:25:12 +0800
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+rack-contrib (2.0.1) lib/rack/contrib/response_headers.rb:17:in `call'
+meta_request (0.6.0) lib/meta_request/middlewares/headers.rb:16:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7173869082915522855)[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+Migrating to CreateWatchlist (20180906134000)
+  [1m[35m (6.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+  [1m[35m (18.5ms)[0m  [1m[35mCREATE TABLE "watchlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180906134000_create_watchlist.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "watchlists" ADD "following_id" bigint[0m
+  ↳ db/migrate/20180906134000_create_watchlist.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_watchlists_on_following_id" ON "watchlists"  ("following_id")[0m
+  ↳ db/migrate/20180906134000_create_watchlist.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "watchlists" ADD "user_id" bigint[0m
+  ↳ db/migrate/20180906134000_create_watchlist.rb:10
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_watchlists_on_user_id" ON "watchlists"  ("user_id")[0m
+  ↳ db/migrate/20180906134000_create_watchlist.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180906134000"]]
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7173869082915522855)[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/bin/rake:23
+Started GET "/search" for 127.0.0.1 at 2018-09-10 17:25:51 +0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/rdelarosa/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SearchController#index as HTML
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (1.1ms)
+  Rendered application/_watchlist.html.erb (3.5ms)
+  Rendered search/_livescreen.html.erb (11.6ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_company_bio.html.erb (0.5ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.8ms)
+  Rendered search/index.html.erb within layouts/application (34.9ms)
+  Rendered application/_navbar.html.erb (7.3ms)
+Completed 200 OK in 20074ms (Views: 911.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:27:13 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  Rendering search/index.js.erb
+  Rendered application/_watchlist.html.erb (0.9ms)
+  Rendered search/_livescreen.html.erb (9.7ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (23.3ms)
+Completed 200 OK in 19600ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:28:12 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  Rendering search/index.js.erb
+  Rendered application/_watchlist.html.erb (0.9ms)
+  Rendered search/_livescreen.html.erb (7.6ms)
+  Rendered search/_sentiment.html.erb (0.5ms)
+  Rendered search/_twitter.html.erb (0.7ms)
+  Rendered search/_articles.html.erb (0.6ms)
+  Rendered search/index.js.erb (23.8ms)
+Completed 200 OK in 17757ms (Views: 38.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:29:12 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  Rendering search/index.js.erb
+  Rendered application/_watchlist.html.erb (0.6ms)
+  Rendered search/_livescreen.html.erb (7.2ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (20.2ms)
+Completed 200 OK in 17111ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:30:12 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  Rendering search/index.js.erb
+  Rendered application/_watchlist.html.erb (0.7ms)
+  Rendered search/_livescreen.html.erb (7.6ms)
+  Rendered search/_sentiment.html.erb (3.2ms)
+  Rendered search/_twitter.html.erb (2.1ms)
+  Rendered search/_articles.html.erb (0.2ms)
+  Rendered search/index.js.erb (23.8ms)
+Completed 200 OK in 17768ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-10 17:30:38 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (0.7ms)
+  Rendered application/_watchlist.html.erb (0.5ms)
+  Rendered search/_livescreen.html.erb (5.2ms)
+  Rendered search/_sentiment.html.erb (0.2ms)
+  Rendered search/_company_bio.html.erb (0.2ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.html.erb within layouts/application (21.6ms)
+  Rendered application/_navbar.html.erb (1.6ms)
+Completed 200 OK in 21291ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-09-10 17:31:57 +0800
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (111.2ms)
+  Rendered application/_navbar.html.erb (1.6ms)
+Completed 200 OK in 194ms (Views: 157.1ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-09-10 17:32:10 +0800
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CO/5NlujoW9HArNjvD3c5sIQrc84+pNZLu9Myf0N3eYIXK0qJSs7+hYmU5qiIUGfUTmhV1qD2liNuJm8GYgpTQ==", "user"=>{"first_name"=>"Robert", "last_name"=>"DelaRosa", "email"=>"rdelarosa39@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rdelarosa39@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "rdelarosa39@gmail.com"], ["encrypted_password", "$2a$11$knilHfDKNrdzndDRNIwyGuNcQ/Ovpwr5iVa7o2zRUXQVYIVDoe2WS"], ["first_name", "Robert"], ["last_name", "DelaRosa"], ["created_at", "2018-09-10 09:32:10.564340"], ["updated_at", "2018-09-10 09:32:10.564340"]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 157ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-09-10 17:32:10 +0800
+Processing by WatchlistController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:9
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:16
+  Rendering watchlist/show.html.erb within layouts/application
+  Rendered watchlist/show.html.erb within layouts/application (1.4ms)
+  Rendered application/_navbar.html.erb (2.7ms)
+Completed 200 OK in 82ms (Views: 53.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=Facebook" for 127.0.0.1 at 2018-09-10 17:32:43 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"Facebook"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (0.8ms)
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (32.2ms)
+  Rendered search/_livescreen.html.erb (37.1ms)
+  Rendered search/_sentiment.html.erb (0.6ms)
+  Rendered search/_company_bio.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.6ms)
+  Rendered search/index.html.erb within layouts/application (57.6ms)
+  Rendered application/_navbar.html.erb (1.7ms)
+Completed 200 OK in 23379ms (Views: 95.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 17:33:58 +0800
+Processing by WatchlistController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2a2W53JGcFRK/OEU9Nch2gSvjpKl7G2g42F4d8lqudPZHsL7DM7qwRvYAe3qy7yjl4aCCseVJKFANq0CLe9NeA==", "name"=>"FB", "user_id"=>"1", "commit"=>"Add to watchlist < + >"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (0.9ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "FB"], ["created_at", "2018-09-10 09:33:58.104622"], ["updated_at", "2018-09-10 09:33:58.104622"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=Facebook
+Completed 302 Found in 51ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=Facebook" for 127.0.0.1 at 2018-09-10 17:33:58 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"Facebook"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:34:07 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (1.7ms)
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.2ms)
+  Rendered search/_livescreen.html.erb (8.7ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_company_bio.html.erb (0.2ms)
+  Rendered search/_twitter.html.erb (0.8ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.html.erb within layouts/application (27.9ms)
+  Rendered application/_navbar.html.erb (1.2ms)
+Completed 200 OK in 28548ms (Views: 53.9ms | ActiveRecord: 1.1ms)
+
+
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (7.2ms)
+  Rendered search/_livescreen.html.erb (13.6ms)
+  Rendered search/_sentiment.html.erb (1.9ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (29.8ms)
+Completed 200 OK in 30156ms (Views: 43.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:35:27 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.6ms)
+  Rendered search/_livescreen.html.erb (9.9ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.3ms)
+  Rendered search/index.js.erb (20.5ms)
+Completed 200 OK in 30466ms (Views: 33.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:36:28 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.6ms)
+  Rendered search/_livescreen.html.erb (10.9ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (22.8ms)
+Completed 200 OK in 29811ms (Views: 37.0ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-10 17:37:12 +0800
+Processing by WatchlistController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ie9YOtfhM0t1YmmAVSUtyEl0DOY6A6k756r3hE78gwMhXAwmqWmp3iRGiXlLObCx2l0Aflh64DpE/SLxqnl3qA==", "name"=>"FB", "user_id"=>"1", "button"=>"", "id"=>"destroy"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[36mWatchlist Destroy (2.5ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=Facebook
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+Completed 302 Found in 17ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=Facebook" for 127.0.0.1 at 2018-09-10 17:37:12 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"Facebook"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (0.6ms)
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.4ms)
+  Rendered search/_livescreen.html.erb (8.5ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_company_bio.html.erb (0.2ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.html.erb within layouts/application (24.3ms)
+  Rendered application/_navbar.html.erb (1.2ms)
+Completed 200 OK in 23358ms (Views: 50.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:38:36 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 17:38:45 +0800
+Processing by WatchlistController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xhGRBLg1ZgyKXALJOVDdyEXfOfIFSCpdnTDOa1rPPULGosUYxr38mdt44jAnTECx1vY1amcxY1w+ZxsevkrJ6Q==", "name"=>"FB", "user_id"=>"1", "commit"=>"Add to watchlist < + >"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (0.3ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "FB"], ["created_at", "2018-09-10 09:38:45.483328"], ["updated_at", "2018-09-10 09:38:45.483328"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=Facebook
+Completed 302 Found in 15ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=Facebook" for 127.0.0.1 at 2018-09-10 17:38:45 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"Facebook"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (8.8ms)
+  Rendered search/_livescreen.html.erb (15.6ms)
+  Rendered search/_sentiment.html.erb (0.5ms)
+  Rendered search/_twitter.html.erb (3.9ms)
+  Rendered search/_articles.html.erb (1.2ms)
+  Rendered search/index.js.erb (34.9ms)
+Completed 200 OK in 14935ms (Views: 50.1ms | ActiveRecord: 1.8ms)
+
+
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (1.8ms)
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.9ms)
+  Rendered search/_livescreen.html.erb (8.8ms)
+  Rendered search/_sentiment.html.erb (0.5ms)
+  Rendered search/_company_bio.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.html.erb within layouts/application (27.6ms)
+  Rendered application/_navbar.html.erb (1.7ms)
+Completed 200 OK in 29123ms (Views: 60.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:40:14 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.7ms)
+  Rendered search/_livescreen.html.erb (11.1ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (24.5ms)
+Completed 200 OK in 30233ms (Views: 38.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:41:16 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.0ms)
+  Rendered search/_livescreen.html.erb (9.2ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (19.6ms)
+Completed 200 OK in 28244ms (Views: 32.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:42:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.7ms)
+  Rendered search/_livescreen.html.erb (10.8ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (22.8ms)
+Completed 200 OK in 27010ms (Views: 37.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:43:16 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.5ms)
+  Rendered search/_livescreen.html.erb (14.9ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.3ms)
+  Rendered search/index.js.erb (25.8ms)
+Completed 200 OK in 27219ms (Views: 39.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:44:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.3ms)
+  Rendered search/_livescreen.html.erb (10.7ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (21.7ms)
+Completed 200 OK in 27133ms (Views: 38.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:45:29 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.0ms)
+  Rendered search/_livescreen.html.erb (10.5ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (22.3ms)
+Completed 200 OK in 28795ms (Views: 36.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:46:18 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.1ms)
+  Rendered search/_livescreen.html.erb (9.7ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (1.2ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (25.6ms)
+Completed 200 OK in 30454ms (Views: 39.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:47:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.2ms)
+  Rendered search/_livescreen.html.erb (12.3ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.8ms)
+  Rendered search/_articles.html.erb (2.4ms)
+  Rendered search/index.js.erb (28.0ms)
+Completed 200 OK in 28117ms (Views: 46.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:48:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.2ms)
+  Rendered search/_livescreen.html.erb (10.5ms)
+  Rendered search/_sentiment.html.erb (0.5ms)
+  Rendered search/_twitter.html.erb (0.9ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (26.0ms)
+Completed 200 OK in 33976ms (Views: 41.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:49:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.8ms)
+  Rendered search/_livescreen.html.erb (10.5ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (21.7ms)
+Completed 200 OK in 30963ms (Views: 35.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:50:23 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.4ms)
+  Rendered search/_livescreen.html.erb (14.6ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (28.5ms)
+Completed 200 OK in 27183ms (Views: 42.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:51:18 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.3ms)
+  Rendered search/_livescreen.html.erb (10.1ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (24.0ms)
+Completed 200 OK in 26006ms (Views: 37.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:52:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (14.7ms)
+  Rendered search/_livescreen.html.erb (22.2ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (34.5ms)
+Completed 200 OK in 28054ms (Views: 48.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:53:21 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.7ms)
+  Rendered search/_livescreen.html.erb (10.1ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.3ms)
+  Rendered search/index.js.erb (21.0ms)
+Completed 200 OK in 28849ms (Views: 34.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:54:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (2.9ms)
+  Rendered search/_livescreen.html.erb (9.4ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (20.5ms)
+Completed 200 OK in 25649ms (Views: 34.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:55:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.3ms)
+  Rendered search/_livescreen.html.erb (11.1ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (22.3ms)
+Completed 200 OK in 30855ms (Views: 36.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:56:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.4ms)
+  Rendered search/_livescreen.html.erb (10.3ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (21.6ms)
+Completed 200 OK in 30512ms (Views: 35.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:57:20 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.9ms)
+  Rendered search/_livescreen.html.erb (11.9ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (29.1ms)
+Completed 200 OK in 27404ms (Views: 44.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:58:15 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (5.9ms)
+  Rendered search/_livescreen.html.erb (16.5ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.6ms)
+  Rendered search/index.js.erb (36.0ms)
+Completed 200 OK in 28543ms (Views: 50.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 17:59:24 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.2ms)
+  Rendered search/_livescreen.html.erb (9.6ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (20.9ms)
+Completed 200 OK in 28508ms (Views: 34.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 18:00:14 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.9ms)
+  Rendered search/_livescreen.html.erb (10.2ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.3ms)
+  Rendered search/index.js.erb (21.5ms)
+Completed 200 OK in 23216ms (Views: 43.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 18:01:14 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started GET "/search/brokers" for 127.0.0.1 at 2018-09-10 18:01:37 +0800
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for SearchController):
+  
+actionpack (5.2.1) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+meta_request (0.6.0) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+meta_request (0.6.0) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+rack-contrib (2.0.1) lib/rack/contrib/response_headers.rb:17:in `call'
+meta_request (0.6.0) lib/meta_request/middlewares/headers.rb:16:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.9ms)
+  Rendered search/_livescreen.html.erb (10.8ms)
+  Rendered search/_sentiment.html.erb (0.5ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.6ms)
+  Rendered search/index.js.erb (22.4ms)
+Completed 200 OK in 26726ms (Views: 36.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=bloomberg" for 127.0.0.1 at 2018-09-10 18:02:08 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"bloomberg"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Completed 500  in 21481ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `insert' for nil:NilClass):
+  
+app/controllers/search_controller.rb:86:in `company_info'
+app/controllers/search_controller.rb:33:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-10 18:02:40 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (1.8ms)
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.3ms)
+  Rendered search/_livescreen.html.erb (8.4ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_company_bio.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.html.erb within layouts/application (27.9ms)
+  Rendered application/_navbar.html.erb (1.4ms)
+Completed 200 OK in 28248ms (Views: 59.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=jeffrey" for 127.0.0.1 at 2018-09-10 18:03:44 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"jeffrey"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Completed 500  in 19979ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `insert' for nil:NilClass):
+  
+app/controllers/search_controller.rb:86:in `company_info'
+app/controllers/search_controller.rb:33:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:05:50 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.8ms)
+  Rendered search/_livescreen.html.erb (10.8ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (22.8ms)
+Completed 200 OK in 31377ms (Views: 37.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:06:50 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.6ms)
+  Rendered search/_livescreen.html.erb (15.6ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (28.2ms)
+Completed 200 OK in 29433ms (Views: 41.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-10 18:07:45 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:07:49 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (1.8ms)
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (2.8ms)
+  Rendered search/_livescreen.html.erb (7.4ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_company_bio.html.erb (0.2ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.6ms)
+  Rendered search/index.html.erb within layouts/application (25.9ms)
+  Rendered application/_navbar.html.erb (1.4ms)
+Completed 200 OK in 30779ms (Views: 74.7ms | ActiveRecord: 0.8ms)
+
+
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.5ms)
+  Rendered search/_livescreen.html.erb (10.4ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (21.8ms)
+Completed 200 OK in 28223ms (Views: 35.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:09:16 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.3ms)
+  Rendered search/_livescreen.html.erb (10.4ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (21.8ms)
+Completed 200 OK in 30567ms (Views: 35.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:10:23 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.7ms)
+  Rendered search/_livescreen.html.erb (11.3ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.7ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (29.0ms)
+Completed 200 OK in 30653ms (Views: 46.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-10 18:10:57 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:11:16 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (1.8ms)
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.3ms)
+  Rendered search/_livescreen.html.erb (8.5ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_company_bio.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (4.3ms)
+  Rendered search/index.html.erb within layouts/application (31.9ms)
+  Rendered application/_navbar.html.erb (4.4ms)
+Completed 200 OK in 30968ms (Views: 72.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 18:11:31 +0800
+Processing by WatchlistController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IgRW7kjObywUY+Hte6mDvWFZq7Ha2z4tb4EwmBHHrd4itwLyNkb1uUVHARRltR7E8nCnKbiidyzM1uXt9UJZdQ==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Add to watchlist"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (1.1ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "GOOGL"], ["created_at", "2018-09-10 10:11:31.371502"], ["updated_at", "2018-09-10 10:11:31.371502"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+Completed 302 Found in 38ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-10 18:11:31 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.0ms)
+  Rendered search/_livescreen.html.erb (11.1ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (22.8ms)
+Completed 200 OK in 32080ms (Views: 37.5ms | ActiveRecord: 1.0ms)
+
+
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (2.5ms)
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.9ms)
+  Rendered search/_livescreen.html.erb (9.5ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_company_bio.html.erb (0.2ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.html.erb within layouts/application (29.0ms)
+  Rendered application/_navbar.html.erb (1.3ms)
+Completed 200 OK in 37203ms (Views: 60.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:13:09 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (12.8ms)
+  Rendered search/_livescreen.html.erb (20.4ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.8ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (33.2ms)
+Completed 200 OK in 37219ms (Views: 47.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:14:10 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.7ms)
+  Rendered search/_livescreen.html.erb (11.4ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.7ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (26.7ms)
+Completed 200 OK in 38824ms (Views: 47.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:15:10 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.6ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-10 18:15:40 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.9ms)
+  Rendered search/_livescreen.html.erb (11.3ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.7ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (26.1ms)
+Completed 200 OK in 42489ms (Views: 42.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:16:09 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (2.4ms)
+  [1m[36mWatchlist Load (0.7ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (5.2ms)
+  Rendered search/_livescreen.html.erb (12.8ms)
+  Rendered search/_sentiment.html.erb (0.6ms)
+  Rendered search/_company_bio.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.8ms)
+  Rendered search/index.html.erb within layouts/application (38.1ms)
+  Rendered application/_navbar.html.erb (1.9ms)
+Completed 200 OK in 46371ms (Views: 90.0ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-10 18:16:35 +0800
+Processing by WatchlistController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MK7qs+kMqVE5RI5/C1xE01rwIMfjbAxYPoHWNMkQgPEwHb6vl4QzxGhgboYVQNmqydksX4EVRVmd1gNBLZV0Wg==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Remove from to watchlist", "id"=>"destroy"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[36mWatchlist Destroy (3.6ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+  [1m[36mWatchlist Load (3.2ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+Completed 200 OK in 44ms (ActiveRecord: 20.8ms)
+
+
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (5.6ms)
+  Rendered search/_livescreen.html.erb (12.7ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (25.5ms)
+Completed 200 OK in 41014ms (Views: 39.4ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-10 18:17:08 +0800
+Processing by WatchlistController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MK7qs+kMqVE5RI5/C1xE01rwIMfjbAxYPoHWNMkQgPEwHb6vl4QzxGhgboYVQNmqydksX4EVRVmd1gNBLZV0Wg==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Remove from to watchlist", "id"=>"destroy"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Load (5.2ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+Completed 500  in 23ms (ActiveRecord: 5.7ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/watchlist_controller.rb:38:in `destroy'
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:17:34 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.6ms)
+  Rendered search/_livescreen.html.erb (12.6ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (34.0ms)
+Completed 200 OK in 29373ms (Views: 51.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 18:18:19 +0800
+Processing by WatchlistController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cmKsJjAms7YtGNgBQmzvGt03m0vYIzwOcNy/0XIaFvqfGO6Rk+PhOvE9ppX0ty5Ma2SR7GbAkgPlQshgrmKugA==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Add to watchlist"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (0.6ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "GOOGL"], ["created_at", "2018-09-10 10:18:19.378512"], ["updated_at", "2018-09-10 10:18:19.378512"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+Completed 200 OK in 23ms (ActiveRecord: 3.6ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 18:18:22 +0800
+Processing by WatchlistController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cmKsJjAms7YtGNgBQmzvGt03m0vYIzwOcNy/0XIaFvqfGO6Rk+PhOvE9ppX0ty5Ma2SR7GbAkgPlQshgrmKugA==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Add to watchlist"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (0.6ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "GOOGL"], ["created_at", "2018-09-10 10:18:22.483960"], ["updated_at", "2018-09-10 10:18:22.483960"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+Completed 200 OK in 24ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:18:36 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.3ms)
+  Rendered search/_livescreen.html.erb (10.0ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (21.4ms)
+Completed 200 OK in 47684ms (Views: 35.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:19:34 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-10 18:19:39 +0800
+Processing by WatchlistController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YFSL24V81JIBWA8hqnrwg+MXuV4ZZ6Pn2q+t+zfs6nl2WoMmUJ4WNEvmwkcgl8+ZfAKu4zTTtwUQzpQO8/0Eqg==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Remove from to watchlist", "id"=>"destroy"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[36mWatchlist Destroy (0.4ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+Completed 200 OK in 32ms (ActiveRecord: 3.8ms)
+
+
+Completed 500  in 82392ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `attribute' for nil:NilClass):
+  
+app/controllers/search_controller.rb:156:in `browser_grab_images'
+app/controllers/search_controller.rb:48:in `index'
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:21:36 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.7ms)
+  Rendered search/_livescreen.html.erb (11.6ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (1.0ms)
+  Rendered search/index.js.erb (25.8ms)
+Completed 200 OK in 43203ms (Views: 40.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:22:36 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  Rendered application/_watchlist.html.erb (0.8ms)
+  Rendered search/_livescreen.html.erb (8.2ms)
+  Rendered search/index.js.erb (11.9ms)
+Completed 500  in 42298ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/Users/rdelarosa/Desktop/Rovix/group_project/app/views/application/_watchlist.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...list", class: "btn btn-info" id: "show_button" );@output_buf...
+...                             ^~):
+  
+app/views/application/_watchlist.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/application/_watchlist.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/search/_livescreen.html.erb:9:in `_app_views_search__livescreen_html_erb___3558526494744649990_70283676513320'
+app/views/search/index.js.erb:1:in `_app_views_search_index_js_erb___627810990066093218_70283662817860'
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:23:36 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.4ms)
+  Rendered search/_livescreen.html.erb (10.5ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (22.4ms)
+Completed 200 OK in 40290ms (Views: 36.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:24:36 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.2ms)
+  Rendered search/_livescreen.html.erb (11.1ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (22.7ms)
+Completed 200 OK in 41591ms (Views: 36.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:25:36 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.7ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-10 18:26:04 +0800
+Processing by WatchlistController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"acQ1QHBVnelGYSHHUkeIrHRPs/z2NjYbwA6xEnfMqpx/yj29pbdfTwzf7KHYqre261qkQduCIvkKb4jns91ETw==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Remove from to watchlist", "id"=>"destroy"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Load (0.7ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[36mWatchlist Destroy (0.4ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+Completed 200 OK in 33ms (ActiveRecord: 5.3ms)
+
+
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.4ms)
+  Rendered search/_livescreen.html.erb (10.9ms)
+  Rendered search/_sentiment.html.erb (0.7ms)
+  Rendered search/_twitter.html.erb (1.8ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (29.3ms)
+Completed 200 OK in 44951ms (Views: 48.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:26:37 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.4ms)
+  Rendered search/_livescreen.html.erb (11.6ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (24.6ms)
+Completed 200 OK in 29480ms (Views: 39.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:27:38 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (8.1ms)
+  Rendered search/_livescreen.html.erb (15.7ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (29.2ms)
+Completed 200 OK in 28367ms (Views: 49.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:28:37 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.0ms)
+  Rendered search/_livescreen.html.erb (16.4ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.8ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (30.4ms)
+Completed 200 OK in 31154ms (Views: 53.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:29:37 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (5.3ms)
+  Rendered search/_livescreen.html.erb (13.1ms)
+  Rendered search/_sentiment.html.erb (1.0ms)
+  Rendered search/_twitter.html.erb (0.8ms)
+  Rendered search/_articles.html.erb (2.2ms)
+  Rendered search/index.js.erb (50.7ms)
+Completed 200 OK in 25959ms (Views: 70.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:30:37 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (16.3ms)
+  Rendered search/_livescreen.html.erb (24.2ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (37.4ms)
+Completed 200 OK in 29875ms (Views: 51.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:31:37 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (30.1ms)
+  Rendered search/_livescreen.html.erb (38.4ms)
+  Rendered search/_sentiment.html.erb (0.6ms)
+  Rendered search/_twitter.html.erb (2.0ms)
+  Rendered search/_articles.html.erb (0.6ms)
+  Rendered search/index.js.erb (60.1ms)
+Completed 200 OK in 28979ms (Views: 80.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:32:37 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (13.3ms)
+  Rendered search/_livescreen.html.erb (20.8ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.7ms)
+  Rendered search/_articles.html.erb (0.8ms)
+  Rendered search/index.js.erb (34.1ms)
+Completed 200 OK in 30545ms (Views: 48.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:33:37 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-10 18:33:39 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.9ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (11.3ms)
+  Rendered search/_livescreen.html.erb (18.9ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.7ms)
+  Rendered search/_articles.html.erb (0.7ms)
+  Rendered search/index.js.erb (33.8ms)
+Completed 200 OK in 28655ms (Views: 45.6ms | ActiveRecord: 1.1ms)
+
+
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (1.7ms)
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.0ms)
+  Rendered search/_livescreen.html.erb (9.4ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_company_bio.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.4ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.html.erb within layouts/application (27.3ms)
+  Rendered application/_navbar.html.erb (1.6ms)
+Completed 200 OK in 29107ms (Views: 60.9ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 18:34:18 +0800
+Processing by WatchlistController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fssmLCdh5oCZJKUY5F75cL6bZ7K8rOkjOQHziQbImsN+eHIwWel8FcgAReH6QmQJLbJrKt7VoCKaVib84k1uaA==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Add to watchlist"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (0.8ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "GOOGL"], ["created_at", "2018-09-10 10:34:18.654934"], ["updated_at", "2018-09-10 10:34:18.654934"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+Completed 200 OK in 31ms (ActiveRecord: 6.0ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 18:34:21 +0800
+Processing by WatchlistController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fssmLCdh5oCZJKUY5F75cL6bZ7K8rOkjOQHziQbImsN+eHIwWel8FcgAReH6QmQJLbJrKt7VoCKaVib84k1uaA==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Add to watchlist"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (2.9ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "GOOGL"], ["created_at", "2018-09-10 10:34:21.393357"], ["updated_at", "2018-09-10 10:34:21.393357"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+Completed 200 OK in 29ms (ActiveRecord: 5.2ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 18:34:22 +0800
+Processing by WatchlistController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fssmLCdh5oCZJKUY5F75cL6bZ7K8rOkjOQHziQbImsN+eHIwWel8FcgAReH6QmQJLbJrKt7VoCKaVib84k1uaA==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Add to watchlist"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (2.6ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "GOOGL"], ["created_at", "2018-09-10 10:34:22.215093"], ["updated_at", "2018-09-10 10:34:22.215093"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+Completed 200 OK in 26ms (ActiveRecord: 6.2ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 18:34:22 +0800
+Processing by WatchlistController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fssmLCdh5oCZJKUY5F75cL6bZ7K8rOkjOQHziQbImsN+eHIwWel8FcgAReH6QmQJLbJrKt7VoCKaVib84k1uaA==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Add to watchlist"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (2.4ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "GOOGL"], ["created_at", "2018-09-10 10:34:22.696717"], ["updated_at", "2018-09-10 10:34:22.696717"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+Completed 200 OK in 25ms (ActiveRecord: 5.7ms)
+
+
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 18:34:23 +0800
+Processing by WatchlistController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fssmLCdh5oCZJKUY5F75cL6bZ7K8rOkjOQHziQbImsN+eHIwWel8FcgAReH6QmQJLbJrKt7VoCKaVib84k1uaA==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Add to watchlist"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (0.4ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "GOOGL"], ["created_at", "2018-09-10 10:34:23.175844"], ["updated_at", "2018-09-10 10:34:23.175844"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+Completed 200 OK in 23ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:35:09 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started POST "/watchlist" for 127.0.0.1 at 2018-09-10 18:35:25 +0800
+Processing by WatchlistController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fssmLCdh5oCZJKUY5F75cL6bZ7K8rOkjOQHziQbImsN+eHIwWel8FcgAReH6QmQJLbJrKt7VoCKaVib84k1uaA==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Add to watchlist"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[36mWatchlist Create (1.6ms)[0m  [1m[32mINSERT INTO "watchlists" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "GOOGL"], ["created_at", "2018-09-10 10:35:25.361770"], ["updated_at", "2018-09-10 10:35:25.361770"], ["user_id", 1]]
+  ↳ app/controllers/watchlist_controller.rb:22
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:22
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+Completed 200 OK in 24ms (ActiveRecord: 6.2ms)
+
+
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.0ms)
+  Rendered search/_livescreen.html.erb (11.5ms)
+  Rendered search/_sentiment.html.erb (0.5ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (24.7ms)
+Completed 200 OK in 96928ms (Views: 40.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:37:09 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (7.7ms)
+  Rendered search/_livescreen.html.erb (19.9ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.7ms)
+  Rendered search/_articles.html.erb (1.3ms)
+  Rendered search/index.js.erb (49.4ms)
+Completed 200 OK in 92972ms (Views: 69.9ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-10 18:38:48 +0800
+Processing by WatchlistController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TvftvAJ+M/Ln9DQxh2hrzQHVeHze5lwxpimxgc8QHatY+eVB15zxVK1K+VcNhVTXnsBvwfNSSNNsSIh0CwHzeA==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Remove from to watchlist", "id"=>"destroy"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Load (0.5ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[36mWatchlist Destroy (2.6ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+  [1m[36mWatchlist Load (6.6ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+Completed 200 OK in 45ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:39:10 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.3ms)
+  Rendered search/_livescreen.html.erb (11.4ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (23.7ms)
+Completed 200 OK in 84130ms (Views: 38.1ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-10 18:40:46 +0800
+Processing by WatchlistController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oRFsXsA7SVMffeQB6uV9DWiB3JR0rP+qSCRFbu0+xCq3H2SjFdmL9VXDKWdgCEIX95TLKVkY60iCRXybKS8q+Q==", "name"=>"GOOGL", "user_id"=>"1", "commit"=>"Remove from to watchlist", "id"=>"destroy"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Load (4.9ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[36mWatchlist Destroy (1.0ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+Completed 200 OK in 32ms (ActiveRecord: 9.4ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-10 18:40:55 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:41:11 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (24.2ms)
+  [1m[36mWatchlist Load (0.8ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (12.4ms)
+  Rendered search/_livescreen.html.erb (25.4ms)
+  Rendered search/_sentiment.html.erb (1.1ms)
+  Rendered search/_company_bio.html.erb (0.6ms)
+  Rendered search/_twitter.html.erb (0.7ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.html.erb within layouts/application (90.0ms)
+  Rendered application/_navbar.html.erb (2.7ms)
+Completed 200 OK in 68046ms (Views: 159.1ms | ActiveRecord: 1.4ms)
+
+
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.0ms)
+  Rendered search/_livescreen.html.erb (13.0ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (28.2ms)
+Completed 200 OK in 70865ms (Views: 44.1ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-10 18:42:29 +0800
+Processing by WatchlistController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YIeHnOz4w+OmuriVLIcOOpdPySx6uVxy1aE0aD29ETZgNNOAknBZdveeWGwym5NDBGbFtBjAFXN29uEd2TjlnQ==", "name"=>"GOOGL", "user_id"=>"1", "button"=>"", "id"=>"destroy"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[36mWatchlist Destroy (0.8ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=google
+  [1m[36mWatchlist Load (0.6ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+Completed 302 Found in 21ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=google" for 127.0.0.1 at 2018-09-10 18:42:29 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"google"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:43:06 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (5.0ms)
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.5ms)
+  Rendered search/_livescreen.html.erb (9.9ms)
+  Rendered search/_sentiment.html.erb (0.5ms)
+  Rendered search/_company_bio.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.7ms)
+  Rendered search/_articles.html.erb (0.6ms)
+  Rendered search/index.html.erb within layouts/application (34.5ms)
+  Rendered application/_navbar.html.erb (1.7ms)
+Completed 200 OK in 62051ms (Views: 75.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB" for 127.0.0.1 at 2018-09-10 18:43:38 +0800
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.6ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.5ms)
+  Rendered search/_livescreen.html.erb (11.6ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (1.9ms)
+  Rendered search/index.js.erb (26.1ms)
+Completed 200 OK in 61143ms (Views: 41.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=GOOGL&nil=search" for 127.0.0.1 at 2018-09-10 18:44:32 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"GOOGL", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (3.4ms)
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.9ms)
+  Rendered search/_livescreen.html.erb (10.6ms)
+  Rendered search/_sentiment.html.erb (2.8ms)
+  Rendered search/_company_bio.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.8ms)
+  Rendered search/index.html.erb within layouts/application (39.5ms)
+  Rendered application/_navbar.html.erb (1.5ms)
+Completed 200 OK in 62929ms (Views: 98.9ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/watchlist/destroy" for 127.0.0.1 at 2018-09-10 18:44:47 +0800
+Processing by WatchlistController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1RWIpA60xQkTPNA49hJ8gWOxl6lCLsh54KrNDER9OlfVpty4cDxfnEIYMMHoDuH48JibMSBXgXhD/Rh5oPjO/A==", "name"=>"FB", "user_id"=>"1", "commit"=>"Remove from to watchlist", "id"=>"destroy"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:36
+  [1m[36mWatchlist Load (1.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[36mWatchlist Destroy (0.5ms)[0m  [1m[31mDELETE FROM "watchlists" WHERE "watchlists"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/watchlist_controller.rb:38
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watchlist_controller.rb:38
+Redirected to http://localhost:3000/search?utf8=%E2%9C%93&searchword=FB
+  [1m[36mWatchlist Load (12.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/controllers/watchlist_controller.rb:53
+Completed 200 OK in 49ms (ActiveRecord: 22.0ms)
+
+
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (4.3ms)
+  Rendered search/_livescreen.html.erb (11.7ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (23.3ms)
+Completed 200 OK in 62887ms (Views: 37.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 18:45:44 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.8ms)
+  Rendered search/_livescreen.html.erb (10.5ms)
+  Rendered search/_sentiment.html.erb (0.4ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (23.0ms)
+Completed 200 OK in 47286ms (Views: 37.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 18:46:44 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (3.5ms)
+  Rendered search/_livescreen.html.erb (10.8ms)
+  Rendered search/_sentiment.html.erb (0.3ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.7ms)
+  Rendered search/index.js.erb (23.1ms)
+Completed 200 OK in 48407ms (Views: 37.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 18:47:44 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.7ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (5.7ms)
+  Rendered search/_livescreen.html.erb (13.0ms)
+  Rendered search/_sentiment.html.erb (0.5ms)
+  Rendered search/_twitter.html.erb (0.5ms)
+  Rendered search/_articles.html.erb (0.4ms)
+  Rendered search/index.js.erb (25.2ms)
+Completed 200 OK in 46282ms (Views: 39.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&searchword=FB&nil=search" for 127.0.0.1 at 2018-09-10 18:48:44 +0800
+Processing by SearchController#index as JS
+  Parameters: {"utf8"=>"✓", "searchword"=>"FB", "nil"=>"search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:25
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.js.erb
+  [1m[36mWatchlist Load (0.3ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "FB"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (7.2ms)
+  Rendered search/_livescreen.html.erb (15.4ms)
+  Rendered search/_sentiment.html.erb (0.5ms)
+  Rendered search/_twitter.html.erb (0.6ms)
+  Rendered search/_articles.html.erb (0.5ms)
+  Rendered search/index.js.erb (30.8ms)
+Completed 200 OK in 48792ms (Views: 46.2ms | ActiveRecord: 0.9ms)
+
+

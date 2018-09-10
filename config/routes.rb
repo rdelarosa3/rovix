@@ -10,5 +10,10 @@ Rails.application.routes.draw do
   resources :watchlist 
   get 'watchlist/destroy' => 'watchlist#destroy', :as => "destroy_watchlist"
 
+  resources :search do
+  	collection do
+  		get :brokers
+  	end
+  end 
 end
  

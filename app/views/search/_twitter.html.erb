@@ -1,0 +1,13 @@
+<% @tweets.each do |tweet| %>
+  <div class="card m-1 p-2 pb-0 mb-0">
+    <span><a href="https://twitter.com/<%= tweet.fetch(:username)[1..-1] %>"> <img src="<%= tweet.fetch(:avatar) %>" class='rounded-circle pull-left mr-1' style='width:48px;height:48px'>
+    <div class="card-title">
+    <strong><%= tweet.fetch(:fullname) %></strong> <small class="text-muted"> <%= tweet.fetch(:when) %> <i class="fab fa-twitter fa-1x text-primary pull-right"> </i><br><%= tweet.fetch(:username) %> </small></a></span>
+    </div>
+    <div class="">
+    <p class="card-text">
+        <%= tweet.fetch(:content) %>
+      </p>
+    </div>
+  </div>
+<% end %>

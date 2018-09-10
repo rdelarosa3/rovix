@@ -1,0 +1,19 @@
+<div class="card p-2 shadow h-100">
+  <div class="container-fluid">
+    <div class="title d-flex"><h5>Sentiment</h5><hr></div>
+    <div class="row pl-2">
+      <div class="text-muted"><h2><%= @negative %>%</h2>
+          <p>SELLING</p>
+      </div>
+      <div class="ml-auto pr-2"><h2><%= @positive %>%</h2>
+          <p>BUYING</p>
+      </div>
+    </div>
+    
+    <div class="row">
+        <div style="width:<%= @negative - 1 %>%; background-color: #db3951; height: 15px;"></div>
+        <div class=" ml-auto" style="width:<%= @positive %>%; background-color: #1abb9c; height: 15px;"></div>
+    </div>
+    <center><h6><small><em>Figures based on current social sentiment.</em></small></h6></center>
+  </div>
+</div>

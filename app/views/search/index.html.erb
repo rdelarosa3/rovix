@@ -4,22 +4,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
+
+  body {
     position: relative;
     overflow-x: hidden;
-    background-color: #CFD8DC;
-}
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top:5px; !important;
-}
- 
-.divbackground{
-  background-image: url("<%= @cover %>");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+    background-image: linear-gradient(to bottom, #dfe9f3 0%, white 50%);}
+  a{
+    color : #000000;
+    text-decoration: none;
+  }
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;  
+  }
+
+  .financials {
+   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  /*background-color: #f0f0f0;*/
+  }
+
+  .page-navigation {
+      box-sizing: border-box;
+      width: 100%;
+      height: 200px;
+      padding: 30px 0;
+      background-image: url(https://d1nrosdlfy3br.cloudfront.net/assets/single-instrument/all-the-rest-symbols-main-image-f0282160dcd9bd93028f46fb59e526c54f33ec48e552971e095c36d3021bffa4.png);
+      background-position: center center;
+      background-size: cover
+  }
+  /*background for company logo*/
+  .divbackground{
+    background-image: url("<%= @cover %>");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  a:hover{
+      text-decoration: none;
+  }
+  /*this will hide the form to refresh company prices*/
+  #hiddenForm {
+     visibility: hidden;
+  }
+  .higher-cols {
+    top: -43px;
+    position: relative;
+  }
 
 </style>
 
@@ -39,82 +69,59 @@ body {
       <span class="hamb-bottom"></span>
     </button>
 
-
-
-  <div class="row mb-5 shadow-sm">
-    <div class="col-md-1">
-    </div>
-     <div class="col-md-3 pt-4 pb-3 ">
-      <h1 class="font-weight-bold text-uppercase"><%= @company.fetch(:company_name) %></h1> 
-      <h5><%= @company.fetch(:ticker) %><h3 class="font-weight-bold"><small>$</small><%= @company.fetch(:price) %></h3><% if @company.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %>  <%= @company.fetch(:change_price)%></span> <% if @company.fetch(:change_percent)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> (<%= @company.fetch(:change_percent) %>)</span> </h5>
-      <h6> Sector: <%= @company_sector %></h6>
-      <!-- watchlist button Are here -->
-        <%= render partial:'watchlist'%>
-  </div> <!-- / col-md-3 pt-4 pb-3  -->
-  
-
-          
-         
-  <div class="col-md-4 divbackground pull-right">
-    </div>
-    <div class="col-md-1">
-    </div>  
-    <div class="col-md-2 pt-4 pb-3 ">
-      <div class="row text-center">  
-      <h3 class="font-weight-bold text-uppercase pull-right"><span class="text-success text-center"> <%= @positive %><small>%</small> Bull</span> <br><span class="text-danger text-center"> <%= @negative %><small>%</small> Bear </span></h3>
-      <h6><small><em>Figures based on current social sentiment.</em></small></h6>
-      </div> <!--row text-center -->
-    </div> <!-- / col-md-3 pt-4 pb-3  --> 
-  </div> <!-- / col-md-3 pt-4 pb-3  -->
-
-
-
-<div class="container md-12" >
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card m-1 shadow">
-        <div class="card-body">
-          <h5 class="text-muted font-weight-bold text-uppercase">Company BIO <img src="<%= @logo %> %>" class=" rounded-circle pull-right pb-3" style='width:38px;height:38px'></h5>
-          <hr>
-          <h4 class="card-title"><a href="<%= @company_link %>" title="<%= @company_link %>"><%= @company.fetch(:company_name) %></a></h4>
-          <p class="card-text">
-            <%= @company_description %>
-          </p>
-        </div>
+<!-- main background header -->
+<div class="page-navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"><h1 class="inline text-light"><%= @company.fetch(:company_name) %></h1></div>
+      <div class="col-md-4">      
+        <center><%= image_tag(@cover, class: 'rounded-circle shadow',width: '100', height: '100')%></center>
       </div>
+      <%= link_to "Trade #{@company.fetch(:company_name)}", brokers_search_index_path, class: "ml-auto mt-3 pb-3 shadow p-2 btn text-light", style: "background-color: #ffa200; min-width: 190px; max-height:35px" %></div>
+    </div>
+  </div>
+</div>
+<!-- main company financials -->
+<div class="financials">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-1"></div>
+        <div class="higher-cols col-md-5" id="livescreen">
+            <%= render(partial: 'livescreen') %>
+        </div>
+        <!-- sentiment and brokers link -->
+        <div class="higher-cols col-md-5" id="sentimentsRating">
+            <%= render(partial: 'sentiment') %>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+  </div>
+</div>
+
+<!-- cards container -->
+<div class="container md-12">
+  <div class="row">
+    <!-- company biography -->
+    <div class="col-md-4" id="company_bio">
+      <%= render(partial: 'company_bio') %>
+      <!-- paid advert -->
       <div class="sticky mt-4 border-0">
         <img src="https://pbs.twimg.com/media/CrfqS0jUMAAle3g.jpg" class="img-fluid">
       </div>
     </div>
-    <div class="col-md-5">
-    <% @tweets.each do |tweet| %>
-      <div class="card m-2 p-2 pb-0 mb-0">
-        <span><a href="https://twitter.com/<%= tweet.fetch(:username)[1..-1] %>"> <img src="<%= tweet.fetch(:avatar) %>" class='rounded-circle pull-left mr-1' style='width:48px;height:48px'>
-        <div class="card-title">
-        <strong><%= tweet.fetch(:fullname) %></strong> <small class="text-muted"> <%= tweet.fetch(:when) %> <i class="fab fa-twitter fa-1x text-primary pull-right"> </i><br><%= tweet.fetch(:username) %> </small></a></span>
-        </div>
-        <div class="">
-        <p class="card-text">
-            <%= tweet.fetch(:content) %>
-          </p>
-        </div>
-      </div>
-      <% end %>
+    <!-- company tweets -->
+    <div class="col-md-5" id="twitter">
+      <%= render(partial: 'twitter') %>
     </div>
+    <!-- company based articles -->
     <div class="col-md-3">
       <h5 class="text-muted font-weight-bold text-uppercase">
         Latests news
       </h5>
       <hr>
-      <% @articles.each do |article| %>
-      <div class="card border-0 mb-0">
-        <a href="<%= article.fetch(:link) %>">
-          <p class="card-text">  <%= article.fetch(:body) %></p>
-          <p class="hint-text text-muted"><%= article.fetch(:source) %> <%= article.fetch(:timeframe) %></p>     
-        </a>
-        <hr>
-      </div>
-      <% end %>
+      <div id="articles">
+        <%= render(partial: 'articles') %>
+      <div>
       <div class="card sticky mt-4 border-0">
         <img src="https://pbs.twimg.com/media/CrfqS0jUMAAle3g.jpg" class="img-fluid">
       </div>
@@ -123,7 +130,25 @@ body {
   </div>
 </div>
 
+<!-- hidden form to refresh current info -->
+<div class="form-inline" id="hiddenForm"> 
+  <%= form_tag search_index_url, remote: true, id: "myForm", method: :get do %> 
+  <%= search_field_tag :searchword, params[:searchword], value: @company.fetch(:ticker), class: "form-control m-1" %>
+  <%= submit_tag "search", name: :nil, class: "btn btn-danger m-1", id: 'clickButton' %>
+  <% end %>
+</div>
 </div>    <!-- /#page-content-wrapper -->
 </div>  <!-- /#wrapper -->
+
+
+<!-- js for autorefresh -->
+<script>
+window.onload = function(){
+    var button = document.getElementById('clickButton');
+    setInterval(function(){
+        button.click();
+    },60000);  // this will make it click again every 60 seconds
+};
+</script>
 
         
