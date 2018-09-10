@@ -46,7 +46,7 @@ html { height: 100%;}
 
 #page-content-wrapper {
     width: 100%;
-    padding-top: 70px;
+    padding-top: 20px;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -198,8 +198,8 @@ a[href*="#about"]::before {
 a[href*="#events"]::before {
   content: "\f073" !important;
 }
-a[href*="#team"]::before {
-  content: "\f0c0" !important;
+a[href*="#user"]::before {
+  content: "\f27e" !important;
 }
 a[href*="#watchlists"]::before {
   /* content: "\f0b1" !important; */
@@ -242,7 +242,7 @@ a[href*="#followme"]::before {
 .hamburger {
   position: sticky;
   z-index: 999;
-  top: 56px;
+  top: 5px;
   display: block;
   width: 32px;
   height: 32px;
