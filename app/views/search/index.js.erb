@@ -1,10 +1,6 @@
-$(document).ready(function(){
-	$("#hide").click(function(){
-	    $("#watchlistButton").hide();
-
-	});
-});
+$("#sidePanel").html("<%= j render(partial: 'side_panel') %>");
 $("#livescreen").html("<%= j render(partial: 'livescreen') %>");
 $("#sentimentsRating").html("<%= j render(partial: 'sentiment') %>");
 $("#twitter").html("<%= j render(partial: 'twitter') %>");
 $("#articles").html("<%= j render(partial: 'articles') %>");
+

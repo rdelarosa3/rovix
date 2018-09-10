@@ -12,17 +12,29 @@
        <a href="#watchlists" class="dropdown-toggle" aria-expanded="true"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
      <ul class="dropdown-menu animated fadeInLeft show" role="menu">
       <div class="dropdown-header">My Watchlists</div>
-            <% @watchlists.each do |watchlist| %>
-                <li><a href="http://localhost:3000/search?utf8=✓&searchword=<%= watchlist.fetch(:ticker) %>"><%= watchlist.fetch(:ticker) %>
-                <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure to delete this watchlist?',id:'user_id'}) do |form| %>
-                <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
-                <%= form.hidden_field :user_id, value: current_user.id %>
-                  <%= form.button :submit,style:"border: none;background: transparent; margin-top:-20px; margin-right:50px;float:right;color:#ea4c4c;" do %>
-                              <i class="fas fa-minus-circle"></i>
-                   <% end %>
+        <% current_user.watchlists.each do |watchlist| %>
+              <div id="<%= watchlist.id %>">
+                <div class="form-inline" id="hiddenForm"> 
+                <%= form_tag search_index_url, remote: true, id: "myForm", method: :get do %> 
+                <%= search_field_tag :searchword, params[:searchword], value: watchlist.name, class: "form-control m-1" %>
+                <%= submit_tag "search", name: :nil, class: "btn btn-danger m-1", id: 'sideButton' %>
                 <% end %>
-                </a></li>            
+                </div>
+          <li><a href="#" onclick="document.getElementById('sidebarButton').click()"><%= watchlist.name %></a>
+              
+            <!-- form to delete company from watchlist -->
+            <%= form_with(url:  destroy_watchlist_path,method: :delete,remote: true, data: { confirm: 'Are you sure to delete this watchlist?',id:'user_id'}) do |form| %>
+              <%= form.hidden_field :name, value: watchlist.name %>
+              <%= form.hidden_field :user_id, value: current_user.id %>
+              <%= form.button :submit,style:"border: none;background: transparent; margin-top:-20px; margin-right:50px;float:right;color:#ea4c4c;", onclick: "hide('#{watchlist.id}')" do %>
+                  <i class="fas fa-minus-circle"></i>
+              <% end %>
             <% end %>
+          </li>
+          </div>            
+        <% end %>
+
+
       <% elsif user_signed_in? %>
       <a href="#watchlists" class="dropdown-toggle"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
             <ul class="dropdown-menu animated fadeInLeft" role="menu">
@@ -47,3 +59,14 @@
   </nav>
 
         <!-- /#sidebar-wrapper -->
+
+
+<script>
+ function hide(obj) {
+
+    var el = document.getElementById(obj);
+
+        el.style.display = 'none';
+
+} 
+</script>      

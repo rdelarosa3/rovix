@@ -8,7 +8,8 @@
   body {
     position: relative;
     overflow-x: hidden;
-    background-image: linear-gradient(to bottom, #dfe9f3 0%, white 50%);}
+    background-color: #dfe9f3;
+  }
   a{
     color : #000000;
     text-decoration: none;
@@ -57,7 +58,9 @@
 <div id="wrapper">
 
    <!-- Sidebar -->
-  <%= render partial:'sidebar'%>
+  <div id="sidePanel"> 
+  <%= render(partial: 'side_panel') %>
+  </div>
 
    <!-- Page Content(sidebar) -->
     <div id="page-content-wrapper">

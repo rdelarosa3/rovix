@@ -3,11 +3,12 @@
 	    <div class="title d-flex"><h5>Market Price</h5><hr></div>
 	    <div class="row pl-2">
 	      <h4><strong><%= @company.fetch(:ticker) %></strong></h4>
+	      	    <!-- watchlist button Are here -->
+	    <div class="ml-auto">
+        	<%= render partial:'watchlist'%>
 	    </div>
-	    <!-- watchlist button Are here -->
-	    <div>
-        	<%= render partial:'watchlist', class: "ml-auto"%>
 	    </div>
+
 	    <div class="row pl-2">
 	    	<div><h3 class="font-weight-bold"><small>$</small><%= @company.fetch(:price) %></h3></div>
 

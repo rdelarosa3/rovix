@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users, controllers: {sessions: 'users/sessions',registrations:'users/registrations'}
 
-  
+  resources :search do
+    collection do
+      get :brokers
+    end
+  end 
   resources :search 
   get 'users/profile' => 'watchlist#show' , :as => "user_profile"
   

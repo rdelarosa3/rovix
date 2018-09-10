@@ -22,9 +22,7 @@ class SearchController < ApplicationController
 			security_name = "facebook"
 		end
 		
-		if current_user
-			search_index
-		end
+
 		
 		# automated browsing #
 		automated_browser(security_name)

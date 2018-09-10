@@ -16,11 +16,12 @@ class WatchlistController < ApplicationController
 
   def create
     @watchlist = Watchlist.new(watchlist_params)
-     
     respond_to do |format|
       if current_user
         if @watchlist.save
+          format.js
           format.html { redirect_back fallback_location: search_index_url, success: 'Watchlist was successfully created.' }
+          
         else
           redirect_to root_path ,danger: "Unsuccessfully , Please Try Again Later"
         end
@@ -39,6 +40,7 @@ class WatchlistController < ApplicationController
 			respond_to do |format|
 				format.html { redirect_back fallback_location: search_index_url, danger: 'Watchlist was successfully destroyed.' }
 				format.json { head :no_content }
+				
 			end
 		end
 	end
