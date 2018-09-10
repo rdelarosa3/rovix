@@ -13,6 +13,8 @@
 log/*
 /tmp/*
 tmp/*
+tmp/cache/bootsnap-compile-cache/*
+/tmp/cache/bootsnap-compile-cache/*
 !/log/.keep
 !/tmp/.keep
 

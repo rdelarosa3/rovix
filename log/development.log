@@ -29425,3 +29425,62 @@ Processing by SearchController#index as HTML
 Completed 200 OK in 18428ms (Views: 274.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/search" for 127.0.0.1 at 2018-09-10 15:56:57 +0800
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.2ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (1.5ms)
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (9.8ms)
+  Rendered search/index.html.erb within layouts/application (20.1ms)
+  Rendered application/_navbar.html.erb (2.2ms)
+Completed 200 OK in 16670ms (Views: 252.9ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-09-10 15:57:46 +0800
+Processing by SearchController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "watchlists" WHERE "watchlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16
+  [1m[36mWatchlist Load (0.4ms)[0m  [1m[34mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/watchlist_helper.rb:107
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (1.4ms)
+  [1m[36mWatchlist Load (0.7ms)[0m  [1m[34mSELECT  "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."name" = $2 LIMIT $3[0m  [["user_id", 1], ["name", "GOOGL"], ["LIMIT", 1]]
+  ↳ app/views/application/_watchlist.html.erb:5
+  Rendered application/_watchlist.html.erb (11.6ms)
+  Rendered search/index.html.erb within layouts/application (22.1ms)
+  Rendered application/_navbar.html.erb (3.1ms)
+Completed 200 OK in 16999ms (Views: 62.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-09-10 16:01:50 +0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vin/.asdf/installs/ruby/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SearchController#index as HTML
+  Rendering search/index.html.erb within layouts/application
+  Rendered application/_sidebar.html.erb (0.8ms)
+  Rendered application/_watchlist.html.erb (0.8ms)
+  Rendered search/index.html.erb within layouts/application (8.1ms)
+  Rendered application/_navbar.html.erb (24.5ms)
+Completed 200 OK in 17631ms (Views: 325.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in/" for 127.0.0.1 at 2018-09-10 16:03:02 +0800
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (382.7ms)
+  Rendered application/_navbar.html.erb (2.1ms)
+Completed 200 OK in 457ms (Views: 413.3ms | ActiveRecord: 3.7ms)
+
+
