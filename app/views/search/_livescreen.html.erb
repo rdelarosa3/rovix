@@ -1,0 +1,35 @@
+<div class="card p-2 shadow h-100">
+  	<div class="container-fluid">
+	    <div class="title d-flex"><h5>Market Price</h5><hr></div>
+	    <div class="row pl-2">
+	      <h4><strong><%= @company.fetch(:ticker) %></strong></h4>
+	    </div>
+	    <!-- watchlist button Are here -->
+	    <div>
+        	<%= render partial:'watchlist', class: "ml-auto"%>
+	    </div>
+	    <div class="row pl-2">
+	    	<div><h3 class="font-weight-bold"><small>$</small><%= @company.fetch(:price) %></h3></div>
+
+
+	      	<div class="pt-2 pl-2">
+		      	<h5>
+		      		<% if @company.fetch(:change_price)[0]=="+" %> 
+		      			<span class="text-success"> 
+		      		<% else %> 
+		      			<span class="text-danger">
+		      		<% end %>
+		      		<%= @company.fetch(:change_price)%></span> 
+		      		<% if @company.fetch(:change_percent)[0]=="+" %> 
+		      			<span class="text-success">
+		      		<% else %> 
+		      			<span class="text-danger">
+		      		<% end %> 
+		      		(<%= @company.fetch(:change_percent) %>)</span>
+		      	</h5>
+	      	</div>
+	    </div>
+	    
+	    <center><h6 class="mt-2"><small><%= DateTime.now.strftime("%d %B, %Y %I:%M %p ")%>GMT+8</small></h6></center>
+ 	</div>
+</div>

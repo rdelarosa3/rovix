@@ -36,6 +36,13 @@ gem 'simple_form', '~> 4.0', '>= 4.0.1'
 
 gem 'carrierwave', '~> 1.0'
 
+# gem 'fog-aws', '~> 3.0'
+gem 'omniauth'
+
+gem 'omniauth-google-oauth2', '~> 0.5.3'
+
+gem 'omniauth-facebook', '~> 5.0'
+
 
 
 # Use ActiveStorage variant

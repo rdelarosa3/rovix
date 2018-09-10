@@ -1,0 +1,11 @@
+<div class="card m-1 shadow">
+  <div class="card-body">
+    <h5 class="text-muted font-weight-bold text-uppercase">Company BIO <img src="<%= @logo %> %>" class=" rounded-circle pull-right pb-3" style='width:38px;height:38px'></h5>
+    <hr>
+    <h4 class="card-title"><%= @company.fetch(:company_name) %></h4>
+    <h6><small> Sector: <%= @company_sector %> </small></h6>
+    <p class="card-text text-justify">
+      <%= @company_description %>
+    </p>
+  </div>
+</div>

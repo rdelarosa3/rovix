@@ -1,0 +1,9 @@
+<% @articles.each do |article| %>
+	<div class="card border-0 mb-0 bg-transparent">
+	<a href="<%= article.fetch(:link) %>">
+	  <p class="card-text p-2 pb-0">  <%= article.fetch(:body) %></p>
+	  <p class="hint-text text-muted p-2 pb-0 pt-0"><%= article.fetch(:source) %> <%= article.fetch(:timeframe) %></p>     
+	</a>
+	<hr>
+	</div>
+<% end %>
