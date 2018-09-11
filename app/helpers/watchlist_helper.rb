@@ -30,7 +30,6 @@ module WatchlistHelper
                 company_name: parsed_page.css("div.live-quote-title").text.split.first,
                 price: parsed_page.css("div.live-quote-bottom-tile span").first.text,
                 twitter: parsed_page.css("div.live-quote-subtitle").text.split.last.insert(0,'$'),
-                twitter_mention: parsed_page.css("div.live-quote-subtitle").text.split.last.insert(0,'@'),
                 change_percent: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(2)")[0].text,
                 change_price: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(1)")[0].text 
             }

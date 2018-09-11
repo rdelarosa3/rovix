@@ -8,8 +8,12 @@
   body {
     position: relative;
     overflow-x: hidden;
+<<<<<<< HEAD
     background-image: linear-gradient(to bottom, #dfe9f3 0%, white 50%);}
     
+=======
+  }
+>>>>>>> search_css
   a{
     color : #000000;
     text-decoration: none;
@@ -21,7 +25,7 @@
   }
 
   .financials {
-   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+   background-image: linear-gradient(to top, #dfe9f3 0%, white 40%);
   /*background-color: #f0f0f0;*/
   }
 
@@ -35,10 +39,8 @@
       background-size: cover
   }
   /*background for company logo*/
-  .divbackground{
-    background-image: url("<%= @cover %>");
-    background-size: contain;
-    background-repeat: no-repeat;
+  #backgroundGradient{
+    background-color: #dfe9f3;
   }
   a:hover{
       text-decoration: none;
@@ -48,7 +50,7 @@
      visibility: hidden;
   }
   .higher-cols {
-    top: -43px;
+    top: -48px;
     position: relative;
   }
 
@@ -56,77 +58,92 @@
 
 <!-- Wrapper(sidebar) -->
 <div id="wrapper">
+  
+  <!-- Sidebar -->
+  <div id="sidePanel"> 
+  <%= render(partial: 'side_panel') %>
+  </div>
 
+<<<<<<< HEAD
    <!-- Sidebar -->
   <%= render partial:'sidebar'%>
 
    <!-- Page Content(sidebar) -->
     <%# <div id="page-content-wrapper"> %>
+=======
+  <!-- Page Content(sidebar) -->
+  <!-- <div id="page-content-wrapper"> -->
+>>>>>>> search_css
 
-   <!-- Toggle(sidebar) -->
+    <!-- Toggle(sidebar) -->
     <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
       <span class="hamb-top"></span>
       <span class="hamb-middle"></span>
       <span class="hamb-bottom"></span>
     </button>
 
-<!-- main background header -->
-<div class="page-navigation">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4"><h1 class="inline text-light"><%= @company.fetch(:company_name) %></h1></div>
-      <div class="col-md-4">      
-        <center><%= image_tag(@cover, class: 'rounded-circle shadow',width: '100', height: '100')%></center>
+    <!-- main background header -->
+    <div class="page-navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"><h1 class="inline text-light"><%= @company.fetch(:company_name) %></h1></div>
+          <div class="col-md-4">      
+            <center><%= image_tag(@cover, class: 'rounded-circle shadow',width: '100', height: '100')%></center>
+          </div>
+          <div class="col-md-4 pull-right">
+            <%= link_to "Trade #{@company.fetch(:company_name)}", brokers_search_index_path, class: "ml-auto mt-3 shadow font-weight-bold btn text-light", style: "background-color: #ffa200; min-width: 190px; max-height:35px" %>
+          </div>
+        </div>
       </div>
-      <%= link_to "Trade #{@company.fetch(:company_name)}", brokers_search_index_path, class: "ml-auto mt-3 pb-3 shadow p-2 btn text-light", style: "background-color: #ffa200; min-width: 190px; max-height:35px" %></div>
     </div>
-  </div>
-</div>
-<!-- main company financials -->
-<div class="financials">
-  <div class="container mb-5">
-    <div class="row">
-      <div class="col-md-1"></div>
-        <div class="higher-cols col-md-5" id="livescreen">
+    <!-- main company financials -->
+    <div class="financials">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="higher-cols col-md-5 pt-2" id="livescreen">
             <%= render(partial: 'livescreen') %>
+          </div>
+            <!-- sentiment and brokers link -->
+          <div class="higher-cols col-md-5 pt-2" id="sentimentsRating">
+                <%= render(partial: 'sentiment') %>
+          </div>
+          <div class="col-md-1"></div>
         </div>
-        <!-- sentiment and brokers link -->
-        <div class="higher-cols col-md-5" id="sentimentsRating">
-            <%= render(partial: 'sentiment') %>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-  </div>
-</div>
-
-<!-- cards container -->
-<div class="container md-12">
-  <div class="row">
-    <!-- company biography -->
-    <div class="col-md-4" id="company_bio">
-      <%= render(partial: 'company_bio') %>
-      <!-- paid advert -->
-      <div class="sticky mt-4 border-0">
-        <img src="https://pbs.twimg.com/media/CrfqS0jUMAAle3g.jpg" class="img-fluid">
       </div>
     </div>
-    <!-- company tweets -->
-    <div class="col-md-5" id="twitter">
-      <%= render(partial: 'twitter') %>
-    </div>
-    <!-- company based articles -->
-    <div class="col-md-3">
-      <h5 class="text-muted font-weight-bold text-uppercase">
-        Latests news
-      </h5>
-      <hr>
-      <div id="articles">
-        <%= render(partial: 'articles') %>
-      <div>
-      <div class="card sticky mt-4 border-0">
-        <img src="https://pbs.twimg.com/media/CrfqS0jUMAAle3g.jpg" class="img-fluid">
+    <div id="backgroundGradient">
+    <!-- cards container -->
+    <div class="container md-12">
+      <div class="row">
+        <!-- company biography -->
+        <div class="col-md-4" id="company_bio">
+          <%= render(partial: 'company_bio') %>
+          <!-- paid advert -->
+          <div class="sticky mt-4 border-0">
+            <img src="https://pbs.twimg.com/media/CrfqS0jUMAAle3g.jpg" class="img-fluid">
+          </div>
+        </div>
+        <!-- company tweets -->
+        <div class="col-md-5" id="twitter">
+          <%= render(partial: 'twitter') %>
+        </div>
+        <!-- company based articles -->
+        <div class="col-md-3">
+          <h5 class="text-muted font-weight-bold text-uppercase">
+            Latests news
+          </h5>
+          <hr>
+          <div id="articles">
+            <%= render(partial: 'articles') %>
+          <div>
+          <div class="card sticky mt-4 border-0">
+            <img src="https://pbs.twimg.com/media/CrfqS0jUMAAle3g.jpg" class="img-fluid">
+          </div>
+        </div>
       </div>
     </div>
+<<<<<<< HEAD
     </div>
   </div>
 </div>
@@ -141,7 +158,19 @@
 
 <%# </div>    <!-- /#page-content-wrapper --> %>
 </div>  <!-- /#wrapper -->
+=======
+>>>>>>> search_css
 
+    <!-- hidden form to refresh current info -->
+    <div class="form-inline" id="hiddenForm"> 
+      <%= form_tag search_index_url, remote: true, id: "myForm", method: :get do %> 
+      <%= search_field_tag :searchword, params[:searchword], value: @company.fetch(:ticker), class: "form-control m-1" %>
+      <%= submit_tag "search", name: :nil, class: "btn btn-danger m-1", id: 'clickButton' %>
+      <% end %>
+    </div>
+  <!-- </div>    /#page-content-wrapper -->
+  </div><!-- background color -->
+</div>  <!--#wrapper -->
 
 <!-- js for autorefresh -->
 <script>

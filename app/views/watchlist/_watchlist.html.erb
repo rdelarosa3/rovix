@@ -1,0 +1,28 @@
+<% if current_user %>
+    <% if current_page?(search_index_path) %>
+        <% if !Watchlist.find_by(user_id:current_user.id ,name: @company.fetch(:ticker)) %>
+
+
+            <%= form_with(url: "/watchlist",method: :post,remote: true) do |form| %>
+            <%= form.hidden_field :name, value: @company.fetch(:ticker) %>
+            <%= form.hidden_field :user_id, value: current_user.id %>
+            <div class="actions">
+                <div id="watchlistAdd">
+                    <%= form.submit "+ watchlist", class: "btn btn-info pr-2", id: "hide" %>
+                </div>
+            </div>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("#hide").click(function(){
+            $("#watchlistAdd").hide();
+          
+        });
+    });
+ 
+</script>

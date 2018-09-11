@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
 
 
-  
+  resources :search do
+    collection do
+      get :brokers
+    end
+  end 
   resources :search 
   get 'users/profile' => 'watchlist#show' , :as => "user_profile"
   

@@ -4,8 +4,13 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable,:omniauthable, omniauth_providers: [:google_oauth2], omniauth_providers: %i[facebook]
 
+<<<<<<< HEAD
           has_many :watchlists,dependent: :destroy
           mount_uploader :avatar, AvatarUploader
+=======
+         has_many :watchlists,dependent: :destroy
+         mount_uploader :avatar, AvatarUploader
+>>>>>>> search_css
 
 
     def full_name
