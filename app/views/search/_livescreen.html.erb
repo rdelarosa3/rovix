@@ -4,9 +4,9 @@
 	    <div class="row pl-2">
 	      <h4><strong><%= @company.fetch(:ticker) %></strong></h4>
 	      	    <!-- watchlist button Are here -->
-	    <div class="ml-auto">
-        	<%= render partial:'watchlist'%>
-	    </div>
+		    <div class="ml-auto pr-3" id="liveAdd">
+	        	<%= render partial:'watchlist'%>
+		    </div>
 	    </div>
 
 	    <div class="row pl-2">

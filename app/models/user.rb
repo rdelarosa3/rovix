@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :watchlists,dependent: :destroy
-          mount_uploader :avatar, AvatarUploader
+         mount_uploader :avatar, AvatarUploader
 
 
   def full_name

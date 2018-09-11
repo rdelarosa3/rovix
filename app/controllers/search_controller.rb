@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
-require 'byebug'
+
 
 class SearchController < ApplicationController
 	 	 include WatchlistHelper
@@ -16,6 +16,7 @@ class SearchController < ApplicationController
 		      format.html
 		      format.js
 		    end
+		# display the users last watchlist item #    
 		elsif user_signed_in? && current_user.watchlists.any?
 			security_name = "#{current_user.watchlists.last.name}"	
 		else
@@ -23,30 +24,38 @@ class SearchController < ApplicationController
 		end
 		
 
-		
 		# automated browsing #
 		automated_browser(security_name)
 
-	    # create company #
-	    company_info(@parsed_page)
+	    if @parsed_page.css("div.live-quote-subtitle").text == "" 
+	    	# parsed_page.css("div.live-quote-title").text == "Data not available" || @parsed_page.css('div.chartError').text == "Data not available"
+	    	@browser.close
+			redirect_to search_index_path , danger: "Results not found, Please retry your input." 
+		else
 
-	    # create articles array #
-	    company_articles(@parsed_page)
+		    # create company #
+		    company_info(@parsed_page)
 
-	    # redirect browser to company description #
-	    browser_company_info
+		    # create articles array #
+		    company_articles(@parsed_page)
 
-	    # redirect to twitter #
-	    twitter(@company[:twitter])
+		    # redirect browser to company description #
+		    browser_company_info
+ 
+		    # redirect to twitter #
+	
+		    twitter(@company[:twitter])
 
-	    # create sentiment from tweets #
-	    sentimental(@tweets)
+		    # create sentiment from tweets #
+		    sentimental(@tweets)
 
-	    # Redirect browser to get logo #
-	    browser_grab_images
+		    # Redirect browser to get logo #
+		    browser_grab_images
 
-	    # close automated browser #
-	    @browser.close
+		    # close automated browser #
+		    @browser.close
+
+		end
  	end
 
  	def brokers
@@ -63,17 +72,12 @@ class SearchController < ApplicationController
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
 	    @browser.send_keys :enter
 	    sleep 1
-	    @parsed_page = Nokogiri::HTML(@browser.html)
+		@parsed_page = Nokogiri::HTML(@browser.html)	
  	end
 
- 	def browser_company_info
- 		url = "https://www.marketwatch.com/investing/stock/#{@company[:ticker]}/profile"
-      	unparsed_page = HTTParty.get(url)
-	  	parsed_page = Nokogiri::HTML(unparsed_page)
- 		######### company description #########
- 		@company_description = parsed_page.css('#maincontent div.full p').text
- 		@company_sector = parsed_page.css('div.twowide div:nth-child(3) p.data').first.text
-	end
+ 	
+
+
 
 	def company_info(parsed_page)
 		parsed_page = parsed_page
@@ -105,6 +109,15 @@ class SearchController < ApplicationController
 	      articles << article
 	    end
 		@articles = articles
+	end
+
+	def browser_company_info
+ 		url = "https://www.marketwatch.com/investing/stock/#{@company[:ticker]}/profile"
+      	unparsed_page = HTTParty.get(url)
+	  	parsed_page = Nokogiri::HTML(unparsed_page)
+ 		######### company description #########
+ 		@company_description = parsed_page.css('#maincontent div.full p').text
+ 		@company_sector = parsed_page.css('div.twowide div:nth-child(3) p.data').first.text
 	end
 
 	def twitter(security)

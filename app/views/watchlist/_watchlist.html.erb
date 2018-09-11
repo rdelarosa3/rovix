@@ -13,14 +13,6 @@
             </div>
             <% end %>
         <% end %>
-    <% else %>
-        <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true) do |form| %>
-            <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
-            <%= form.hidden_field :user_id, value: current_user.id %>
-            <div class="actions">
-                <%= form.submit "Delete", class: "btn btn-danger" %>
-            </div>
-        <% end %>
     <% end %>
 <% end %>
 
