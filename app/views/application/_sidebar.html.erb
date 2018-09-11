@@ -1,4 +1,3 @@
-
 <!-- Sidebar -->
 <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
   <ul class="nav sidebar-nav">
@@ -14,18 +13,6 @@
       <a href="#watchlists" class="dropdown-toggle" aria-expanded="true"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
       <ul class="dropdown-menu animated fadeInLeft show" role="menu">
       <div class="dropdown-header">My Watchlists</div>
-<<<<<<< HEAD
-            <% current_user.watchlists.each do |watchlist| %>
-                <li><a href="search?utf8=✓&searchword=<%= watchlist.name %>"><%= watchlist.name %>
-                <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true) do |form| %>
-                <%= form.hidden_field :name, value: watchlist.name %>
-                <%= form.hidden_field :user_id, value: current_user.id %>
-                  <%= form.button :submit,style:"border: none;background: transparent; margin-top:-20px; margin-right:50px;float:right;color:#ea4c4c;" do %>
-                              <i class="fas fa-minus-circle"></i>
-                   <% end %>
-                <% end %>
-                </a></li>            
-=======
 
       <!-- show each watchlist item -->
       <% current_user.watchlists.each do |watchlist| %>
@@ -37,10 +24,9 @@
             <%= form_with(url:  destroy_watchlist_path,method: :delete,remote: true) do |form| %>
               <%= form.hidden_field :name, value: watchlist.name %>
               <%= form.hidden_field :user_id, value: current_user.id %>
-              <%= form.button :submit,style:"border: none;background: transparent; margin-top:-20px; margin-right:50px;float:right;color:#ea4c4c;", onclick: "hide('#{watchlist.id}')" do %>
+              <%= form.button :submit,style:"border: none;background: transparent; margin-top:-30px; margin-right:50px;float:right;color:#ea4c4c;", onclick: "hide('#{watchlist.id}')" do %>
                 <i class="fas fa-minus-circle float-right"></i>
               <% end %>
->>>>>>> search_css
             <% end %>
           </li>
         </div>            
@@ -78,4 +64,4 @@
         el.style.display = 'none';
 
 } 
-</script>      
+</script> 

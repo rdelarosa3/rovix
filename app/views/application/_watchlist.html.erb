@@ -3,38 +3,12 @@
         <% if !Watchlist.find_by(user_id:current_user.id ,name: @company.fetch(:ticker)) %>
 
 
-<<<<<<< HEAD
-
-            <% else %>
-                <%= form_with(url: "/watchlist",method: :post,remote: true) do |form| %>
-                <%= form.hidden_field :name, value: @company.fetch(:ticker) %>
-                <%= form.hidden_field :user_id, value: current_user.id %>
-                    <div class="actions">
-                        <%= form.submit "Add to watchlist", class: "btn btn-info", id: "hide" %>
-                    </div>
-                <% end %>
-
-            <% end %>
-        </div>
-        
-
-<% else %>
-
-        <%# onclick="getElementById('hidden-div').style.display = 'block'; this.style.display = 'none'" %>
- 
-                <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
-                <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
-                <%= form.hidden_field :user_id, value: current_user.id %>
-                <div class="actions">
-                    <%= form.submit "Delete" %>
-=======
             <%= form_with(url: "/watchlist",method: :post,remote: true) do |form| %>
             <%= form.hidden_field :name, value: @company.fetch(:ticker) %>
             <%= form.hidden_field :user_id, value: current_user.id %>
             <div class="actions">
                 <div id="watchlistAdd">
                     <%= form.submit "+ watchlist", class: "btn btn-info pr-2", id: "hide" %>
->>>>>>> search_css
                 </div>
             </div>
             <% end %>

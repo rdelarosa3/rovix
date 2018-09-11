@@ -8,18 +8,13 @@
   body {
     position: relative;
     overflow-x: hidden;
-<<<<<<< HEAD
-    background-image: linear-gradient(to bottom, #dfe9f3 0%, white 50%);}
-    
-=======
   }
->>>>>>> search_css
   a{
     color : #000000;
     text-decoration: none;
   }
   .sticky {
-    /* position: -webkit-sticky; */
+    position: -webkit-sticky;
     position: sticky;
     top: 0;  
   }
@@ -64,16 +59,8 @@
   <%= render(partial: 'side_panel') %>
   </div>
 
-<<<<<<< HEAD
-   <!-- Sidebar -->
-  <%= render partial:'sidebar'%>
-
-   <!-- Page Content(sidebar) -->
-    <%# <div id="page-content-wrapper"> %>
-=======
   <!-- Page Content(sidebar) -->
   <!-- <div id="page-content-wrapper"> -->
->>>>>>> search_css
 
     <!-- Toggle(sidebar) -->
     <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
@@ -91,7 +78,7 @@
             <center><%= image_tag(@cover, class: 'rounded-circle shadow',width: '100', height: '100')%></center>
           </div>
           <div class="col-md-4 pull-right">
-            <%= link_to "Trade #{@company.fetch(:company_name)}", brokers_search_index_path, class: "ml-auto mt-3 shadow font-weight-bold btn text-light", style: "background-color: #ffa200; min-width: 190px; max-height:35px" %>
+            <%= link_to "Trade #{@company.fetch(:company_name)}", brokers_search_index_path, class: "pull-right mt-3 shadow font-weight-bold btn text-light", style: "background-color: #ffa200; min-width: 190px; max-height:35px" %>
           </div>
         </div>
       </div>
@@ -137,29 +124,13 @@
           <div id="articles">
             <%= render(partial: 'articles') %>
           <div>
-          <div class="card sticky mt-4 border-0">
-            <img src="https://pbs.twimg.com/media/CrfqS0jUMAAle3g.jpg" class="img-fluid">
+         <div class="sticky mt-4 border-0">
+              <img src="https://pbs.twimg.com/media/CrfqS0jUMAAle3g.jpg" class="img-fluid">
           </div>
+        
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-    </div>
-  </div>
-</div>
-
-<!-- hidden form to refresh current info -->
-<div class="form-inline" id="hiddenForm"> 
-  <%= form_tag search_index_url, remote: true, id: "myForm", method: :get do %> 
-  <%= search_field_tag :searchword, params[:searchword], value: @company.fetch(:ticker), class: "form-control m-1" %>
-  <%= submit_tag "search", name: :nil, class: "btn btn-danger m-1", id: 'clickButton' %>
-  <% end %>
-</div>
-
-<%# </div>    <!-- /#page-content-wrapper --> %>
-</div>  <!-- /#wrapper -->
-=======
->>>>>>> search_css
 
     <!-- hidden form to refresh current info -->
     <div class="form-inline" id="hiddenForm"> 
@@ -181,5 +152,3 @@ window.onload = function(){
     },60000);  // this will make it click again every 60 seconds
 };
 </script>
-
-        

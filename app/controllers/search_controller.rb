@@ -23,12 +23,6 @@ class SearchController < ApplicationController
 			security_name = "facebook"
 		end
 		
-<<<<<<< HEAD
-	
-		
-=======
-
->>>>>>> search_css
 		# automated browsing #
 		automated_browser(security_name)
 
