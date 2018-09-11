@@ -54,6 +54,12 @@ gem 'omniauth-facebook', '~> 5.0'
   ### sentimental feature #####
   gem 'sentimental', '~> 1.4', '>= 1.4.1'
 
+   # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  # Easy installation and use of chromedriver to run system tests with Chrome
+  gem 'chromedriver-helper'
+
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
@@ -79,11 +85,11 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # # Adds support for Capybara system testing and selenium driver
+  # gem 'capybara', '>= 2.15'
+  # gem 'selenium-webdriver'
+  # # Easy installation and use of chromedriver to run system tests with Chrome
+  # gem 'chromedriver-helper'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
