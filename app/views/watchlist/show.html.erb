@@ -1,60 +1,231 @@
                
-          
-<div id="page-content-wrapper">
-    <div class="container">
-    <div class="shadow-sm col-sm-12 mb-5 text-center">
-        <p><%= current_user.full_name%></p>
-    </div> <!--col-sm-12 -->
-     
 
-    <div class="col-sm-12 mb-5 text-center">
-        <h1>My Watchlists</h1>
-                <hr>
-    </div> <!--col-sm-12 -->
 
-           
-                <div class="card-deck" style="margin: 0 auto;" >
-                <% @watchlists.each do |watchlist| %>
-                <div class="row">
-                      <div class="col-sm-3">
-                      <div class="card card-cascade" style="width: 20rem;max-width:20rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-bottom:20px;">
-                       <div class="card-body" >
+        
 
-                          <!-- Sentiment float right -->
-                           <h4 class="card-title"><%= watchlist.fetch(:company_name) %><span class="text-success font-weight-bold text-uppercase float-right"><%="#{@scores[0]} "%><small>%</small> Bull</span></h4><h5><%= watchlist.fetch(:ticker) %><span class="text-danger font-weight-bold text-uppercase float-right"><%= "#{@scores[1]} " %><small>%</small> Bear </span></h5><h3 class="font-weight-bold"><small>$</small><%= " #{watchlist.fetch(:price)}" %></h3>
-                                <% if watchlist.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> 
-                                  <%= watchlist.fetch(:change_price)%></span> <% if watchlist.fetch(:change_percent)[0]=="+" %> <span class="text-success"> 
-                                <% else %> <span class="text-danger"><% end %> (<%= watchlist.fetch(:change_percent) %>)</span></h5>
+<body class="profile-page sidebar-collapse">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('/assets/profile_city.jpg');"></div>
+    <div class="profile-content">
+      <div class="container">
+      <div class="main main-raised">
 
-                                       <!-- Unwatchlist -->
-                                <%# <%= render partial:'application/watchlist'%>
-                                 <div class="text-center pl-0 pt-3 pb-0 pr-2">
-                                    <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
-                                    <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
-                                    <%= form.hidden_field :user_id, value: current_user.id %>
-                                    <div class="actions">
-                                        <%= form.submit "Delete",class:"btn btn-outline-danger" %>
-                                    </div>
-                                    <% end %>
-
-                                    <!-- Sentiment -->
-                                    <% @scores.shift[1] %>
-                                   <!-- scores = [positive,negative] shift[1] is take off  arr[0] twice -->
-
-                                   
-                                 </div> <!--card col-3 -->
-                            </div>      <!--card body -->
-                        </div> <!--card cardcascade -->
-                    </div> <!--card col-3 -->
-                </div> <!--row --> 
+  
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar">
+               <% if current_user.avatar.present? %>
+                    <%= image_tag current_user.avatar.url, alt:"Circle Image" ,class:"img-raised rounded-circle img-fluid" %>
+                <% else %>
+                      <img src="/assets/christian.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
                 <% end %>
-            </div> <!--card deck -->
-      </div> <!-- container -->
-</div> <!-- page content -->
-                            
-                          
-                                
-                               
+              </div>
+              <div class="name">
+                <h3 class="title"><%= current_user.full_name%></h3>
+                <h6 class="text-uppercase">Developer</h6>
+                <a href="https://www.facebook.com/" class="btn btn-just-icon btn-link btn-dribbble"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/" class="btn btn-just-icon btn-link btn-twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/" class="btn btn-just-icon btn-link btn-pinterest"><i class="fab fa-github"></i></i></a>
+              </div> <!--name -->
+            </div> <!-- profile -->
+          </div> <!-- col-md-6 -->
+        </div> <!-- row -->
+
+              <div class="description text-center">
+                <p>An artist of considerable range, Chet Faker &#x2014; the name taken by Melbourne-raised, Brooklyn-based Nick Murphy &#x2014; writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+              </div>
+
+                                                                          
+
+                  <div class="col-sm-12 mb-5 text-center">
+                      <h1>My Watchlists</h1>
+                              <hr>
+                  </div> <!--col-sm-12 -->
+
+                      
+                            <div class="card-deck" style="margin: 0 auto;" >
+                              <% @watchlists.each do |watchlist| %>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <div class="card card-cascade" style="width: 20rem;max-width:20rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-bottom:20px;">
+                                    <div class="card-body" >
+
+                                      <!-- Sentiment float right -->
+                                      <h4 class="card-title"><%= watchlist.fetch(:company_name) %><span class="text-success font-weight-bold text-uppercase float-right"><%="#{@scores[0]} "%><small>%</small> Bull</span></h4><h5><%= watchlist.fetch(:ticker) %><span class="text-danger font-weight-bold text-uppercase float-right"><%= "#{@scores[1]} " %><small>%</small> Bear </span></h5><h3 class="font-weight-bold"><small>$</small><%= " #{watchlist.fetch(:price)}" %></h3>
+                                              <% if watchlist.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> 
+                                              <%= watchlist.fetch(:change_price)%></span> <% if watchlist.fetch(:change_percent)[0]=="+" %> <span class="text-success"> 
+                                              <% else %> <span class="text-danger"><% end %> (<%= watchlist.fetch(:change_percent) %>)</span></h5>
+
+                                                  <!-- Unwatchlist -->
+                                              <%# <%= render partial:'application/watchlist'%>
+                                              <div class="text-center pl-0 pt-3 pb-0 pr-2">
+                                                  <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
+                                                  <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
+                                                  <%= form.hidden_field :user_id, value: current_user.id %>
+                                                  <div class="actions">
+                                                      <%= form.submit "Delete",class:"btn btn-outline-danger" %>
+                                                  </div>
+                                                  <% end %>
+
+                                                  <!-- Sentiment -->
+                                                  <% @scores.shift[1] %>
+                                              <!-- scores = [positive,negative] shift[1] is take off  arr[0] twice -->
+
+                                              
+                                              </div> <!--card col-3 -->
+                                          </div>      <!--card body -->
+                                      </div> <!--card cardcascade -->
+                                  </div> <!--card col-3 -->
+                              </div> <!--row --> 
+                          <% end %>
+                        </div> <!--card deck -->
+                  </div> <!-- container -->
+
+          </div>  <!-- main -->
+      </div>  <!-- profile-content -->
+</body>
+
+
+                     
+       <style>
+
+h6{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-weight: 700;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-size: 1.5625rem;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  min-height: 32px;
+}
+
+       
+.profile-page.page-header {
+  height: 380px;
+  background-position: top center;
+}
+
+.profile {
+  text-align: center;
+}
+
+.profile img {
+  max-width: 160px;
+  width: 100%;
+  margin: 0 auto;
+  -webkit-transform: translate3d(0, -50%, 0);
+  -moz-transform: translate3d(0, -50%, 0);
+  -o-transform: translate3d(0, -50%, 0);
+  -ms-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+}
+
+.profile .name {
+  margin-top: -80px;
+}
+
+
+.description {
+  margin: 1.071rem auto 0;
+  max-width: 600px;
+
+}
+
+.main{
+    background: #FFFFFF;
+    position: relative;
+    z-index: 3;
+    display:block;
+}
+
+
+
+.page-header {
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+}
+
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+
+.main-raised {
+  margin: -60px 30px 0px;
+  border-radius: 6px;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 830px) {
+  .main-raised {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .page-header {
+    height: calc(100vh + 270px);
+  }
+ 
+  .main.main-raised {
+    margin-top: -30px;
+  }
+ 
+}
+</style>           
+
+
+               
                    
    
-       

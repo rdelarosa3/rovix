@@ -9,12 +9,13 @@
     position: relative;
     overflow-x: hidden;
     background-image: linear-gradient(to bottom, #dfe9f3 0%, white 50%);}
+    
   a{
     color : #000000;
     text-decoration: none;
   }
   .sticky {
-    position: -webkit-sticky;
+    /* position: -webkit-sticky; */
     position: sticky;
     top: 0;  
   }
@@ -60,7 +61,7 @@
   <%= render partial:'sidebar'%>
 
    <!-- Page Content(sidebar) -->
-    <div id="page-content-wrapper">
+    <%# <div id="page-content-wrapper"> %>
 
    <!-- Toggle(sidebar) -->
     <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
@@ -137,7 +138,8 @@
   <%= submit_tag "search", name: :nil, class: "btn btn-danger m-1", id: 'clickButton' %>
   <% end %>
 </div>
-</div>    <!-- /#page-content-wrapper -->
+
+<%# </div>    <!-- /#page-content-wrapper --> %>
 </div>  <!-- /#wrapper -->
 
 

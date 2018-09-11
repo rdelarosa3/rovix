@@ -121,6 +121,11 @@ html { height: 100%;}
             transition: width .2s ease-in;
 
 }
+/* .sidebar-nav li:hover {
+  text-decoration:none;
+  transform: translate(0, -10px);
+
+} */
 
 .sidebar-nav li a {
     display: block;

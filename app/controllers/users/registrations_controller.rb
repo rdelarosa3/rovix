@@ -71,5 +71,9 @@ def create
     def after_update_path_for(resource)
       edit_user_registration_path(resource)
     end
+    
+    def after_sign_out_path_for(resource)
+     new_user_session_path
+    end
   
 end

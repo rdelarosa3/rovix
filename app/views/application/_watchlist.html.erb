@@ -27,7 +27,7 @@
 
 <% else %>
 
-        onclick="getElementById('hidden-div').style.display = 'block'; this.style.display = 'none'"
+        <%# onclick="getElementById('hidden-div').style.display = 'block'; this.style.display = 'none'" %>
  
                 <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true, data: { confirm: 'Are you sure?',id:'user_id'}) do |form| %>
                 <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>

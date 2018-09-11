@@ -11,28 +11,24 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   
   def create
-   self.resource = warden.authenticate!(auth_options)
-   set_flash_message(:notice, :signed_in) if is_navigational_format?
-   sign_in(resource_name, resource)
-   if !session[:return_to].blank?
-     redirect_to session[:return_to]
-     session[:return_to] = nil
-   else
-     redirect_to edit_user_registration_path
-   end
+  super
  end
   
 
   # DELETE /resource/sign_out
   def destroy
-    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
-    set_flash_message! :notice, :signed_out if signed_out
-    yield if block_given?
-    redirect_to new_user_registration_path
+   super
   end
 
   protected
 
+  def after_sign_in_path_for(resource)
+    user_profile_path(resource)
+  end
+
+  def after_sign_out_path_for(resource)
+     new_user_session_path    
+  end
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
