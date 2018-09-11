@@ -43,6 +43,16 @@ gem 'omniauth-google-oauth2', '~> 0.5.3'
 
 gem 'omniauth-facebook', '~> 5.0'
 
+  ### scraping tools ###
+  gem 'httparty' 
+  gem 'nokogiri'
+  gem 'pry-rails'
+  gem 'watir'
+  gem 'meta_request'
+  ### headless browser ##
+
+  ### sentimental feature #####
+  gem 'sentimental', '~> 1.4', '>= 1.4.1'
 
 
 # Use ActiveStorage variant
@@ -66,16 +76,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  ### scraping tools ###
-  gem 'httparty' 
-  gem 'nokogiri'
-  gem 'pry-rails'
-  gem 'watir'
-  gem 'meta_request'
-  ### headless browser ##
-
-  ### sentimental feature #####
-  gem 'sentimental', '~> 1.4', '>= 1.4.1'
 end
 
 group :test do
