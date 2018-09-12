@@ -1,5 +1,3 @@
 class Watchlist < ApplicationRecord
-    belongs_to :user
-
-    validates :name, uniqueness: true
+    belongs_to :user 
 end
