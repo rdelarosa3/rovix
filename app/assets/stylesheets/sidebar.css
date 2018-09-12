@@ -100,7 +100,7 @@ html { height: 100%;}
     background-color: #ec1b5a;   
 }
 .sidebar-nav li:nth-child(5n+2):before {
-  background-color: #279636;   
+  background-color: #7d5d81;   
 }
 .sidebar-nav li:nth-child(5n+3):before {
   background-color: #314190;   
@@ -109,7 +109,7 @@ html { height: 100%;}
   background-color: #79aefe;   
 }
 .sidebar-nav li:nth-child(5n+5):before {
-    background-color: #7d5d81;   
+  background-color: #1abb9c  
 }
 
 .sidebar-nav li:hover:before,

@@ -18,7 +18,7 @@
       <% current_user.watchlists.each do |watchlist| %>
         <div id="<%= watchlist.id %>">
           <li>
-            <a href="search?utf8=✓&searchword=<%=watchlist.name %>"><%= watchlist.name %></a>
+            <a href="/search?utf8=✓&searchword=<%=watchlist.name %>"><%= watchlist.name %></a>
         
             <!-- form to delete company from watchlist -->
             <%= form_with(url:  destroy_watchlist_path,method: :delete,remote: true) do |form| %>

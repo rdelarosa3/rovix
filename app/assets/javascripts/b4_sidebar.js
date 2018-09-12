@@ -26,3 +26,7 @@ $(document).ready(function () {
         $('#wrapper').toggleClass('toggled');
     });
 });
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})

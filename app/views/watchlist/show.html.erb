@@ -49,8 +49,6 @@
                 </div>
               </div>
                      
-
-                      
                             <div class="card-deck ml-3">
                               <% @watchlists.each do |watchlist| %>
                               <div class="row">
@@ -58,11 +56,11 @@
                                   <div class="card card-cascade" style="width:20rem;max-width:20rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-bottom:20px;">
                                     <div class="card-body" >
 
-                                      <!-- Button float right -->
+                                      <!-- Logic are here -->
                                     <div class="row">
                                      <div class="col-md-8">
-                                      <h4 class="card-title"><%= watchlist.fetch(:company_name) %></h4>
-                                      <h5><%= watchlist.fetch(:ticker) %></h5> <h3><small>$</small><%= " #{watchlist.fetch(:price)}" %></h3>
+                                      <h4 class="card-title" ><a href="/search?utf8=✓&searchword=<%= watchlist.fetch(:ticker) %>"  data-toggle="tooltip" data-placement="top" title="<%= watchlist.fetch(:company_name)%>"><%= watchlist.fetch(:company_name).split.first %></a></h4>
+                                                <h5><%= watchlist.fetch(:ticker) %></h5>
                                               <% if watchlist.fetch(:change_price)[0]=="+" %> <span class="text-success font-weight-bold"> <% else %> <span class="text-danger font-weight-bold"><% end %> 
                                               <%= watchlist.fetch(:change_price)%></span> <% if watchlist.fetch(:change_percent)[0]=="+" %> <span class="text-success font-weight-bold"> 
                                               <% else %> <span class="text-danger font-weight-bold"><% end %> (<%= watchlist.fetch(:change_percent) %>)</span></h5>
@@ -70,7 +68,9 @@
 
                                                   <!-- remove watchlist  -->
                                                                 
-                                              <%# <%= render partial:'application/watchlist'%>
+                                                <%# <%= render partial:'application/watchlist'%>
+                                      
+                                      <!-- Button float right -->
                                          <div class="col-sm-4 pull-right">
                                                 <%= form_with(url:  destroy_watchlist_path,method: :delete,local: true) do |form| %>
                                                   <%= form.hidden_field :name, value: watchlist.fetch(:ticker) %>
@@ -82,14 +82,15 @@
                                          </div> <!-- col sm 4   -->
                                       </div> <!-- row   -->
                                       <br>
-                                      <!-- Sentiment -->
+                                      
                                 
+                                      <!-- Sentiment -->
                                        <div class="container-fluid">
                                           <div class="row pl-2">
-                                            <div class="text-muted"><h2><%=  @scores[1] %>%</h2>
+                                            <div class="text-muted"><h4><%=  @scores[1] %>%</h4>
                                                 <p>SELLING</p>
                                             </div>
-                                            <div class="ml-auto pr-2"><h2><%= @scores[0] %>%</h2>
+                                            <div class="ml-auto pr-2"><h4><%= @scores[0] %>%</h4>
                                                 <p>BUYING</p>
                                             </div>
                                           </div>
@@ -102,7 +103,7 @@
                                           <% @scores.shift[0] %>
                                               <!-- scores = [positive,negative] shift[1] is take off  arr[0] twice -->
                                       </div> <!--row --> 
-                                  </div>     <!--container fluid --> 
+                                  </div> <!--container fluid --> 
                                  
 
                                               

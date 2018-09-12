@@ -18,7 +18,9 @@
  .alert{
      margin-bottom: 0;
  }
-
+a:hover {
+	text-decoration: none;
+}
 
        
 .profile-page.page-header {
