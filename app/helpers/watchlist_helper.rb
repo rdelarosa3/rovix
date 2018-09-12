@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
-require 'byebug'
+
 
 module WatchlistHelper
 

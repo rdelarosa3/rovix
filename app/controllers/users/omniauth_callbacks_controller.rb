@@ -57,6 +57,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
    def after_sign_in_path_for(resource)
     user_profile_path(resource)
   end
+  
 
 end
 

@@ -9,6 +9,7 @@
       <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
     <!-- Icon -->
       <%# <link rel="icon" href="https://www.logoground.com/uploads/201732332017-07-034106386Letter%20R.jpg"> %>
@@ -38,11 +39,11 @@
                   <% if flash.present? %>
                         <% flash.each do |name, msg| %>
                           <% if name == "notice" %>
-                           <div class="alert alert-info text-center" role="alert">
+                           <div class="alert alert-info text-center text-uppercase" role="alert">
                           <% elsif name == "alert" %>
-                              <div class="alert alert-danger text-center" role="alert">
+                              <div class="alert alert-danger text-center  text-uppercase" role="alert">
                             <% else %>                              
-                                  <div class='alert alert-<%= "#{name}" %> text-center'>
+                                  <div class='alert alert-<%= "#{name}" %> text-center text-uppercase'>
                               <% end %>
                                    <b><%= msg %></b>
                                 </div>                              
