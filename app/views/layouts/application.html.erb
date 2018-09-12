@@ -39,11 +39,11 @@
                   <% if flash.present? %>
                         <% flash.each do |name, msg| %>
                           <% if name == "notice" %>
-                           <div class="alert alert-info text-center text-uppercase" role="alert">
+                           <div class="alert alert-info text-center" role="alert">
                           <% elsif name == "alert" %>
-                              <div class="alert alert-danger text-center  text-uppercase" role="alert">
+                              <div class="alert alert-danger text-center " role="alert">
                             <% else %>                              
-                                  <div class='alert alert-<%= "#{name}" %> text-center text-uppercase'>
+                                  <div class='alert alert-<%= "#{name}" %> text-center '>
                               <% end %>
                                    <b><%= msg %></b>
                                 </div>                              

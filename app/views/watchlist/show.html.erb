@@ -98,7 +98,8 @@
                                       <div class="row">
                                           <div style="width:<%= @scores[1] - 2 %>%; background-color: #ea4c4c; height: 15px;"></div>
                                           <div class=" ml-auto" style="width:<%= @scores[0] %>%; background-color: #1abb9c; height: 15px;"></div>
-                                          <% @scores.shift[1] %>
+                                          <% @scores.shift[0] %>
+                                          <% @scores.shift[0] %>
                                               <!-- scores = [positive,negative] shift[1] is take off  arr[0] twice -->
                                       </div> <!--row --> 
                                   </div>     <!--container fluid --> 
