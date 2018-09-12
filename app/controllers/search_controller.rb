@@ -63,10 +63,18 @@ class SearchController < ApplicationController
 
 
  	def automated_browser(security_name)
+ 		opts = {
+		    headless: true
+		  }
+
+		  if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+		    opts.merge!( options: {binary: chrome_bin})
+		  end 
 		security_name = security_name
  		# @browser = Watir::Browser.new(:chrome)
- 		@browser = Watir::Browser.new :chrome, headless: true
- 		@browser.window.maximize
+ 		# @browser = Watir::Browser.new :chrome, headless: true
+ 		@browser = Watir::Browser.new :chrome, opts 		
+		@browser.window.maximize
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
 	    @browser.send_keys :enter
@@ -74,10 +82,7 @@ class SearchController < ApplicationController
 		@parsed_page = Nokogiri::HTML(@browser.html)	
  	end
 
- 	
-
-
-
+ 
 	def company_info(parsed_page)
 		parsed_page = parsed_page
 		company = {}

@@ -48,7 +48,7 @@ class WatchlistController < ApplicationController
 	
 	private
 	def watchlist_params
-      params.permit(:name,:user_id,:following_id,:id)
+      params.permit(:name,:user_id,:following_id)
     end
 
 	def set_watchlist
