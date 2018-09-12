@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
-require 'byebug'
+
 
 module WatchlistHelper
 
@@ -15,8 +15,16 @@ module WatchlistHelper
        
         current_user.watchlists.each do |watchlist|
             @security_name = watchlist.name
-            # browser = Watir::Browser.new(:chrome)
-            browser = Watir::Browser.new :chrome, headless: true
+            opts = {
+                headless: true
+              }
+
+              if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+                opts.merge!( options: {binary: chrome_bin})
+              end 
+            # @browser = Watir::Browser.new(:chrome)
+            # @browser = Watir::Browser.new :chrome, headless: true
+            browser = Watir::Browser.new :chrome, opts 
             browser.goto("https://www.msn.com/en-my/money/")
             browser.text_field(id:"finance-autosuggest").set @security_name
             browser.send_keys :enter
@@ -34,15 +42,16 @@ module WatchlistHelper
                 change_price: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(1)")[0].text 
             }
             
-       
+            browser.close
 
             ########## new sentimental ################
              $analyzer = Sentimental.new
 	         $analyzer.load_defaults
 
-             ########## redirect to twitter ################
-            
-            browser.goto("https://twitter.com/search?f=tweets&q=#{company[:twitter]}")
+            ########## redirect to twitter ################
+            url = "https://twitter.com/search?f=tweets&q=#{company[:twitter]}"
+            unparsed_page = HTTParty.get(url)
+            parsed_page = Nokogiri::HTML(unparsed_page)            
             parsed_page = Nokogiri::HTML(browser.html)
               ########## create tweets array ################
             tweets = parsed_page.css('div.tweet')
@@ -88,9 +97,7 @@ module WatchlistHelper
 
                 watchlists << company
               #  array << wactlist{}  #
-               
-                 browser.close
-                
+ 
             end
 
                 @watchlists = watchlists

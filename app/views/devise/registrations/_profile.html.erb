@@ -15,7 +15,7 @@
 </div> <!-- / col-md-3 pt-4 pb-3  -->
       <h5><%= @company.fetch(:ticker) %><h3 class="font-weight-bold"><small>$</small><%= @company.fetch(:price) %></h3><% if @company.fetch(:change_price)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %>  <%= @company.fetch(:change_price)%></span> <% if @company.fetch(:change_percent)[0]=="+" %> <span class="text-success"> <% else %> <span class="text-danger"><% end %> (<%= @company.fetch(:change_percent) %>)</span> </h5>
 
-<!--  require 'byebug'
+<!--  
 
 module SearchHelper
 
