@@ -82,10 +82,7 @@ class SearchController < ApplicationController
 		@parsed_page = Nokogiri::HTML(@browser.html)	
  	end
 
- 	
-
-
-
+ 
 	def company_info(parsed_page)
 		parsed_page = parsed_page
 		company = {}

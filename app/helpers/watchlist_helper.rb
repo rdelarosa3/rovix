@@ -31,8 +31,7 @@ module WatchlistHelper
             sleep 1
             parsed_page = Nokogiri::HTML(browser.html)
             
-            
-            
+
             company = {
                 ticker: parsed_page.css("div.live-quote-subtitle").text.split.last,
                 company_name: parsed_page.css("div.live-quote-title").text.split.first,
