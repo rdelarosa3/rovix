@@ -24,7 +24,7 @@ module WatchlistHelper
               end 
             # @browser = Watir::Browser.new(:chrome)
             # @browser = Watir::Browser.new :chrome, headless: true
-            @browser = Watir::Browser.new :chrome, opts 
+            browser = Watir::Browser.new :chrome, opts 
             browser.goto("https://www.msn.com/en-my/money/")
             browser.text_field(id:"finance-autosuggest").set @security_name
             browser.send_keys :enter
@@ -42,7 +42,7 @@ module WatchlistHelper
                 change_price: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(1)")[0].text 
             }
             
-       
+            browser.close
 
             ########## new sentimental ################
              $analyzer = Sentimental.new
@@ -97,9 +97,7 @@ module WatchlistHelper
 
                 watchlists << company
               #  array << wactlist{}  #
-               
-                 browser.close
-                
+ 
             end
 
                 @watchlists = watchlists
