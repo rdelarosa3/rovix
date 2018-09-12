@@ -60,7 +60,7 @@
 
                                       <!-- Button float right -->
                                     <div class="row">
-                                     <div class="col-md-8 text-center">
+                                     <div class="col-md-8">
                                       <h4 class="card-title"><%= watchlist.fetch(:company_name) %></h4>
                                       <h5><%= watchlist.fetch(:ticker) %></h5> <h3><small>$</small><%= " #{watchlist.fetch(:price)}" %></h3>
                                               <% if watchlist.fetch(:change_price)[0]=="+" %> <span class="text-success font-weight-bold"> <% else %> <span class="text-danger font-weight-bold"><% end %> 

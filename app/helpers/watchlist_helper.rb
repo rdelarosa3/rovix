@@ -38,7 +38,7 @@ module WatchlistHelper
 
             company = {
                 ticker: @security_name,
-                company_name: parsed_page.css("h1.company__name").text, 
+                company_name: parsed_page.css("h1.company__name").text.split.first,
                 # company_name: parsed_page.css("div.live-quote-title").text.split.first,
                 price: parsed_page.css("h3.intraday__price bg-quote").text, 
                 # price: parsed_page.css("div.live-quote-bottom-tile span").first.text,

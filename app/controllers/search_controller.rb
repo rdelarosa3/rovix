@@ -62,7 +62,8 @@ class SearchController < ApplicationController
  	end
 
 
- 	def automated_browser(security_name)
+	 def automated_browser(security_name)
+		# herouku browser
  		opts = {
 		    headless: true
 		  }
@@ -71,9 +72,13 @@ class SearchController < ApplicationController
 		    opts.merge!( options: {binary: chrome_bin})
 		  end 
 		security_name = security_name
- 		# @browser = Watir::Browser.new(:chrome)
+			@browser = Watir::Browser.new :chrome, opts 
+
+			# local browsers
+		 # @browser = Watir::Browser.new(:chrome)
+			# local headless
  		# @browser = Watir::Browser.new :chrome, headless: true
- 		@browser = Watir::Browser.new :chrome, opts 		
+ 			
 		@browser.window.maximize
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
