@@ -72,7 +72,7 @@ class SearchController < ApplicationController
 		  end 
 		security_name = security_name
  		# @browser = Watir::Browser.new(:chrome)
- 		# @browser = Watir::Browser.new :chrome, headless: true
+ 		@browser = Watir::Browser.new :chrome, headless: true
  		@browser = Watir::Browser.new :chrome, opts 		
 		@browser.window.maximize
 	    @browser.goto("https://www.msn.com/en-my/money/")
