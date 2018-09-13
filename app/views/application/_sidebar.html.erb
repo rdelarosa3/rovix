@@ -3,10 +3,18 @@
   <ul class="nav sidebar-nav">
     <div class="sidebar-header">
       <div class="sidebar-brand">
-        <a href="#">ROvIX</a>
+        <a href="/">ROvIX</a>
       </div>
     </div>
-    <li><a href="/#home" id="home">Home</a></li>
+    <li>
+      <%= form_with url: search_index_url,method: :get,local:true,class:"nav-link" do |f| %>
+                          <%= f.text_field :searchword ,placeholder:"Search",class: "form-control" %>
+                          <% f.button :submit %>
+                    <% end %>
+      </li>
+        
+                              
+
     <li><a href="/users/profile/#user">Profile</a></li>
     <li class="dropdown">
     <% if user_signed_in? && current_user.watchlists.any? %>

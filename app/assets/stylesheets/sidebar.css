@@ -227,8 +227,8 @@ a[href*="#books"]::before {
 a[href*="#art"]::before {
   content: "\f1fc" !important;
 }
-a[href*="#awards"]::before {
-  content: "\f02e" !important;
+a[href*="#search"]::before {
+  content: "\f002" !important;
 }
 a[href*="#services"]::before {
   content: "\f013" !important;
@@ -254,6 +254,7 @@ a[href*="#followme"]::before {
   margin-left: 15px;
   background: transparent;
   border: none;
+  margin-top: -42px;
 }
 .hamburger:hover,
 .hamburger:focus,

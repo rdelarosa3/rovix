@@ -83,7 +83,7 @@ class SearchController < ApplicationController
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
 	    @browser.send_keys :enter
-	    sleep 0.5
+	    sleep 1
 		@parsed_page = Nokogiri::HTML(@browser.html)	
  	end
 
@@ -164,14 +164,14 @@ class SearchController < ApplicationController
 	def browser_grab_images
 		###### Redirect browser to get logo ######
 		@browser.goto("https://www.bing.com/images/search?q=#{@company[:company_name]}%20icon")
-	    sleep 0.5
-	    parsed_page = Nokogiri::HTML(@browser.html)
+			sleep 1
+			parsed_page = Nokogiri::HTML(@browser.html)
 	    logo = parsed_page.at_css("div.img_cont img").attribute('src').value
 	    @logo = logo
 
 	    ###### Redirect browser to get background ######
 	    @browser.goto("https://www.bing.com/images/search?q=#{@company[:company_name]}%20company%20logo%20")
-	    sleep 0.5
+	    sleep 1
 	    parsed_page = Nokogiri::HTML(@browser.html)
 	    cover = parsed_page.at_css("div.img_cont img").attribute('src').value
 	    @cover = cover

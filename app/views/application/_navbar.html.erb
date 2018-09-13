@@ -1,17 +1,30 @@
 
 
+        <nav class="navbar navbar-expand-lg navbar-light" >
 
-        <nav class="navbar navbar-expand-lg navbar-light " >
 <!-- Brand/logo -->
-                
-      <a href="/" class="navbar-brand ml-3">ROvIX</a>
+            
+      
+             <a href="/" class="navbar-brand ml-3">ROvIX</a>
 
-      <% unless current_page?(search_index_url)  %>
+      <% unless current_page?(search_index_url) %>
             <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" style="background-color: white;" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon" ></span>
             </button>
-        
       <% end %>
+
+<!-- Styling for search_index_url -->
+
+        <% if current_page?(search_index_url) %>
+                  <style>
+
+                  .navbar-light .navbar-brand {
+                        margin-left: 4rem!important;
+                  }
+
+                  </style>
+  
+            <% end %>   
 				 		  
 <!-- Links -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -70,7 +83,7 @@
 </nav>
               
 
-                  
+               
                   
 
 
@@ -80,10 +93,13 @@
 
 #form-control{
 margin-left:90px;
-background-size: 0 100%,100% 100%;
-border: 0;   
+   
 }
 
+.form-control{
+      background-size: 0 100%,100% 100%;
+      border: 0; 
+}
 .form-control, .is-focused .form-control {
     background-image: linear-gradient(to top,#9c27b0 2px,rgba(156,39,176,0) 2px),linear-gradient(to top,#d2d2d2 1px,rgba(210,210,210,0) 1px);
 }
@@ -115,9 +131,7 @@ border: 0;
   width: 40px;
 }
 
- 
   
-
 
 /* .navbar {
   border: 0;
