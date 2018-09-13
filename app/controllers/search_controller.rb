@@ -164,8 +164,8 @@ class SearchController < ApplicationController
 	def browser_grab_images
 		###### Redirect browser to get logo ######
 		@browser.goto("https://www.bing.com/images/search?q=#{@company[:company_name]}%20icon")
-			sleep 1
-			parsed_page = Nokogiri::HTML(@browser.html)
+	    sleep 1
+	    parsed_page = Nokogiri::HTML(@browser.html)
 	    logo = parsed_page.at_css("div.img_cont img").attribute('src').value
 	    @logo = logo
 
