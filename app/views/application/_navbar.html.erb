@@ -30,7 +30,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mx-auto text-center">
             <li class="nav-item">
-             <%= form_with url: search_index_url,method: :get,local:true,class:"nav-link" do |f| %>
+             <%= form_with url: search_index_url,method: :get,local:true,class:"nav-link", :html => { :onsubmit => "hidePage()" }  do |f| %>
                         <%= f.text_field :searchword ,placeholder:"Search",class: "form-control",id:"form-control" %>
                         <% f.button :submit,style:"border: none;background: transparent;color:#ea4c4c;" do %>
                               <i class="fas fa-search"></i>
