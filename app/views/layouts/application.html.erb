@@ -30,9 +30,86 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    /* Center the loader */
+   
+      
+    #loader {
+    display: none;
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    font-family: helvetica, arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #db3951;
+    letter-spacing: 0.2em;
+  }
+  #loader::before, #loader::after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: #db3951;
+    position: absolute;
+    -webkit-animation: load .7s infinite alternate ease-in-out;
+            animation: load .7s infinite alternate ease-in-out;
+  }
+  #loader::before {
+    top: 0;
+  }
+  #loader::after {
+    bottom: 0;
+  }
+
+  @-webkit-keyframes load {
+    0% {
+      left: 0;
+      height: 30px;
+      width: 15px;
+    }
+    50% {
+      height: 8px;
+      width: 40px;
+    }
+    100% {
+      left: 235px;
+      height: 30px;
+      width: 15px;
+    }
+  }
+
+  @keyframes load {
+    0% {
+      left: 0;
+      height: 30px;
+      width: 15px;
+    }
+    50% {
+      height: 8px;
+      width: 40px;
+    }
+    100% {
+      left: 235px;
+      height: 30px;
+      width: 15px;
+    }
+  }
+
+    </style>
+
+
+
   </head>
 
-  <body>
+  <body >
+  <div id="loader">collecting data...</div>
 
       <%= render partial:'navbar'%>
 
@@ -49,8 +126,20 @@
                                 </div>                              
                             <% end %>
                       <% end %>
+  <div id="myDiv">                    
     <%= yield %>
-                          
+ 
+  <script>
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+function hidePage() {
+  document.getElementById("loader").style.display = "block";
+  document.getElementById("myDiv").style.display = "none";
+}
+</script>                        
   </body>
 </html>
                            

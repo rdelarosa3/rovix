@@ -70,6 +70,7 @@
 
 </style>
 
+<body onload="showPage()" style="margin:0;">
 <!-- Wrapper(sidebar) -->
 <div id="wrapper">
   
@@ -161,7 +162,7 @@
   <!-- </div>    /#page-content-wrapper -->
   </div><!-- background color -->
 </div>  <!--#wrapper -->
-
+</body>
 <!-- js for autorefresh -->
 <script>
 window.onload = function(){
@@ -170,4 +171,9 @@ window.onload = function(){
         button.click();
     },60000);  // this will make it click again every 60 seconds
 };
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#loading_wrap').remove();
+  });
 </script>
