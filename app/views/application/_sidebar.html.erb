@@ -7,7 +7,7 @@
       </div>
     </div>
     <li>
-      <%= form_with url: search_index_url,method: :get,local:true,class:"nav-link" do |f| %>
+      <%= form_with url: search_index_url,method: :get,local:true,class:"nav-link",:html => { :onsubmit => "hidePage()" } do |f| %>
                           <%= f.text_field :searchword ,placeholder:"Search",class: "form-control" %>
                           <% f.button :submit %>
                     <% end %>
