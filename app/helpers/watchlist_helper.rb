@@ -15,41 +15,38 @@ module WatchlistHelper
        
         current_user.watchlists.each do |watchlist|
             @security_name = watchlist.name
-            # opts = {
-            #     headless: true
-            #   }
+            # herouku browser
+            opts = {
+                headless: true
+              }
 
-            #   if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-            #     opts.merge!( options: {binary: chrome_bin})
-            #   end 
-            # # @browser = Watir::Browser.new(:chrome)
-            # # @browser = Watir::Browser.new :chrome, headless: true
-            # browser = Watir::Browser.new :chrome, opts 
-            # browser.goto("https://www.msn.com/en-my/money/")
-            # browser.text_field(id:"finance-autosuggest").set @security_name
-            # browser.send_keys :enter
-            # sleep 1
-            # parsed_page = Nokogiri::HTML(browser.html)
-            
+              if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+                opts.merge!( options: {binary: chrome_bin})
+              end 
+            security_name = security_name
+                @browser = Watir::Browser.new :chrome, opts 
 
-            url = "https://www.marketwatch.com/investing/stock/#{@security_name}"
-            unparsed_page = HTTParty.get(url)
-            parsed_page = Nokogiri::HTML(unparsed_page) 
+                # local browsers
+             # @browser = Watir::Browser.new(:chrome)
+                # local headless
+            # @browser = Watir::Browser.new :chrome, headless: true
 
+            url = "http://thestockmarketwatch.com/stock/?stock=#{@security_name}"
+            @browser.goto(url)
+ 
+            parsed_page = Nokogiri::HTML(@browser.html)
             company = {
                 ticker: @security_name,
                 company_name: parsed_page.css("h1.company__name").text,
-                # company_name: parsed_page.css("div.live-quote-title").text.split.first,
-                price: parsed_page.css("h3.intraday__price bg-quote").text, 
-                # price: parsed_page.css("div.live-quote-bottom-tile span").first.text,
+                price: @browser.execute_script("return $('#lastPrice').children('.qmjsright').html()"), 
                 twitter: "$#{@security_name}",
-                change_percent: parsed_page.css("span.change--percent--q").text,
-                # change_percent: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(2)")[0].text,
-                change_price: parsed_page.css("span.change--point--q").text
-                # change_price: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(1)")[0].text 
+                change_price: @browser.execute_script("return $('#changePctAndPrice').children('span')[0].outerText"),
+                change_percent: @browser.execute_script("return $('#changePctAndPrice').children('span')[1].outerText")
+                # change_percent: @browser.execute_script("return $('#changePctAndPrice').children().get()[3].outerText"),            
+                # change_price: @browser.execute_script("return $('#changePctAndPrice').children().get()[1].outerText")
             }
             
-            # browser.close
+            @browser.close
 
             ########## new sentimental ################
              $analyzer = Sentimental.new

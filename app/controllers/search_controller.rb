@@ -79,7 +79,7 @@ class SearchController < ApplicationController
 			# local headless
  		# @browser = Watir::Browser.new :chrome, headless: true
  			
-		@browser.window.maximize
+		# @browser.window.maximize
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
 	    @browser.send_keys :enter
@@ -121,12 +121,14 @@ class SearchController < ApplicationController
 	end
 
 	def browser_company_info
- 		url = "https://www.marketwatch.com/investing/stock/#{@company[:ticker]}/profile"
+		# @browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
+ 		url = "http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile"
       	unparsed_page = HTTParty.get(url)
 	  	parsed_page = Nokogiri::HTML(unparsed_page)
  		######### company description #########
- 		@company_description = parsed_page.css('#maincontent div.full p').text
- 		@company_sector = parsed_page.css('div.twowide div:nth-child(3) p.data').first.text
+ 		@company_description = parsed_page.css('.qm_businessLongDescription').text
+ 		@company_sector = parsed_page.css('.qm_classifications').css('.qm_main').first.css('a').text
+
 	end
 
 	def twitter(security)
