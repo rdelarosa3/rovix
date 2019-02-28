@@ -1,24 +1,49 @@
 
 <%# <body data-vide-bg="https://meekco.asia/wp-content/uploads/2016/03/Meeting-Meekco.mp4"> %>
  
-<body data-vide-bg="https://s3.amazonaws.com/rovix-public/Market+Loop+Background+Video+-+High+Resolution.mp4">
+<body >
+    <div class="uptop">
+      <video class="video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="https://s3.amazonaws.com/rovix-public/Market+Loop+Background+Video+-+High+Resolution.mp4" type="video/mp4">
+      </video> 
+
     <h1 style="color:white;font-weight: bold;">WELCOME TO ROvIX</h1>
-      <h3  style="color:white;">  Empowering users with the latest business chatter and trending news </h3>													
+      <h3  style="color:white;">  Empowering users with the latest business chatter and trending news </h3>                         
       <%= link_to "Get Started", search_index_url  , style:"color:white;background-color: rgb(165, 71, 71);", class:"btn btn-outline-secondary", onclick: "hidePage()" %>
+    </div>
 </body>
     
        
-       
+    
      
     
 
 <style>
 html, body {
      margin: 0;
-     width: 100%;
-     height: 100%;
 }
-
+.uptop {
+  position: relative;
+  background-color: black;
+  height: 100vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
 .navbar-brand{
  letter-spacing: 20px;
 }
@@ -125,7 +150,12 @@ h3{
         opacity: 1;
     }
 }
-
+@media only screen and (min-width: 768px) {
+  .video{
+    width: 100%;
+    height: 100%;
+  }
+}
 @media only screen and (max-width: 768px) {
      h1 {
           font-size: 23px;
@@ -139,6 +169,8 @@ h3{
           transform: translate(-50%, -60%);
           font-size: 14px;
       }
+
+
 
 }
 
@@ -663,5 +695,3 @@ $(document).ready(function(){
  
 });
 </script>
-   
-  
