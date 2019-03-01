@@ -37,7 +37,7 @@ html { height: 100%;}
 }
 
 #sidebar-wrapper::-webkit-scrollbar {
-  /*display: none;*/
+  display: none;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -248,7 +248,7 @@ a[href*="#followme"]::before {
   position: sticky;
   z-index: 999;
   top: 5px;
-  display: block;
+  display: -webkit-box;
   width: 32px;
   height: 32px;
   margin-left: 15px;
@@ -263,7 +263,7 @@ a[href*="#followme"]::before {
 }
 .hamburger.is-closed:before {
   content: '';
-  display: block;
+  display: -webkit-box;
   width: 100px;
   font-size: 14px;
   color: #fff;
@@ -275,7 +275,7 @@ a[href*="#followme"]::before {
 }
 .hamburger.is-closed:hover:before {
   opacity: 1;
-  display: block;
+  display: -webkit-box;
   -webkit-transform: translate3d(-100px,0,0);
   -webkit-transition: all .35s ease-in-out;
 }
@@ -289,7 +289,7 @@ a[href*="#followme"]::before {
   position: absolute;
   left: 0;
   height: 4px;
-  width: 100%;
+  width: 30px;
 }
 .hamburger.is-closed .hamb-top,
 .hamburger.is-closed .hamb-middle,
@@ -338,7 +338,7 @@ a[href*="#followme"]::before {
 }
 .hamburger.is-open:before {
   content: '';
-  display: block;
+  display: -webkit-box;
   width: 100px;
   font-size: 14px;
   color: #fff;
@@ -350,7 +350,7 @@ a[href*="#followme"]::before {
 }
 .hamburger.is-open:hover:before {
   opacity: 1;
-  display: block;
+  display: -webkit-box;
   -webkit-transform: translate3d(-100px,0,0);
   -webkit-transition: all .35s ease-in-out;
 }
