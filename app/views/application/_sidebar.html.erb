@@ -6,53 +6,52 @@
         <a href="/">ROvIX</a>
       </div>
     </div>
+
     <li>
       <%= form_with url: search_index_url,method: :get,local:true,class:"nav-link",:html => { :onsubmit => "hidePage()" } do |f| %>
-                          <%= f.text_field :searchword ,placeholder:"Search",class: "form-control" %>
-                          <% f.button :submit %>
-                    <% end %>
-      </li>
-        
-                              
-
-    <li><a href="/users/profile/#user">Profile</a></li>
-    <li class="dropdown">
-    <% if user_signed_in? && current_user.watchlists.any? %>
-      <a href="#watchlists" class="dropdown-toggle" aria-expanded="true"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
-      <ul class="dropdown-menu animated fadeInLeft show" role="menu">
-      <div class="dropdown-header">My Watchlists</div>
-
-      <!-- show each watchlist item -->
-      <% current_user.watchlists.each do |watchlist| %>
-        <div id="<%= watchlist.id %>">
-          <li>
-            <a href="/search?utf8=✓&searchword=<%=watchlist.name %>"><%= watchlist.name %></a>
-        
-            <!-- form to delete company from watchlist -->
-            <%= form_with(url:  destroy_watchlist_path,method: :delete,remote: true) do |form| %>
-              <%= form.hidden_field :name, value: watchlist.name %>
-              <%= form.hidden_field :user_id, value: current_user.id %>
-              <%= form.button :submit,style:"border: none;background: transparent; margin-top:-30px; margin-right:50px;float:right;color:#ea4c4c;", onclick: "hide('#{watchlist.id}')" do %>
-                <i class="fas fa-minus-circle float-right"></i>
-              <% end %>
-            <% end %>
-          </li>
-        </div>            
+        <%= f.text_field :searchword ,placeholder:"Search",class: "form-control" %>
+        <% f.button :submit %>
       <% end %>
+    </li>                            
+    <li>
+      <a href="/users/profile/#user">Profile</a>
+    </li>
+    <li class="dropdown">
+      <% if user_signed_in? && current_user.watchlists.any? %>
+        <a href="#watchlists" class="dropdown-toggle" aria-expanded="true"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
+        <ul class="dropdown-menu animated fadeInLeft show" role="menu">
+          <div class="dropdown-header">My Watchlists</div>
 
-    <!-- different view if there are no wathclist created -->
-    <% elsif user_signed_in? %>
-      <a href="#watchlists" class="dropdown-toggle"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
-      <ul class="dropdown-menu animated fadeInLeft" role="menu">
-        <div class="dropdown-header">My Watchlists</div>
-        <li><a href="#services">Try To Add One</a></li>
-    <!-- different view if not logged in -->
-    <% else %>
-      <a href="#watchlists" class="dropdown-toggle"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
-      <ul class="dropdown-menu animated fadeInLeft" role="menu">
-        <div class="dropdown-header">My Watchlists</div>
-        <li><a href="/users/sign_in/#services"> Login in to add watchlist </a></li>
-    <% end %>                 
+          <!-- show each watchlist item -->
+          <% current_user.watchlists.each do |watchlist| %>
+            <div id="<%= watchlist.id %>">
+              <li>
+                <a href="/search?utf8=✓&searchword=<%=watchlist.name %>"><%= watchlist.name %></a>
+            
+                <!-- form to delete company from watchlist -->
+                <%= form_with(url:  destroy_watchlist_path,method: :delete,remote: true) do |form| %>
+                  <%= form.hidden_field :name, value: watchlist.name %>
+                  <%= form.hidden_field :user_id, value: current_user.id %>
+                  <%= form.button :submit,style:"border: none;background: transparent; margin-top:-30px; margin-right:50px;float:right;color:#ea4c4c;", onclick: "hide('#{watchlist.id}')" do %>
+                    <i class="fas fa-minus-circle float-right"></i>
+                  <% end %>
+                <% end %>
+              </li>
+            </div>            
+          <% end %>
+      <!-- different view if there are no wathclist created -->
+      <% elsif user_signed_in? %>
+        <a href="#watchlists" class="dropdown-toggle"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
+        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+          <div class="dropdown-header">My Watchlists</div>
+          <li><a href="#services">Try To Add One</a></li>
+      <!-- different view if not logged in -->
+      <% else %>
+        <a href="#watchlists" class="dropdown-toggle"  data-toggle="dropdown"> Watchlists <span class="caret"></span></a>
+        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+          <div class="dropdown-header">My Watchlists</div>
+          <li><a href="/users/sign_in/#services"> Login in to add watchlist </a></li>
+      <% end %>                 
       </ul>
     </li>
     <%# <li><a href="#about">About</a></li> %>

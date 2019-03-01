@@ -1,14 +1,4 @@
 
-body,
-html { height: 100%;}
-.nav .open > a, 
-.nav .open > a:hover, 
-.nav .open > a:focus {background-color: transparent;}
-
-/*-------------------------------*/
-/*           Wrappers            */
-/*-------------------------------*/
-
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -354,14 +344,3 @@ a[href*="#followme"]::before {
   -webkit-transform: translate3d(-100px,0,0);
   -webkit-transition: all .35s ease-in-out;
 }
-
-
-/*-------------------------------*/
-/*            When screen is sm            */
-/* @media only screen and (max-width: 768px) {
-    .hamburger {
-      top:20px;
-     
-      
-    }
-} */
