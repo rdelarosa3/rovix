@@ -244,7 +244,7 @@ a[href*="#followme"]::before {
   margin-left: 15px;
   background: transparent;
   border: none;
-  margin-top: -42px;
+  margin-top: -46px;
 }
 .sideButton:hover,
 .sideButton:focus,
