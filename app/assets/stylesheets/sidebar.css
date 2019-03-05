@@ -239,8 +239,8 @@ a[href*="#followme"]::before {
   z-index: 20000;
   top: 5px;
   display: block;
-  width: 32px;
-  height: 32px;
+  /*width: 32px;*/
+  /*height: 32px;*/
   margin-left: 15px;
   background: transparent;
   border: none;
