@@ -44,7 +44,8 @@ gem 'nokogiri'
 gem 'watir'
 gem 'capybara', '>= 2.15'
 gem 'selenium-webdriver'
-gem 'chromedriver-helper'
+# gem 'chromedriver-helper'
+gem 'webdrivers'
 
 ### sentimental feature #####
 gem 'sentimental', '~> 1.4', '>= 1.4.1'
