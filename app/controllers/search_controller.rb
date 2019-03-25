@@ -123,7 +123,7 @@ class SearchController < ApplicationController
 	end
 
 	def browser_company_info
-		@browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
+		# @browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
  		url = "http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile"
       	unparsed_page = HTTParty.get(url)
 	  	parsed_page = Nokogiri::HTML(unparsed_page)
