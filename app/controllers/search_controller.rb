@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
+# require 'byebug'
 
 
 class SearchController < ApplicationController
@@ -20,7 +21,7 @@ class SearchController < ApplicationController
 		elsif user_signed_in? && current_user.watchlists.any?
 			security_name = "#{current_user.watchlists.last.name}"	
 		else
-			security_name = "facebook"
+			security_name = "FB"
 		end
 		
 		# automated browsing #
@@ -92,6 +93,7 @@ class SearchController < ApplicationController
 		parsed_page = parsed_page
 		company = {}
 	    company = {
+	    	
 	      ticker: parsed_page.css("div.live-quote-subtitle").text.split.last,
 	      company_name: parsed_page.css("div.live-quote-title").text.split.first,
 	      twitter: parsed_page.css("div.live-quote-subtitle").text.split.last.insert(0,'$'),
@@ -121,7 +123,7 @@ class SearchController < ApplicationController
 	end
 
 	def browser_company_info
-		# @browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
+		@browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
  		url = "http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile"
       	unparsed_page = HTTParty.get(url)
 	  	parsed_page = Nokogiri::HTML(unparsed_page)
