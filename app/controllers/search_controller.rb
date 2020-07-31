@@ -101,6 +101,7 @@ class SearchController < ApplicationController
 	      change_percent: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(2)")[0].text,
 	      change_price: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(1)")[0].text 
 	    }
+	    p company
 	    @company = company
 	    @time = parsed_page.css("div.exchange-attribute span").first.text
 	end
