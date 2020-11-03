@@ -74,7 +74,7 @@ class SearchController < ApplicationController
 #         end
 
         Selenium::WebDriver::Chrome.path = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
-        Selenium::WebDriver::Chrome.driver_path = ENV.fetch('CHROMEDRIVER_PATH', nil)
+        Selenium::WebDriver::Chrome::Service.driver_path=  = ENV.fetch('CHROMEDRIVER_PATH', nil)
         
 
         security_name = security_name
