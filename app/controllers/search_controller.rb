@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
+require 'webdrivers'
 # require 'byebug'
 
 
@@ -73,14 +74,28 @@ class SearchController < ApplicationController
 #             opts.merge!( options: {binary: chrome_bin})
 #         end
 
-        Selenium::WebDriver::Chrome.path = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
-        Selenium::WebDriver::Chrome::Service.driver_path= ENV.fetch('CHROMEDRIVER_PATH', nil)
-        
+    options = Selenium::WebDriver::Chrome::Options.new
 
+    # let Selenium know where to look for chrome if we have a hint from
+    # heroku. chromedriver-helper & chrome seem to work out of the box on osx,
+    # but not on heroku.
+    Selenium::WebDriver::Chrome.path = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
+    Selenium::WebDriver::Chrome::Service.driver_path = ENV.fetch('CHROMEDRIVER_PATH', nil)
+
+    # headless!
+    options.add_arguments("--headless")
+    options.addArguments("start-maximized")
+    options.addArguments("disable-infobars")]
+    options.addArguments("--disable-extensions")
+    options.addArguments("--disable-gpu")
+    options.addArguments("--disable-dev-shm-usage")
+    options.addArguments("--no-sandbox")
+
+    # make the browser
+    @browser = Watir::Browser.new :chrome, options: options
         security_name = security_name
         # local browsers
 #         @browser = Watir::Browser.new :chrome, opts
-        @browser = Watir::Browser.new :chrome
         # local headless
         # @browser = Watir::Browser.new :chrome, headless: true
 
