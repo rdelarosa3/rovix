@@ -85,7 +85,7 @@ class SearchController < ApplicationController
     # headless!
     options.add_arguments("--headless")
     options.addArguments("start-maximized")
-    options.addArguments("disable-infobars")]
+    options.addArguments("disable-infobars")
     options.addArguments("--disable-extensions")
     options.addArguments("--disable-gpu")
     options.addArguments("--disable-dev-shm-usage")
