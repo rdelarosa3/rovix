@@ -83,13 +83,13 @@ class SearchController < ApplicationController
     Selenium::WebDriver::Chrome::Service.driver_path = ENV.fetch('CHROMEDRIVER_PATH', nil)
 
     # headless!
-    options.addArgument("--headless")
-    options.addArgument("start-maximized")
-    options.addArgument("disable-infobars")
-    options.addArgument("--disable-extensions")
-    options.addArgument("--disable-gpu")
-    options.addArgument("--disable-dev-shm-usage")
-    options.addArgument("--no-sandbox")
+    options.add_argument("--headless")
+    options.add_argument("start-maximized")
+    options.add_argument("disable-infobars")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
 
     # make the browser
     @browser = Watir::Browser.new :chrome, options: options
