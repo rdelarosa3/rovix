@@ -65,20 +65,22 @@ class SearchController < ApplicationController
 
 	 def automated_browser(security_name)
 		# herouku browser
- 		opts = {
-          headless: true
-        }
+        opts = {
+            # headless: true
+          }
 
-		  if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-		    opts.merge!( options: {binary: chrome_bin})
-		  end 
-		security_name = security_name
-		@browser = Watir::Browser.new :chrome, opts
-		# local browsers
-        # @browser = Watir::Browser.new(:chrome)
-		# local headless
-#  		@browser = Watir::Browser.new :chrome, headless: true
-		# @browser.window.maximize
+          if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+            opts.merge!( options: {binary: chrome_bin})
+          end 
+        security_name = security_name
+            # @browser = Watir::Browser.new :chrome, opts
+
+            # local browsers
+         @browser = Watir::Browser.new(:chrome)
+            # local headless
+        # @browser = Watir::Browser.new :chrome, headless: true
+
+        # @browser.window.maximize
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	    sleep 1.5
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
