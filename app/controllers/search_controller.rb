@@ -65,17 +65,22 @@ class SearchController < ApplicationController
 
 	 def automated_browser(security_name)
 		# herouku browser
-        opts = {
-          headless: true
-        }
+#         opts = {
+#           headless: true
+#         }
     
-        if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-            opts.merge!( options: {binary: chrome_bin})
-        end
+#         if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+#             opts.merge!( options: {binary: chrome_bin})
+#         end
+
+        Selenium::WebDriver::Chrome.path = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
+        Selenium::WebDriver::Chrome.driver_path = ENV.fetch('CHROMEDRIVER_PATH', nil)
+        
 
         security_name = security_name
         # local browsers
-        @browser = Watir::Browser.new :chrome, opts
+#         @browser = Watir::Browser.new :chrome, opts
+        @browser = Watir::Browser.new :chrome
         # local headless
         # @browser = Watir::Browser.new :chrome, headless: true
 
