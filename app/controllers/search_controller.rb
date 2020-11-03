@@ -65,13 +65,13 @@ class SearchController < ApplicationController
 
 	 def automated_browser(security_name)
 		# herouku browser
-        opts = {
+          opts = {
             # headless: true
           }
-
+    
           if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
             opts.merge!( options: {binary: chrome_bin})
-          end 
+          end
         security_name = security_name
             # @browser = Watir::Browser.new :chrome, opts
 
