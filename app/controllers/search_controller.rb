@@ -79,17 +79,21 @@ class SearchController < ApplicationController
     # let Selenium know where to look for chrome if we have a hint from
     # heroku. chromedriver-helper & chrome seem to work out of the box on osx,
     # but not on heroku.
-    Selenium::WebDriver::Chrome.path = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
-    Selenium::WebDriver::Chrome::Service.driver_path = ENV.fetch('CHROMEDRIVER_PATH', nil)
+    if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+      options.add_argument "--no-sandbox"
+      options.binary = chrome_bin
+      Selenium::WebDriver::Chrome.path = chrome_bin
+    end
+    if chrome_driver = ENV.fetch("CHROME_DRIVER_REAL",nil)
+        Selenium::WebDriver::Chrome.driver_path = chrome_driver
+    end
 
     # headless!
-    options.add_argument("--headless")
     options.add_argument("start-maximized")
     options.add_argument("disable-infobars")
     options.add_argument("--disable-extensions")
     options.add_argument("--disable-gpu")
     options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--no-sandbox")
 
     # make the browser
     @browser = Watir::Browser.new :chrome, options: options
