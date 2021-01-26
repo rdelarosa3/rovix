@@ -296,7 +296,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
-  bootsnap (>= 1.1.0)
+  bootsnap (~> 1.1, >= 1.1.7)
   byebug
   capybara (>= 2.15)
   carrierwave (~> 1.0)
