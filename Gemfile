@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.0'
+# ruby '2.5.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Vix ADDED HERE
-gem 'devise', '~> 4.5'
+gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf80a632d3232c3f548ce7b95fd94b6eb2'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'carrierwave', '~> 1.0'
@@ -44,7 +44,7 @@ gem 'nokogiri'
 gem 'watir'
 gem 'capybara', '>= 2.15'
 gem 'selenium-webdriver'
-# gem 'chromedriver-helper'
+gem 'chromedriver-helper'
 gem 'webdrivers'
 
 ### sentimental feature #####

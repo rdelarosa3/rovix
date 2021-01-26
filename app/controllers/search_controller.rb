@@ -2,8 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
-require 'webdrivers'
-# require 'byebug'
+require 'chromedriver-helper'
 
 
 class SearchController < ApplicationController
@@ -65,47 +64,24 @@ class SearchController < ApplicationController
 
 
 	 def automated_browser(security_name)
-		# herouku browser
-#         opts = {
-#           headless: true
-#         }
-    
-#         if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-#             opts.merge!( options: {binary: chrome_bin})
-#         end
+		security_name = security_name
+		#### herouku browser ####
+ 		opts = {
+		    headless: true
+		  }
 
-    options = Selenium::WebDriver::Chrome::Options.new
+		if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+		    opts.merge!( options: {binary: chrome_bin})
+		end
 
-    # let Selenium know where to look for chrome if we have a hint from
-    # heroku. chromedriver-helper & chrome seem to work out of the box on osx,
-    # but not on heroku.
-    if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-      options.add_argument "--no-sandbox"
-      options.binary = chrome_bin
-      Selenium::WebDriver::Chrome.path = chrome_bin
-    end
-    if chrome_driver = ENV.fetch("CHROME_DRIVER_REAL",nil)
-        Selenium::WebDriver::Chrome.driver_path = chrome_driver
-    end
+		@browser = Watir::Browser.new :chrome, opts 
 
-    # headless!
-    options.add_argument("start-maximized")
-    options.add_argument("disable-infobars")
-    options.add_argument("--disable-extensions")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--disable-dev-shm-usage")
-
-    # make the browser
-    @browser = Watir::Browser.new :chrome, options: options
-        security_name = security_name
-        # local browsers
-#         @browser = Watir::Browser.new :chrome, opts
-        # local headless
-        # @browser = Watir::Browser.new :chrome, headless: true
-
-        # @browser.window.maximize
+		##### local browsers ####
+		 # @browser = Watir::Browser.new(:chrome)
+		##### local headless
+ 		# @browser = Watir::Browser.new :chrome, headless: true	
+		# @browser.window.maximize
 	    @browser.goto("https://www.msn.com/en-my/money/")
-	    sleep 1.5
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
 	    @browser.send_keys :enter
 	    sleep 1
@@ -117,6 +93,7 @@ class SearchController < ApplicationController
 		parsed_page = parsed_page
 		company = {}
 	    company = {
+	    	
 	      ticker: parsed_page.css("div.live-quote-subtitle").text.split.last,
 	      company_name: parsed_page.css("div.live-quote-title").text.split.first,
 	      twitter: parsed_page.css("div.live-quote-subtitle").text.split.last.insert(0,'$'),
@@ -124,6 +101,7 @@ class SearchController < ApplicationController
 	      change_percent: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(2)")[0].text,
 	      change_price: parsed_page.css("div.live-quote-bottom-tile div div:nth-child(1)")[0].text 
 	    }
+	    p company
 	    @company = company
 	    @time = parsed_page.css("div.exchange-attribute span").first.text
 	end
@@ -146,51 +124,54 @@ class SearchController < ApplicationController
 	end
 
 	def browser_company_info
-# 		@browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
+		@browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
  		url = "http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile"
+      	sleep 1
       	unparsed_page = HTTParty.get(url)
-	  	parsed_page = Nokogiri::HTML(unparsed_page)
+	  	# parsed_page = Nokogiri::HTML(unparsed_page)
+	  	parsed_page = Nokogiri::HTML(@browser.html)
+
  		######### company description #########
- 		@company_description = parsed_page.css('.qm_businessLongDescription').text
- 		@company_sector = parsed_page.css('.qm_classifications').css('.qm_main').first.css('a').text
+ 		@company_description = parsed_page.css('.qmod-comp-desc').first.text
+ 		@company_sector = parsed_page.css('.qmod-tool-wrap').children[3].children[1].children[1].text
 
 	end
 
 	def twitter(security)
 	  security = security
-	  set_analyzer
-	  ########## set page for scrape #################
-	  @browser.goto("https://twitter.com/search?q=%24"+security)
-	  sleep 1
-	  parsed_page = Nokogiri::HTML.parse(@browser.html)
-	  ########## create tweets array ################
-	  tweets = parsed_page.css('div[data-testid="tweet"]')
-	  security_tweets = []
-	  #---- grab each tweet -------#
-      tweets.each do |twat|
-        tempArr = []
-        twat.children()[1].children[1].css('span').each do |word|
-          tempArr << word.text
+      set_analyzer
+      ########## set page for scrape #################
+      @browser.goto("https://twitter.com/search?q=%24"+security)
+      sleep 1
+      parsed_page = Nokogiri::HTML.parse(@browser.html)
+      ########## create tweets array ################
+      tweets = parsed_page.css('div[data-testid="tweet"]')
+      security_tweets = []
+      #---- grab each tweet -------#
+        tweets.each do |twat|
+          tempArr = []
+          twat.children()[1].children[1].css('span').each do |word|
+            tempArr << word.text
+          end
+          tweet = {
+          fullname: twat.at_css('span span').text,
+          username: twat.at_css('div[dir="ltr"] span').text,
+          when: "",
+          content: tempArr.join(),
+          avatar: twat.at_css('img').attribute('src').value,
+          }
+          if (twat.at_css('a time') != nil)
+            tweet[:when] = twat.at_css('a time').text
+          end
+          security_tweets << tweet
         end
-        tweet = {
-        fullname: twat.at_css('span span').text,
-        username: twat.at_css('div[dir="ltr"] span').text,
-        when: "",
-        content: tempArr.join(),
-        avatar: twat.at_css('img').attribute('src').value,
-        }
-        if (twat.at_css('a time') != nil)
-          tweet[:when] = twat.at_css('a time').text
-        end
-        security_tweets << tweet
+      ###### set sentiment ##############
+      security_tweets.each do |tweet|
+        body = tweet[:content]
+        tweet[:sentiment] = $analyzer.sentiment(body)
+        tweet[:score] = $analyzer.score(body)
       end
-	  ###### set sentiment ##############
-	  security_tweets.each do |tweet|
-	    body = tweet[:content] 
-	  	tweet[:sentiment] = $analyzer.sentiment(body)
-	    tweet[:score] = $analyzer.score(body)
-	  end
-	  @tweets = security_tweets
+      @tweets = security_tweets
 
 	end
 
@@ -218,20 +199,19 @@ class SearchController < ApplicationController
 
 	def sentimental(tweets)
 	  @tweets = tweets
-	  tweetsSize = @tweets.length
-	  negative = 0
-	  positive = 0
-	  score = 0
-	  @tweets.each do |tweet|
-	     score = score + tweet[:score]
-	     if tweet[:score] < 0
-	      negative += 1
-	     else
-	      positive += 1
-	     end
-	  end
-	  @positive = (positive.to_f / tweetsSize * 100).round
-	  @negative = (negative.to_f / tweetsSize * 100).round
+      tweetsSize = @tweets.length
+      negative = 0
+      positive = 0
+      score = 0
+      @tweets.each do |tweet|
+         score = score + tweet[:score]
+         if tweet[:score] < 0
+          negative += 1
+         else
+          positive += 1
+         end
+      end
+      @positive = (positive.to_f / tweetsSize * 100).round
+      @negative = (negative.to_f / tweetsSize * 100).round
 	end
-
 end
