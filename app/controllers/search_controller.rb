@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
-require 'chromedriver-helper'
+# require 'chromedriver-helper'
 
 
 class SearchController < ApplicationController
