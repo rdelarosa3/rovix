@@ -318,9 +318,10 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.1)
+  rake (~> 13.0, >= 13.0.1)
   sass-rails (~> 5.0)
   selenium-webdriver
-  sentimental (~> 1.4, >= 1.4.1)
+  sentimental (~> 1.5)
   simple_form (~> 4.0, >= 4.0.1)
   spring
   spring-watcher-listen (~> 2.0.0)
