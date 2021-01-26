@@ -48,8 +48,7 @@ gem 'chromedriver-helper'
 gem 'webdrivers'
 
 ### sentimental feature #####
-gem 'sentimental', '~> 1.4', '>= 1.4.1'
-
+gem 'sentimental', '~> 1.5'
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
 
@@ -58,6 +57,8 @@ gem 'mini_magick', '~> 4.8'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.1', '>= 1.1.7', require: false
+
+gem 'rake', '~> 13.0', '>= 13.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
