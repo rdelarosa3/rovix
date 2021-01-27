@@ -74,7 +74,7 @@ class SearchController < ApplicationController
 		    opts.merge!( options: {binary: chrome_bin})
 		end
 
-		# @browser = Watir::Browser.new :chrome, opts 
+		@browser = Watir::Browser.new :chrome, opts 
 
 		##### local browsers ####
 		 # @browser = Watir::Browser.new(:chrome)
