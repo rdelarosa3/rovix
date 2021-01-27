@@ -144,7 +144,7 @@ class SearchController < ApplicationController
       set_analyzer
       ########## set page for scrape #################
       @browser.goto("https://twitter.com/search?q=%24"+security)
-      sleep 1
+      # sleep 1.2
       parsed_page = Nokogiri::HTML.parse(@browser.html)
       ########## create tweets array ################
       tweets = parsed_page.css('div[data-testid="tweet"]')
