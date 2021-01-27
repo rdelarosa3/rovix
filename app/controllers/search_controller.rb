@@ -84,7 +84,7 @@ class SearchController < ApplicationController
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
 	    @browser.send_keys :enter
-	    sleep 1
+	    sleep .5
 		@parsed_page = Nokogiri::HTML(@browser.html)	
  	end
 
@@ -126,7 +126,7 @@ class SearchController < ApplicationController
 	def browser_company_info
 		@browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
  		url = "http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile"
-      	sleep 1
+      	sleep .5
       	unparsed_page = HTTParty.get(url)
 	  	# parsed_page = Nokogiri::HTML(unparsed_page)
 	  	parsed_page = Nokogiri::HTML(@browser.html)
@@ -216,8 +216,11 @@ class SearchController < ApplicationController
       p "postive: " + positive.to_s
       p "negative " + negative.to_s
       p "tweets size: " + tweetsSize.to_s
-
-      @positive = (positive.to_f / tweetsSize * 100).round
-      @negative = (negative.to_f / tweetsSize * 100).round
+      @positive = 0;
+      @negative = 0;
+      if (tweetsSize > 0)
+      	@positive = (positive.to_f / tweetsSize * 100).round
+      	@negative = (negative.to_f / tweetsSize * 100).round
+      end
 	end
 end
