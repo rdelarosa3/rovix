@@ -42,10 +42,10 @@ gem 'omniauth-facebook', '~> 5.0'
 gem 'httparty'
 gem 'nokogiri'
 gem 'watir'
-gem 'capybara', '>= 2.15'
-gem 'selenium-webdriver'
+# gem 'capybara', '>= 2.15'
+# gem 'selenium-webdriver'
 # gem 'chromedriver-helper'
-gem 'webdrivers'
+# gem 'webdrivers'
 
 ### sentimental feature #####
 gem 'sentimental', '~> 1.5'
