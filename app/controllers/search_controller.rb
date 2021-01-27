@@ -2,7 +2,6 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
-# require 'chromedriver-helper'
 
 
 class SearchController < ApplicationController
@@ -133,7 +132,9 @@ class SearchController < ApplicationController
 
  		######### company description #########
  		@company_description = parsed_page.css('.qmod-comp-desc').first.text
+ 		p @company_description
  		@company_sector = parsed_page.css('.qmod-tool-wrap').children[3].children[1].children[1].text
+ 		p@company_sector
 
 	end
 
@@ -148,23 +149,23 @@ class SearchController < ApplicationController
       tweets = parsed_page.css('div[data-testid="tweet"]')
       security_tweets = []
       #---- grab each tweet -------#
-        tweets.each do |twat|
-          tempArr = []
-          twat.children()[1].children[1].css('span').each do |word|
-            tempArr << word.text
-          end
-          tweet = {
-          fullname: twat.at_css('span span').text,
-          username: twat.at_css('div[dir="ltr"] span').text,
-          when: "",
-          content: tempArr.join(),
-          avatar: twat.at_css('img').attribute('src').value,
-          }
-          if (twat.at_css('a time') != nil)
-            tweet[:when] = twat.at_css('a time').text
-          end
-          security_tweets << tweet
-        end
+	    tweets.each do |twat|
+	      tempArr = []
+	      twat.children()[1].children[1].css('span').each do |word|
+	        tempArr << word.text
+	      end
+	      tweet = {
+	      fullname: twat.at_css('span span').text,
+	      username: twat.at_css('div[dir="ltr"] span').text,
+	      when: "",
+	      content: tempArr.join(),
+	      avatar: twat.at_css('img').attribute('src').value,
+	      }
+	      if (twat.at_css('a time') != nil)
+	        tweet[:when] = twat.at_css('a time').text
+	      end
+	      security_tweets << tweet
+	    end
       ###### set sentiment ##############
       security_tweets.each do |tweet|
         body = tweet[:content]
@@ -172,7 +173,7 @@ class SearchController < ApplicationController
         tweet[:score] = $analyzer.score(body)
       end
       @tweets = security_tweets
-
+      p @tweets
 	end
 
 
@@ -211,6 +212,10 @@ class SearchController < ApplicationController
           positive += 1
          end
       end
+      p "postive: " + positive
+      p "negative " + negative
+      p "tweets size: " + tweetsSize
+
       @positive = (positive.to_f / tweetsSize * 100).round
       @negative = (negative.to_f / tweetsSize * 100).round
 	end
