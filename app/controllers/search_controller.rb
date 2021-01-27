@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
-require 'webdrivers'
+# require 'webdrivers'
 
 
 class SearchController < ApplicationController
@@ -70,16 +70,16 @@ class SearchController < ApplicationController
 		#     headless: true
 		#   }
 
-		# if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-		#     opts.merge!( options: {binary: chrome_bin})
-		# end
+		if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+		    opts.merge!( options: {binary: chrome_bin})
+		end
 
-		# @browser = Watir::Browser.new :chrome, opts 
+		@browser = Watir::Browser.new :chrome, opts 
 
 		##### local browsers ####
 		 # @browser = Watir::Browser.new(:chrome)
 		##### local headless
- 		@browser = Watir::Browser.new :chrome, headless: true	
+ 		# @browser = Watir::Browser.new :chrome, headless: true	
 		# @browser.window.maximize
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
