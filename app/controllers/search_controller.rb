@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
+require 'webdrivers'
 
 
 class SearchController < ApplicationController
@@ -73,7 +74,7 @@ class SearchController < ApplicationController
 		    opts.merge!( options: {binary: chrome_bin})
 		end
 
-		@browser = Watir::Browser.new :chrome, opts 
+		# @browser = Watir::Browser.new :chrome, opts 
 
 		##### local browsers ####
 		 # @browser = Watir::Browser.new(:chrome)
@@ -212,9 +213,9 @@ class SearchController < ApplicationController
           positive += 1
          end
       end
-      p "postive: " + positive
-      p "negative " + negative
-      p "tweets size: " + tweetsSize
+      p "postive: " + positive.to_s
+      p "negative " + negative.to_s
+      p "tweets size: " + tweetsSize.to_s
 
       @positive = (positive.to_f / tweetsSize * 100).round
       @negative = (negative.to_f / tweetsSize * 100).round

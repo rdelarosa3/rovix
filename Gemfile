@@ -45,7 +45,7 @@ gem 'watir'
 # gem 'capybara', '>= 2.15'
 # gem 'selenium-webdriver'
 # gem 'chromedriver-helper'
-# gem 'webdrivers'
+gem 'webdrivers', '~> 4.0', require: false
 
 ### sentimental feature #####
 gem 'sentimental', '~> 1.5'
