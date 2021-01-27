@@ -9,10 +9,10 @@ traded companies market data, news and social sentiment.
 </p>
 
 ## Table of Contents
-1. [Demo](https://https://github.com/rdelarosa3/rovix#demo)
-2. [Technologies Applied](https://https://github.com/rdelarosa3/rovix#technologies)
-3. [Setup Instruction](https://https://github.com/rdelarosa3/rovix#setup-instruction)
-4. [Contribution](https://https://github.com/rdelarosa3/rovix#contribution)
+1. [Demo](https://github.com/rdelarosa3/rovix#demo)
+2. [Technologies Applied](https://github.com/rdelarosa3/rovix#technologies)
+3. [Setup Instruction](https://github.com/rdelarosa3/rovix#setup-instruction)
+4. [Contribution](https://github.com/rdelarosa3/rovix#contribution)
 ### Demo
 [rovix.herokuapp.com](https://rovix.herokuapp.com/)
                          
