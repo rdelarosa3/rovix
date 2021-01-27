@@ -84,7 +84,7 @@ class SearchController < ApplicationController
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
 	    @browser.send_keys :enter
-	    sleep 0.5
+	    sleep 0.4
 		@parsed_page = Nokogiri::HTML(@browser.html)	
  	end
 
@@ -126,7 +126,7 @@ class SearchController < ApplicationController
 	def browser_company_info
 		@browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
  		url = "http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile"
-      	sleep 0.5
+      	sleep 0.4
       	unparsed_page = HTTParty.get(url)
 	  	# parsed_page = Nokogiri::HTML(unparsed_page)
 	  	parsed_page = Nokogiri::HTML(@browser.html)
@@ -144,7 +144,7 @@ class SearchController < ApplicationController
       set_analyzer
       ########## set page for scrape #################
       @browser.goto("https://twitter.com/search?q=%24"+security)
-      sleep 0.8
+      sleep 1
       parsed_page = Nokogiri::HTML.parse(@browser.html)
       ########## create tweets array ################
       tweets = parsed_page.css('div[data-testid="tweet"]')
@@ -181,14 +181,14 @@ class SearchController < ApplicationController
 	def browser_grab_images
 		###### Redirect browser to get logo ######
 		@browser.goto("https://www.bing.com/images/search?q=#{@company[:company_name]}%20icon")
-	    sleep 0.8
+	    sleep 0.7
 	    parsed_page = Nokogiri::HTML(@browser.html)
 	    logo = parsed_page.at_css("div.img_cont img").attribute('src').value
 	    @logo = logo
 
 	    ###### Redirect browser to get background ######
 	    @browser.goto("https://www.bing.com/images/search?q=#{@company[:company_name]}%20company%20logo%20")
-	    sleep 1
+	    sleep 0.7
 	    parsed_page = Nokogiri::HTML(@browser.html)
 	    cover = parsed_page.at_css("div.img_cont img").attribute('src').value
 	    @cover = cover
