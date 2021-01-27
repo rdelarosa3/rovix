@@ -15,6 +15,8 @@ traded companies market data, news and social sentiment.
 4. [Contribution](https://github.com/rdelarosa3/rovix#contribution)
 ### Demo
 [rovix.herokuapp.com](https://rovix.herokuapp.com/)
+
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/40813295/106035964-5576a100-609a-11eb-8f13-1cb1b21638ff.gif)
                          
 ### Technologies
 - Oauth2 [link](https://oauth.net/2/)
