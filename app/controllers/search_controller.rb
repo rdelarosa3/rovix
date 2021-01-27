@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'httparty'
 require 'watir'
 require 'sentimental'
-# require 'webdrivers'
+require 'webdrivers'
 
 
 class SearchController < ApplicationController
@@ -66,25 +66,25 @@ class SearchController < ApplicationController
 	 def automated_browser(security_name)
 		security_name = security_name
 		#### herouku browser ####
- 		opts = {
-		    headless: true
-		  }
+ 	# 	opts = {
+		#     headless: true
+		#   }
 
-		if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-		    opts.merge!( options: {binary: chrome_bin})
-		end
+		# if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+		#     opts.merge!( options: {binary: chrome_bin})
+		# end
 
-		@browser = Watir::Browser.new :chrome, opts 
+		# @browser = Watir::Browser.new :chrome, opts 
 
 		##### local browsers ####
 		 # @browser = Watir::Browser.new(:chrome)
 		##### local headless
- 		# @browser = Watir::Browser.new :chrome, headless: true	
+ 		@browser = Watir::Browser.new :chrome, headless: true	
 		# @browser.window.maximize
 	    @browser.goto("https://www.msn.com/en-my/money/")
 	    @browser.text_field(id:"finance-autosuggest").set security_name 
 	    @browser.send_keys :enter
-	    sleep .5
+	    sleep 0.5
 		@parsed_page = Nokogiri::HTML(@browser.html)	
  	end
 
@@ -126,7 +126,7 @@ class SearchController < ApplicationController
 	def browser_company_info
 		@browser.goto("http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile")
  		url = "http://thestockmarketwatch.com/stock/stock-data.aspx?stock=#{@company[:ticker]}&a=showProfile"
-      	sleep .5
+      	sleep 0.5
       	unparsed_page = HTTParty.get(url)
 	  	# parsed_page = Nokogiri::HTML(unparsed_page)
 	  	parsed_page = Nokogiri::HTML(@browser.html)
@@ -144,7 +144,7 @@ class SearchController < ApplicationController
       set_analyzer
       ########## set page for scrape #################
       @browser.goto("https://twitter.com/search?q=%24"+security)
-      # sleep 1.2
+      sleep 0.8
       parsed_page = Nokogiri::HTML.parse(@browser.html)
       ########## create tweets array ################
       tweets = parsed_page.css('div[data-testid="tweet"]')
@@ -181,7 +181,7 @@ class SearchController < ApplicationController
 	def browser_grab_images
 		###### Redirect browser to get logo ######
 		@browser.goto("https://www.bing.com/images/search?q=#{@company[:company_name]}%20icon")
-	    sleep 1.2
+	    sleep 0.8
 	    parsed_page = Nokogiri::HTML(@browser.html)
 	    logo = parsed_page.at_css("div.img_cont img").attribute('src').value
 	    @logo = logo
