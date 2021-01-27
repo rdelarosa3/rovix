@@ -66,9 +66,9 @@ class SearchController < ApplicationController
 	 def automated_browser(security_name)
 		security_name = security_name
 		#### herouku browser ####
- 	# 	opts = {
-		#     headless: true
-		#   }
+ 		opts = {
+		    headless: true
+		  }
 
 		if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
 		    opts.merge!( options: {binary: chrome_bin})
